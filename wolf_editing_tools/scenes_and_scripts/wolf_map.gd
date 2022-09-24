@@ -17,6 +17,16 @@ static func property_assignment_statement(property: String, value) -> String:
 	return '%s=%s;' % [property, var2str(value)]
 
 
+# TODO: Calculate width from a GridMap
+func width() -> int:
+	return 3
+
+
+# TODO: Calculate height from a GridMap
+func height() -> int:
+	return 3
+
+
 func convert_to_uwmf() -> String:
 	# I’m writting property names in all uppercase.
 	#
@@ -32,7 +42,9 @@ func convert_to_uwmf() -> String:
 	return \
 		property_assignment_statement("NAMESPACE", NAMESPACE) \
 		+ property_assignment_statement("NAME", automap_name) \
-		+ property_assignment_statement("TILESIZE", tile_size)
+		+ property_assignment_statement("TILESIZE", tile_size) \
+		+ property_assignment_statement("WIDTH", width()) \
+		+ property_assignment_statement("HEIGHT", height())
 
 
 # For the moment, I’m going to make _ready() export the map.
