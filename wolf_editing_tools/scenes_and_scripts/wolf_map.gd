@@ -1,6 +1,7 @@
 extends Node
 
 const Wad := preload("res://wolf_editing_tools/scenes_and_scripts/wad.gd")
+const NAMESPACE := "Wolf3D";
 
 # This will be the name of the header lump [1] when the map is exported. It also gets used as the
 # basename of the WAD file.
@@ -9,8 +10,13 @@ const Wad := preload("res://wolf_editing_tools/scenes_and_scripts/wad.gd")
 export var internal_name := "MAP01"
 
 
+static func property_assignment_statement(property: String, value: String) -> String:
+	return '%s="%s";' % [property, value]
+
+
 func convert_to_uwmf() -> String:
-	return ""
+	return property_assignment_statement("namespace", NAMESPACE)
+
 
 # For the moment, I’m going to make _ready() export the map.
 func _ready() -> void:
