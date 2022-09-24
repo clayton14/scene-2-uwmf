@@ -8,14 +8,17 @@ const NAMESPACE := "Wolf3D";
 #
 # [1]: <https://github.com/rheit/zdoom/blob/d44976175256f3db8ec61cca40f1267cca68967d/specs/udmf.txt#L161>
 export var internal_name := "MAP01"
+export var automap_name : String = internal_name
 
 
-static func property_assignment_statement(property: String, value: String) -> String:
-	return '%s="%s";' % [property, value]
+static func property_assignment_statement(property: String, value) -> String:
+	return '%s=%s;' % [property, var2str(value)]
 
 
 func convert_to_uwmf() -> String:
-	return property_assignment_statement("namespace", NAMESPACE)
+	return \
+		property_assignment_statement("namespace", NAMESPACE) \
+		+ property_assignment_statement("name", automap_name)
 
 
 # For the moment, I’m going to make _ready() export the map.
