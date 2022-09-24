@@ -17,4 +17,5 @@ func set_path(new_path: String) -> bool:
 
 
 func _init(initial_path: String) -> void:
+	# warning-ignore:return_value_discarded
 	set_path(initial_path)
