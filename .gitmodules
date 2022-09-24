@@ -1,0 +1,3 @@
+[submodule "gdunzip"]
+	path = gdunzip
+	url = https://git.sr.ht/~jelle/gdunzip
