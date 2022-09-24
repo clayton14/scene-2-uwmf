@@ -16,9 +16,20 @@ static func property_assignment_statement(property: String, value) -> String:
 
 
 func convert_to_uwmf() -> String:
+	# I’m writting property names in all uppercase.
+	#
+	# When you encode English text in UTF-8, the majority of the bits will probably be zero. Most
+	# characters that are used when writting English are in ASCII. All ASCII characters (when
+	# encoded using UTF-8) have their eighth bit set to zero.
+	#
+	# Additionally, all uppercase letters have their sixth bit set to zero. All lowercase letters
+	# have their sixth bit set to one.
+	#
+	# Using uppercase letters means that there will be less variation in the data (most of it will
+	# probably be zeros). Less variation probably means better compression.
 	return \
-		property_assignment_statement("namespace", NAMESPACE) \
-		+ property_assignment_statement("name", automap_name)
+		property_assignment_statement("NAMESPACE", NAMESPACE) \
+		+ property_assignment_statement("NAME", automap_name)
 
 
 # For the moment, I’m going to make _ready() export the map.
