@@ -9,8 +9,16 @@ const Wad := preload("res://wolf_editing_tools/scenes_and_scripts/wad.gd")
 export var internal_name := "MAP01"
 
 
+func convert_to_uwmf() -> String:
+	return ""
+
 # For the moment, I’m going to make _ready() export the map.
 func _ready() -> void:
 	var wad := Wad.new()
-	assert(wad.append_lump(Wad.Lump.new(internal_name, PoolByteArray())), "Appending lump failed.")
+	var lumps := [
+		Wad.Lump.new(internal_name, PoolByteArray()),
+		Wad.Lump.new("TEXTMAP", convert_to_uwmf().to_utf8()),
+		Wad.Lump.new("ENDMAP", PoolByteArray()),
+	]
+	assert(wad.set_lumps(lumps), "Setting lumps failed.")
 	assert(wad.save("user://%s.WAD" % [internal_name]) == OK, "Saving WAD failed.")
