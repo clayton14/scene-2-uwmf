@@ -9,6 +9,8 @@ const NAMESPACE := "Wolf3D";
 # [1]: <https://github.com/rheit/zdoom/blob/d44976175256f3db8ec61cca40f1267cca68967d/specs/udmf.txt#L161>
 export var internal_name := "MAP01"
 export var automap_name : String = internal_name
+# Are there any ports that even support a different value?
+export var tile_size := 64
 
 
 static func property_assignment_statement(property: String, value) -> String:
@@ -29,7 +31,8 @@ func convert_to_uwmf() -> String:
 	# probably be zeros). Less variation probably means better compression.
 	return \
 		property_assignment_statement("NAMESPACE", NAMESPACE) \
-		+ property_assignment_statement("NAME", automap_name)
+		+ property_assignment_statement("NAME", automap_name) \
+		+ property_assignment_statement("TILESIZE", tile_size)
 
 
 # For the moment, I’m going to make _ready() export the map.
