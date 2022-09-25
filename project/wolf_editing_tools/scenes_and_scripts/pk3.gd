@@ -41,26 +41,21 @@ func is_whitespace(string: String) -> bool:
 
 func warn_if_unexpected_characters(characters: String, expected_token) -> void:
 	if !characters.empty():
-		var description_of_looking_for: String
+		var description_of_expected_token: String
 		match expected_token:
-			# TODO: Make sure that this has everything
 			Token.NAMED_BLOCK_NAME:
-				description_of_looking_for = "a named block name (in “foo { … }”, the named block name is “foo”)"
-			Token.PARAMETERS_OR_BLOCK_START:
-				description_of_looking_for = "a block start ({) or a parameter list [a “(” followed by anything followed by a “)”]"
+				description_of_expected_token = "a named block name (in “foo { … }”, the named block name is “foo”)"
+			Token.BLOCK_START:
+				description_of_expected_token = "a block start ({)"
 			Token.ITEM_START_OR_BLOCK_END:
-				description_of_looking_for = 'the start of an item (") or the endo of a block (})'
-			Token.ITEM_CONTENTS:
-				description_of_looking_for = 'the contents of an item (in ‘"foo",’, the contents of the item is ‘foo,’)"'
+				description_of_expected_token = 'the start of an item (") or the endo of a block (})'
 			_:
 				push_warning(UNKNOWN_TOKEN_WHILE_GENERATING_WARNING % [expected_token])
-				description_of_looking_for = var2str(expected_token)
+				description_of_expected_token = var2str(expected_token)
 		push_warning(
 			UNEXPECTED_CHARACTERS_WARNING \
-			% [description_of_looking_for, var2str(characters)]
+			% [description_of_expected_token, var2str(characters)]
 		)
-		print(characters)
-		
 
 
 func set_archive_path(new_archive_path: String) -> bool:
