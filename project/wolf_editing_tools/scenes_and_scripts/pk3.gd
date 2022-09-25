@@ -20,7 +20,6 @@ var archive_path: String setget set_archive_path
 # These are the files that give names to data stored in
 # the base game files (the .WL6, .SOD, etc. files).
 var data_maps: Dictionary
-var unparsed_data_map : String
 
 
 static func is_data_map_file(path: String) -> bool:
@@ -76,8 +75,7 @@ func set_archive_path(new_archive_path: String) -> bool:
 			data_maps[base_game_data_extension] = null
 			var uncompressed = gdunzip.uncompress(path)
 			if uncompressed:
-				#var unparsed_data_map: String = uncompressed.get_string_from_utf8()
-				unparsed_data_map = uncompressed.get_string_from_utf8()
+				var unparsed_data_map: String = uncompressed.get_string_from_utf8()
 				data_maps[base_game_data_extension] = {}
 
 				var current_token = null
