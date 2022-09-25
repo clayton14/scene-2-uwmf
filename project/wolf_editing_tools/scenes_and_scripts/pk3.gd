@@ -19,11 +19,15 @@ var _is_whitespace_regex: RegEx = RegEx.new()
 var archive_path: String setget set_archive_path
 # These are the files that give names to data stored in
 # the base game files (the .WL6, .SOD, etc. files).
-var data_maps: Dictionary
+var data_maps: Dictionary setget , get_data_maps
 
 
 static func is_data_map_file(path: String) -> bool:
 	return (not "/" in path) and (path.ends_with(DATA_MAP_FILE_ENDING))
+
+
+func get_data_maps() -> Dictionary:
+	return data_maps
 
 
 func is_whitespace(string: String) -> bool:
