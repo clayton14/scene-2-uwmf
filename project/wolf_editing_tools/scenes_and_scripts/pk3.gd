@@ -58,6 +58,108 @@ func warn_if_unexpected_characters(characters: String, expected_token) -> void:
 		)
 
 
+func _update_data_map(
+	base_game_data_extension: String,
+	unparsed_data_map: String
+) -> void:
+	data_maps[base_game_data_extension] = {}
+	
+	var current_token = null
+	var looking_for = Token.NAMED_BLOCK_NAME
+	var in_single_line_comment := false
+	var in_multiline_comment := false
+	var named_block_name := ""
+	var item_contents := ""
+	var unexpected_characters := ""
+	var i := 0
+	while i < len(unparsed_data_map):
+		var _debug_current_character : String = unparsed_data_map[i]
+		if in_single_line_comment:
+			if unparsed_data_map[i] == "\n":
+				in_single_line_comment = false
+		elif in_multiline_comment:
+			if unparsed_data_map.substr(i, 2) == "*/":
+				in_multiline_comment = false
+				i += 1
+		else:
+			var current_plus_next := unparsed_data_map.substr(i, 2)
+			if current_plus_next == "//":
+				in_single_line_comment = true
+				i += 1
+			elif current_plus_next == "/*":
+				in_multiline_comment = true
+				i += 1
+			else:
+				if current_token == null and !is_whitespace(unparsed_data_map[i]):
+					current_token = looking_for
+				match current_token:
+					null:
+						pass
+					Token.NAMED_BLOCK_NAME:
+						if is_whitespace(unparsed_data_map[i]) or unparsed_data_map[i] == "(":
+							data_maps[base_game_data_extension][named_block_name] = []
+							
+							if unparsed_data_map[i] == "(":
+								current_token = Token.ANYTHING_FOLLOWED_BY_A_CLOSING_PARENTHESIS
+							else:
+								current_token = null
+								looking_for = Token.BLOCK_START
+						else:
+							named_block_name += unparsed_data_map[i]
+					Token.ANYTHING_FOLLOWED_BY_A_CLOSING_PARENTHESIS:
+						if unparsed_data_map[i] == ")":
+							current_token = null
+							looking_for = Token.BLOCK_START
+					Token.BLOCK_START:
+						if unparsed_data_map[i] == "{":
+							current_token = null
+							looking_for = Token.ITEM_START_OR_BLOCK_END
+							warn_if_unexpected_characters(
+								unexpected_characters,
+								Token.BLOCK_START
+							)
+						else:
+							unexpected_characters += unparsed_data_map[i]
+					Token.ITEM_START_OR_BLOCK_END:
+						if unparsed_data_map[i] == '"':
+							current_token = Token.ITEM_CONTENTS_OR_ITEM_END
+							warn_if_unexpected_characters(
+								unexpected_characters,
+								Token.ITEM_START_OR_BLOCK_END
+							)
+						elif unparsed_data_map[i] == "}":
+							named_block_name = ""
+							current_token = null
+							looking_for = Token.NAMED_BLOCK_NAME
+							warn_if_unexpected_characters(
+								unexpected_characters,
+								Token.ITEM_START_OR_BLOCK_END
+							)
+						else:
+							unexpected_characters += unparsed_data_map[i]
+					Token.ITEM_CONTENTS_OR_ITEM_END:
+						if unparsed_data_map[i] == '"':
+							data_maps[base_game_data_extension][named_block_name].append(item_contents)
+							item_contents = ""
+							
+							current_token = null
+							looking_for = Token.ANYTHING_FOLLOWED_BY_A_COMMA_OR_BLOCK_END
+						else:
+							item_contents += unparsed_data_map[i]
+					Token.ANYTHING_FOLLOWED_BY_A_COMMA_OR_BLOCK_END:
+						if unparsed_data_map[i] == ',':
+							current_token = null
+							looking_for = Token.ITEM_START_OR_BLOCK_END
+						elif unparsed_data_map[i] == '}':
+							named_block_name = ""
+							
+							current_token = null
+							looking_for = Token.NAMED_BLOCK_NAME
+					_:
+						push_error("Unknown Token: %s" % [current_token])
+		i += 1
+
+
 func set_archive_path(new_archive_path: String) -> bool:
 	var gdunzip := Gdunzip.new()
 	if !gdunzip.load(new_archive_path):
@@ -71,102 +173,7 @@ func set_archive_path(new_archive_path: String) -> bool:
 			var uncompressed = gdunzip.uncompress(path)
 			if uncompressed:
 				var unparsed_data_map: String = uncompressed.get_string_from_utf8()
-				data_maps[base_game_data_extension] = {}
-
-				var current_token = null
-				var looking_for = Token.NAMED_BLOCK_NAME
-				var in_single_line_comment := false
-				var in_multiline_comment := false
-				var named_block_name := ""
-				var item_contents := ""
-				var unexpected_characters := ""
-				var i := 0
-				while i < len(unparsed_data_map):
-					var _debug_current_character : String = unparsed_data_map[i]
-					if in_single_line_comment:
-						if unparsed_data_map[i] == "\n":
-							in_single_line_comment = false
-					elif in_multiline_comment:
-						if unparsed_data_map.substr(i, 2) == "*/":
-							in_multiline_comment = false
-							i += 1
-					else:
-						var current_plus_next := unparsed_data_map.substr(i, 2)
-						if current_plus_next == "//":
-							in_single_line_comment = true
-							i += 1
-						elif current_plus_next == "/*":
-							in_multiline_comment = true
-							i += 1
-						else:
-							if current_token == null and !is_whitespace(unparsed_data_map[i]):
-								current_token = looking_for
-							match current_token:
-								null:
-									pass
-								Token.NAMED_BLOCK_NAME:
-									if is_whitespace(unparsed_data_map[i]) or unparsed_data_map[i] == "(":
-										data_maps[base_game_data_extension][named_block_name] = []
-										
-										if unparsed_data_map[i] == "(":
-											current_token = Token.ANYTHING_FOLLOWED_BY_A_CLOSING_PARENTHESIS
-										else:
-											current_token = null
-											looking_for = Token.BLOCK_START
-									else:
-										named_block_name += unparsed_data_map[i]
-								Token.ANYTHING_FOLLOWED_BY_A_CLOSING_PARENTHESIS:
-									if unparsed_data_map[i] == ")":
-										current_token = null
-										looking_for = Token.BLOCK_START
-								Token.BLOCK_START:
-									if unparsed_data_map[i] == "{":
-										current_token = null
-										looking_for = Token.ITEM_START_OR_BLOCK_END
-										warn_if_unexpected_characters(
-											unexpected_characters,
-											Token.BLOCK_START
-										)
-									else:
-										unexpected_characters += unparsed_data_map[i]
-								Token.ITEM_START_OR_BLOCK_END:
-									if unparsed_data_map[i] == '"':
-										current_token = Token.ITEM_CONTENTS_OR_ITEM_END
-										warn_if_unexpected_characters(
-											unexpected_characters,
-											Token.ITEM_START_OR_BLOCK_END
-										)
-									elif unparsed_data_map[i] == "}":
-										named_block_name = ""
-										current_token = null
-										looking_for = Token.NAMED_BLOCK_NAME
-										warn_if_unexpected_characters(
-											unexpected_characters,
-											Token.ITEM_START_OR_BLOCK_END
-										)
-									else:
-										unexpected_characters += unparsed_data_map[i]
-								Token.ITEM_CONTENTS_OR_ITEM_END:
-									if unparsed_data_map[i] == '"':
-										data_maps[base_game_data_extension][named_block_name].append(item_contents)
-										item_contents = ""
-										
-										current_token = null
-										looking_for = Token.ANYTHING_FOLLOWED_BY_A_COMMA_OR_BLOCK_END
-									else:
-										item_contents += unparsed_data_map[i]
-								Token.ANYTHING_FOLLOWED_BY_A_COMMA_OR_BLOCK_END:
-									if unparsed_data_map[i] == ',':
-										current_token = null
-										looking_for = Token.ITEM_START_OR_BLOCK_END
-									elif unparsed_data_map[i] == '}':
-										named_block_name = ""
-										
-										current_token = null
-										looking_for = Token.NAMED_BLOCK_NAME
-								_:
-									push_error("Unknown Token: %s" % [current_token])
-					i += 1
+				_update_data_map(base_game_data_extension, unparsed_data_map)
 			else:
 				push_error("Failed to decompress “%s” from “%s”." % [path, new_archive_path])
 	
