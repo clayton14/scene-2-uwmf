@@ -12,3 +12,14 @@ func _ready() -> void:
 	# filesystems exports to work.
 	if not Engine.editor_hint:
 		var pk3 := Pk3.new(ecwolf_pk3_path)
+		assert(pk3.archive_path == ecwolf_pk3_path)
+		
+		var data_maps_test := File.new()
+		assert(data_maps_test.open("user://data_maps_test.txt", File.WRITE) == OK)
+		for key in pk3.data_maps:
+			data_maps_test.store_line(key + ":")
+			for subkey in pk3.data_maps[key]:
+				data_maps_test.store_line("\t" + subkey + ":")
+				for value in pk3.data_maps[key][subkey]:
+					data_maps_test.store_line("\t\t" + value)
+		data_maps_test.close()
