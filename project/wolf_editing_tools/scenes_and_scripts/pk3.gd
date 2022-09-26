@@ -14,12 +14,24 @@ const Gdunzip := preload("res://addons/gdunzip/gdunzip.gd")
 const DATA_MAP_FILE_ENDING := "map.txt"
 const UNKNOWN_TOKEN_WHILE_GENERATING_WARNING := "While generating the message for another warning, encountered unknown Token: %s"
 const UNEXPECTED_CHARACTERS_WARNING := "While looking for %s, found unexpected characters: %s"
+const PALETTE_LOCATIONS := {
+	"n3d": "noahpal.lmp",
+	"sd2": "spearpal.lmp",
+	"sd3": "spearpal.lmp",
+	"sdm": "spearpal.lmp",
+	"sod": "spearpal.lmp",
+	"wl1": "wolfpal.lmp",
+	"wl6": "wolfpal.lmp",
+}
+const FAILED_TO_DECOMPRESS := "Failed to decompress “%s” from “%s”."
+const TOTAL_COLORS_IN_PALETTE := 256
 
 var _is_whitespace_regex: RegEx = RegEx.new()
 var archive_path: String setget set_archive_path
 # These are the files that give names to data stored in
 # the base game files (the .WL6, .SOD, etc. files).
 var data_maps: Dictionary setget , get_data_maps
+var palettes: Dictionary setget , get_palettes
 
 
 static func is_data_map_file(path: String) -> bool:
@@ -28,6 +40,10 @@ static func is_data_map_file(path: String) -> bool:
 
 func get_data_maps() -> Dictionary:
 	return data_maps
+
+
+func get_palettes() -> Dictionary:
+	return palettes
 
 
 func is_whitespace(string: String) -> bool:
@@ -164,11 +180,28 @@ func _update_data_map(
 		i += 1
 
 
+# ECWolf uses this format for palettes: <https://doomwiki.org/wiki/Palette>
+func _update_palettes(path_to_palette: Dictionary) -> void:
+	for path in path_to_palette:
+		var raw_palette = path_to_palette[path]
+		path_to_palette[path] = []
+		path_to_palette[path].resize(TOTAL_COLORS_IN_PALETTE)
+		for i in TOTAL_COLORS_IN_PALETTE:
+			path_to_palette[path][i] = Color8(
+				raw_palette[3*i],
+				raw_palette[3*i + 1],
+				raw_palette [3*i + 2]
+			)
+	for file_extension in PALETTE_LOCATIONS:
+		palettes[file_extension] = path_to_palette.get(PALETTE_LOCATIONS[file_extension])
+
+
 func set_archive_path(new_archive_path: String) -> bool:
 	var gdunzip := Gdunzip.new()
 	if !gdunzip.load(new_archive_path):
 		push_error("Failed to load “%s” as a ZIP file." % [new_archive_path])
 		return false
+	# data_map
 	for path in gdunzip.files.keys():
 		if is_data_map_file(path):
 			var base_game_data_extension: String
@@ -179,7 +212,16 @@ func set_archive_path(new_archive_path: String) -> bool:
 				var unparsed_data_map: String = uncompressed.get_string_from_utf8()
 				_update_data_map(base_game_data_extension, unparsed_data_map)
 			else:
-				push_error("Failed to decompress “%s” from “%s”." % [path, new_archive_path])
+				push_error(FAILED_TO_DECOMPRESS % [path, new_archive_path])
+	# palettes
+	var path_to_palette = {}
+	for path in PALETTE_LOCATIONS.values():
+		var uncompressed = gdunzip.uncompress(path)
+		if uncompressed:
+			path_to_palette[path] = uncompressed
+		else:
+			push_warning((FAILED_TO_DECOMPRESS + " Skipping that palette…") % [path, new_archive_path])
+	_update_palettes(path_to_palette)
 	
 	archive_path = new_archive_path
 	return true
