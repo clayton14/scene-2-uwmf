@@ -1,6 +1,6 @@
 extends Node
 
-const Wad := preload("res://wolf_editing_tools/scenes_and_scripts/wad.gd")
+const Wad := preload("res://wolf_editing_tools/scenes_and_scripts/file_formats/wad.gd")
 const NAMESPACE := "Wolf3D";
 
 # This will be the name of the header lump [1] when the map is exported. It also gets used as the

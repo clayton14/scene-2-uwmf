@@ -3,7 +3,7 @@
 extends Reference
 
 
-const Pk3 := preload("res://wolf_editing_tools/scenes_and_scripts/pk3.gd")
+const Pk3 := preload("res://wolf_editing_tools/scenes_and_scripts/file_formats/pk3.gd")
 const BASE_INVALID_VSWAP_ERROR := "Invalid VSWAP file “%s” "
 const MISSING_TOTAL_CHUNKS := BASE_INVALID_VSWAP_ERROR + "(file is not large enough to contain total chunks number)"
 const MISSING_FIRST_SPRITE_INDEX := BASE_INVALID_VSWAP_ERROR + "(file is not large enough to contain first sprite index number)"

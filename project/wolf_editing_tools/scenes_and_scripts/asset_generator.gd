@@ -1,8 +1,8 @@
 extends ColorRect
 
 
-const Pk3 := preload("res://wolf_editing_tools/scenes_and_scripts/pk3.gd")
-const VSwap := preload("res://wolf_editing_tools/scenes_and_scripts/v_swap.gd")
+const Pk3 := preload("res://wolf_editing_tools/scenes_and_scripts/file_formats/pk3.gd")
+const VSwap := preload("res://wolf_editing_tools/scenes_and_scripts/file_formats/v_swap.gd")
 
 var thread := Thread.new()
 var ecwolf_pk3_path : String setget set_ecwolf_pk3_path
