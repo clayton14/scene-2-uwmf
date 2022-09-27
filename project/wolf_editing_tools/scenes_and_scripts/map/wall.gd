@@ -2,8 +2,8 @@ tool
 extends MeshInstance
 
 
-const DEFAULT_TEXTURE_PATH := "res://wolf_editing_tools/generated/missing_texture.tex"
-export var texture : Texture = preload(DEFAULT_TEXTURE_PATH) setget set_texture
+const DEFAULT_TEXTURE := preload("res://wolf_editing_tools/generated/missing_texture.tex")
+export var texture : Texture = DEFAULT_TEXTURE setget set_texture
 
 
 func set_texture(new_texture : Texture) -> void:
