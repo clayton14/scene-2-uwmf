@@ -3,6 +3,7 @@ extends ColorRect
 
 const Pk3 := preload("res://wolf_editing_tools/scenes_and_scripts/file_formats/pk3.gd")
 const VSwap := preload("res://wolf_editing_tools/scenes_and_scripts/file_formats/v_swap.gd")
+const OUTPUT_DIR := "res://wolf_editing_tools/generated/"
 
 var thread := Thread.new()
 var ecwolf_pk3_path : String setget set_ecwolf_pk3_path
@@ -15,15 +16,19 @@ onready var v_swap_input_field : LineEdit = $MainScreen/VBoxContainer/GridContai
 onready var loading_screen : Control = $LoadingScreen
 
 
+static func add_missing_trailing_slash(path_to_dir : String) -> String:
+	if path_to_dir.ends_with("/"):
+		return path_to_dir
+	else:
+		return path_to_dir + "/"
+
 static func recursively_create_directory(to_create : String) -> void:
 	if Directory.new().make_dir_recursive(to_create) != OK:
 		push_error("Failed to create directory “%s”" % [to_create])
 
 
 static func recursively_remove_directory(to_remove : String) -> void:
-	if !to_remove.ends_with("/"):
-		to_remove += "/"
-	
+	to_remove = add_missing_trailing_slash(to_remove)
 	var dir := Directory.new()
 	var error_code : int = dir.open(to_remove)
 	if error_code == OK:
@@ -45,6 +50,19 @@ static func recursively_remove_directory(to_remove : String) -> void:
 		# Since we’re trying to get rid of the directory, ERR_INVALID_PARAMETER
 		# is fine.
 		push_error("Unhandled error while opening directory: %s" % [error_code])
+
+
+static func save_texture(texture : Resource, output_dir : String, base_filename : String) -> void:
+	output_dir = add_missing_trailing_slash(output_dir)
+	var recognized_extensions : Array = ResourceSaver.get_recognized_extensions(texture)
+	var file_extension : String
+	if "tex" in recognized_extensions:
+		file_extension = "tex"
+	else:
+		file_extension = recognized_extensions[0]
+	var full_path : String = output_dir + base_filename + "." + file_extension
+	if ResourceSaver.save(full_path, texture) != OK:
+		push_error("Failed to save “%s”" % [full_path])
 
 
 func set_ecwolf_pk3_path(new_ecwolf_pk3_path : String) -> void:
@@ -100,31 +118,22 @@ func _on_VSwapPathInputField_text_changed(new_text : String) -> void:
 
 
 func generate_assets() -> void:
-	var v_swap := VSwap.new(Pk3.new(ecwolf_pk3_path), v_swap_path)
+	var ecwolf_pk3 := Pk3.new(ecwolf_pk3_path)
+	var v_swap := VSwap.new(ecwolf_pk3, v_swap_path)
 	var finished_screen : Label = $FinishedScreen
 	# TODO: Find a better way to detect errors.
-	if \
-			v_swap.ecwolf_pk3.archive_path != ecwolf_pk3_path \
-			or v_swap.v_swap_path != v_swap_path:
+	if ecwolf_pk3.archive_path != ecwolf_pk3_path or v_swap.v_swap_path != v_swap_path:
 		color = Color("930000")
 		finished_screen.text = """Tried generating assets, but it looks like there were errors.
 Check the debugger for details."""
 	else:
-		var output_dir : String = "res://wolf_editing_tools/generated/art/walls/" + v_swap_path.get_file() + "/"
-		recursively_remove_directory(output_dir)
-		recursively_create_directory(output_dir)
+		save_texture(ecwolf_pk3.missing_texture, OUTPUT_DIR, "missing_texture")
 		
+		var walls_dir : String = OUTPUT_DIR + "art/walls/" + v_swap_path.get_file() + "/"
+		recursively_remove_directory(walls_dir)
+		recursively_create_directory(walls_dir)
 		for wall_name in v_swap.walls:
-			var wall : Resource = v_swap.walls[wall_name]
-			var recognized_extensions : Array = ResourceSaver.get_recognized_extensions(wall)
-			var file_extension : String
-			if "tex" in recognized_extensions:
-				file_extension = "tex"
-			else:
-				file_extension = recognized_extensions[0]
-			var filename : String = output_dir + wall_name + "." + file_extension
-			if ResourceSaver.save(filename, wall) != OK:
-				push_error("Failed to save “%s”" % [filename])
+			save_texture(v_swap.walls[wall_name], walls_dir, wall_name)
 		
 		color = Color("439300")
 		finished_screen.text = """Finished generating assets.

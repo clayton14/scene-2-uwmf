@@ -24,6 +24,9 @@ const PALETTE_LOCATIONS := {
 	"wl6": "wolfpal.lmp",
 }
 const FAILED_TO_DECOMPRESS := "Failed to decompress “%s” from “%s”."
+const MISSING_TEXTURE_PATH := "textures/-noflat-.png"
+const NO_MISSING_TEXTURE := " missing_texture will be null."
+const NOT_A_PNG := "“%s” from archive “%s” couldn’t be loaded as a PNG." + NO_MISSING_TEXTURE
 const TOTAL_COLORS_IN_PALETTE := 256
 
 var _is_whitespace_regex: RegEx = RegEx.new()
@@ -32,6 +35,7 @@ var archive_path: String setget set_archive_path
 # the base game files (the .WL6, .SOD, etc. files).
 var data_maps: Dictionary setget , get_data_maps
 var palettes: Dictionary setget , get_palettes
+var missing_texture : Texture setget , get_missing_texture
 
 
 static func is_data_map_file(path: String) -> bool:
@@ -40,6 +44,10 @@ static func is_data_map_file(path: String) -> bool:
 
 func get_data_maps() -> Dictionary:
 	return data_maps
+
+
+func get_missing_texture() -> Texture:
+	return missing_texture
 
 
 func get_palettes() -> Dictionary:
@@ -222,6 +230,17 @@ func set_archive_path(new_archive_path: String) -> bool:
 		else:
 			push_warning((FAILED_TO_DECOMPRESS + " Skipping that palette…") % [path, new_archive_path])
 	_update_palettes(path_to_palette)
+	# missing_texture
+	var uncompressed = gdunzip.uncompress(MISSING_TEXTURE_PATH)
+	if uncompressed:
+		var image := Image.new()
+		if image.load_png_from_buffer(uncompressed) != OK:
+			push_error(NOT_A_PNG % [MISSING_TEXTURE_PATH, new_archive_path])
+		var image_texture := ImageTexture.new()
+		image_texture.create_from_image(image, Texture.FLAGS_DEFAULT & ~Texture.FLAG_FILTER)
+		missing_texture = image_texture
+	else:
+		push_error((FAILED_TO_DECOMPRESS + NO_MISSING_TEXTURE) % [MISSING_TEXTURE_PATH])
 	
 	archive_path = new_archive_path
 	return true
