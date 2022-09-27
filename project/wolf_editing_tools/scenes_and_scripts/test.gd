@@ -3,14 +3,19 @@ extends Node
 
 
 const Pk3 := preload("res://wolf_editing_tools/scenes_and_scripts/pk3.gd")
+const VSwap := preload("res://wolf_editing_tools/scenes_and_scripts/v_swap.gd")
 
 export(String, FILE, GLOBAL, "ecwolf.pk3") var ecwolf_pk3_path : String
+export(String, FILE, GLOBAL, "VSWAP.*") var v_swap_path : String
 
 var pk3: Pk3
+var v_swap : VSwap
 
 onready var palette_selector : OptionButton = $PaletteTest/MarginContainer/VBoxContainer/PaletteSelector
 onready var missing_palette_label : Label = $PaletteTest/MarginContainer/VBoxContainer/AspectRatioContainer/MissingPaletteLabel
 onready var palette_grid_container : Node = $PaletteTest/MarginContainer/VBoxContainer/AspectRatioContainer/PaletteGridContainer
+onready var wall_selector : OptionButton = $WallsTest/MarginContainer/VBoxContainer/WallSelector
+onready var wall : TextureRect = $WallsTest/MarginContainer/VBoxContainer/Wall
 
 
 func _on_PaletteSelector_item_selected(index: int) -> void:
@@ -34,6 +39,15 @@ func update_palette_test(file_extension: String) -> void:
 			color_rect.color = color
 			palette_grid_container.add_child(color_rect)
 
+
+func _on_WallSelector_item_selected(index: int) -> void:
+	update_texture_selector_test(wall_selector.get_item_text(index))
+
+
+func update_texture_selector_test(texture_name: String) -> void:
+	wall.texture = v_swap.walls[texture_name]
+
+
 func _ready() -> void:
 	# I don’t want this to be a tool script, but I have to make it a tool script to get global
 	# filesystems exports to work.
@@ -54,3 +68,10 @@ func _ready() -> void:
 		for file_extension in pk3.palettes:
 			palette_selector.add_item(file_extension)
 		update_palette_test(pk3.palettes.keys()[0])
+		
+		v_swap = VSwap.new(pk3, v_swap_path)
+		assert(v_swap.v_swap_path == v_swap_path)
+		var wall_names := v_swap.wall_names()
+		for wall_name in wall_names:
+			wall_selector.add_item(wall_name)
+		update_texture_selector_test(wall_names[0])
