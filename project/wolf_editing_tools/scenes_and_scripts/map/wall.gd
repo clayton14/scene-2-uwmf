@@ -2,7 +2,7 @@ tool
 extends MeshInstance
 
 
-const DEFAULT_TEXTURE := preload("res://wolf_editing_tools/generated/missing_texture.tex")
+const DEFAULT_TEXTURE := preload("res://wolf_editing_tools/generated/art/missing_texture.tex")
 export var texture : Texture = DEFAULT_TEXTURE setget set_texture
 
 

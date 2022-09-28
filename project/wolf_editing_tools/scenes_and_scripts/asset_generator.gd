@@ -127,9 +127,11 @@ func generate_assets() -> void:
 		finished_screen.text = """Tried generating assets, but it looks like there were errors.
 Check the debugger for details."""
 	else:
-		save_texture(ecwolf_pk3.missing_texture, OUTPUT_DIR, "missing_texture")
+		var art_dir := OUTPUT_DIR + "art/"
+		recursively_create_directory(art_dir)
+		save_texture(ecwolf_pk3.missing_texture, art_dir, "missing_texture")
 		
-		var walls_dir : String = OUTPUT_DIR + "art/walls/" + v_swap_path.get_file() + "/"
+		var walls_dir : String = art_dir + "walls/" + v_swap_path.get_file() + "/"
 		recursively_remove_directory(walls_dir)
 		recursively_create_directory(walls_dir)
 		for wall_name in v_swap.walls:
