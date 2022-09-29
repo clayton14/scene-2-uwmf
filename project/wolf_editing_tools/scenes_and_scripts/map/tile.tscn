@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
+[ext_resource path="user://art/walls/649d595d.res" type="Material" id=1]
 [ext_resource path="res://wolf_editing_tools/scenes_and_scripts/map/tile.gd" type="Script" id=3]
 
 [sub_resource type="CubeMesh" id=1]
@@ -7,5 +8,5 @@ size = Vector3( 1, 1, 1 )
 
 [node name="Tile" type="MeshInstance"]
 mesh = SubResource( 1 )
-material/0 = null
+material/0 = ExtResource( 1 )
 script = ExtResource( 3 )
