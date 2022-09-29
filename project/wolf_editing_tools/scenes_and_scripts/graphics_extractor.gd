@@ -117,14 +117,14 @@ func _on_VSwapPathInputField_text_changed(new_text : String) -> void:
 	v_swap_path = new_text
 
 
-func generate_assets() -> void:
+func extract_assets() -> void:
 	var ecwolf_pk3 := Pk3.new(ecwolf_pk3_path)
 	var v_swap := VSwap.new(ecwolf_pk3, v_swap_path)
 	var finished_screen : Label = $FinishedScreen
 	# TODO: Find a better way to detect errors.
 	if ecwolf_pk3.archive_path != ecwolf_pk3_path or v_swap.v_swap_path != v_swap_path:
 		color = Color("930000")
-		finished_screen.text = """Tried generating assets, but it looks like there were errors.
+		finished_screen.text = """Tried extracting graphics, but it looks like there were errors.
 Check the debugger for details."""
 	else:
 		var art_dir := OUTPUT_DIR + "art/"
@@ -138,7 +138,7 @@ Check the debugger for details."""
 			save_texture(v_swap.walls[wall_name], walls_dir, wall_name)
 		
 		color = Color("439300")
-		finished_screen.text = """Finished generating assets.
+		finished_screen.text = """Finished extracting graphics.
 Please check the debugger for any errors."""
 	finished_screen.text += "\n(You can close out of this window now)"
 	
@@ -146,12 +146,12 @@ Please check the debugger for any errors."""
 	finished_screen.show()
 
 
-func _on_GenerateAssets_pressed() -> void:
+func _on_ExtractGraphics_pressed() -> void:
 	loading_screen.show()
 	$MainScreen.hide()
-	if thread.start(self, "generate_assets") != OK:
+	if thread.start(self, "extract_assets") != OK:
 		push_warning("Failed to start separate Thread for generating assets. Generating assets on the main thread…")
-		generate_assets()
+		extract_assets()
 
 
 func _exit_tree() -> void:

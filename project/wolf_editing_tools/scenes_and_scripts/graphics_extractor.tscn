@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://wolf_editing_tools/scenes_and_scripts/asset_generator.gd" type="Script" id=1]
+[ext_resource path="res://wolf_editing_tools/scenes_and_scripts/graphics_extractor.gd" type="Script" id=1]
 
-[node name="AssetGenerator" type="ColorRect"]
+[node name="GraphicsExtractor" type="ColorRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = -384.0
@@ -26,7 +26,7 @@ margin_bottom = 184.0
 [node name="Label" type="Label" parent="MainScreen/VBoxContainer"]
 margin_right = 960.0
 margin_bottom = 14.0
-text = "Tell me where these files are located, and then click “Generate Assets”"
+text = "Tell me where these files are located, and then click “Extract Graphics”"
 align = 1
 valign = 1
 
@@ -84,13 +84,13 @@ margin_right = 960.0
 margin_bottom = 126.0
 custom_constants/margin_top = 32
 
-[node name="GenerateAssets" type="Button" parent="MainScreen/VBoxContainer/MarginContainer"]
-margin_left = 421.0
+[node name="ExtractGraphics" type="Button" parent="MainScreen/VBoxContainer/MarginContainer"]
+margin_left = 422.0
 margin_top = 32.0
-margin_right = 539.0
+margin_right = 537.0
 margin_bottom = 52.0
 size_flags_horizontal = 4
-text = "Generate Assets"
+text = "Extract Graphics"
 
 [node name="LoadingScreen" type="Label" parent="."]
 visible = false
@@ -122,5 +122,5 @@ current_path = "/hdd/home/jayman/VC/My repos/scene-2-uwmf/project/"
 [connection signal="pressed" from="MainScreen/VBoxContainer/GridContainer/EcwolfPk3PathBrowseButton" to="." method="_on_EcwolfPk3PathBrowseButton_pressed"]
 [connection signal="text_changed" from="MainScreen/VBoxContainer/GridContainer/VSwapPathInputField" to="." method="_on_VSwapPathInputField_text_changed"]
 [connection signal="pressed" from="MainScreen/VBoxContainer/GridContainer/VSwapPathBrowseButton" to="." method="_on_VSwapPathBrowseButton_pressed"]
-[connection signal="pressed" from="MainScreen/VBoxContainer/MarginContainer/GenerateAssets" to="." method="_on_GenerateAssets_pressed"]
+[connection signal="pressed" from="MainScreen/VBoxContainer/MarginContainer/ExtractGraphics" to="." method="_on_ExtractGraphics_pressed"]
 [connection signal="file_selected" from="FileDialog" to="." method="_on_FileDialog_file_selected"]
