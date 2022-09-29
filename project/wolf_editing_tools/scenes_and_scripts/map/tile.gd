@@ -61,7 +61,7 @@ func _update_material() -> void:
 	var new_material := SpatialMaterial.new()
 	new_material.flags_unshaded = true
 	new_material.albedo_texture = albedo_texture
-	set_surface_material(0, new_material)
+	mesh.surface_set_material(0, new_material)
 
 
 func _ready() -> void:

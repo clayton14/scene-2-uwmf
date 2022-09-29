@@ -5,7 +5,7 @@ onready var tile := $Tile
 
 
 func _ready() -> void:
-	$TextureRect.texture = tile.get_surface_material(0).albedo_texture
+	$TextureRect.texture = tile.mesh.surface_get_material(0).albedo_texture
 	print(tile.get_surface_material(0))
 
 func _physics_process(delta: float) -> void:
