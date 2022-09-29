@@ -1,6 +1,7 @@
 extends ColorRect
 
 
+const Util := preload("res://wolf_editing_tools/scenes_and_scripts/util.gd")
 const OUTPUT_DIR := "res://wolf_editing_tools/generated/"
 
 var thread := Thread.new()
@@ -12,55 +13,6 @@ onready var file_dialog : FileDialog = $FileDialog
 onready var ecwolf_pk3_input_field : LineEdit = $MainScreen/VBoxContainer/GridContainer/EcwolfPk3PathInputField
 onready var v_swap_input_field : LineEdit = $MainScreen/VBoxContainer/GridContainer/VSwapPathInputField
 onready var loading_screen : Control = $LoadingScreen
-
-
-static func add_missing_trailing_slash(path_to_dir : String) -> String:
-	if path_to_dir.ends_with("/"):
-		return path_to_dir
-	else:
-		return path_to_dir + "/"
-
-static func recursively_create_directory(to_create : String) -> void:
-	if Directory.new().make_dir_recursive(to_create) != OK:
-		push_error("Failed to create directory “%s”" % [to_create])
-
-
-static func recursively_remove_directory(to_remove : String) -> void:
-	to_remove = add_missing_trailing_slash(to_remove)
-	var dir := Directory.new()
-	var error_code : int = dir.open(to_remove)
-	if error_code == OK:
-		error_code = dir.list_dir_begin(true)
-		if error_code == OK:
-			var current_name := dir.get_next()
-			while current_name != "":
-				var current_full_path := to_remove + current_name
-				if dir.current_is_dir():
-					recursively_remove_directory(current_full_path)
-				error_code = dir.remove(current_full_path)
-				if error_code != OK:
-					push_error("Failed to remove “%s”" % [current_full_path])
-				current_name = dir.get_next()
-		else:
-			push_error("Failed to list contents of directory “%s”" % [to_remove])
-	elif error_code != ERR_INVALID_PARAMETER:
-		# ERR_INVALID_PARAMETER is returned when the directory doesn’t exist.
-		# Since we’re trying to get rid of the directory, ERR_INVALID_PARAMETER
-		# is fine.
-		push_error("Unhandled error while opening directory: %s" % [error_code])
-
-
-static func save_texture(texture : Resource, output_dir : String, base_filename : String) -> void:
-	output_dir = add_missing_trailing_slash(output_dir)
-	var recognized_extensions : Array = ResourceSaver.get_recognized_extensions(texture)
-	var file_extension : String
-	if "tex" in recognized_extensions:
-		file_extension = "tex"
-	else:
-		file_extension = recognized_extensions[0]
-	var full_path : String = output_dir + base_filename + "." + file_extension
-	if ResourceSaver.save(full_path, texture) != OK:
-		push_error("Failed to save “%s”" % [full_path])
 
 
 func set_ecwolf_pk3_path(new_ecwolf_pk3_path : String) -> void:
@@ -126,14 +78,14 @@ func extract_assets() -> void:
 Check the debugger for details."""
 	else:
 		var art_dir := OUTPUT_DIR + "art/"
-		recursively_create_directory(art_dir)
-		save_texture(ecwolf_pk3.missing_texture, art_dir, "missing_texture")
+		Util.make_dir_recursive_or_error(art_dir)
+		Util.save_texture(ecwolf_pk3.missing_texture, art_dir, "missing_texture")
 		
 		var walls_dir : String = art_dir + "walls/" + v_swap_path.get_file() + "/"
-		recursively_remove_directory(walls_dir)
-		recursively_create_directory(walls_dir)
+		Util.remove_dir_recursive_or_error(walls_dir)
+		Util.make_dir_recursive_or_error(walls_dir)
 		for wall_name in v_swap.walls:
-			save_texture(v_swap.walls[wall_name], walls_dir, wall_name)
+			Util.save_texture(v_swap.walls[wall_name], walls_dir, wall_name)
 		
 		color = Color("439300")
 		finished_screen.text = """Finished extracting graphics.
