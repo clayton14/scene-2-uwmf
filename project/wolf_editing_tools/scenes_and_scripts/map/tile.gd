@@ -2,7 +2,6 @@ tool
 extends MeshInstance
 
 
-const VSwap := preload("res://wolf_editing_tools/scenes_and_scripts/file_formats/v_swap.gd")
 const MISSING_TEXTURE_PATH := "res://wolf_editing_tools/generated/art/missing_texture.tex"
 const IMAGE_FORMAT := Image.FORMAT_RGB8
 

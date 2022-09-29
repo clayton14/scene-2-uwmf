@@ -1,4 +1,5 @@
 extends Reference
+class_name Pk3
 
 
 enum Token {

@@ -1,9 +1,9 @@
 # See these Wolfenstein 3D game file specifications for information about the
 # VSWAP file format: <https://vpoupet.github.io/wolfenstein/docs/files>
 extends Reference
+class_name VSwap
 
 
-const Pk3 := preload("res://wolf_editing_tools/scenes_and_scripts/file_formats/pk3.gd")
 const BASE_INVALID_VSWAP_ERROR := "Invalid VSWAP file “%s” "
 const MISSING_TOTAL_CHUNKS := BASE_INVALID_VSWAP_ERROR + "(file is not large enough to contain total chunks number)"
 const MISSING_FIRST_SPRITE_INDEX := BASE_INVALID_VSWAP_ERROR + "(file is not large enough to contain first sprite index number)"

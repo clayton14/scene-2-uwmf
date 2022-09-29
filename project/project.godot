@@ -8,6 +8,22 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Reference",
+"class": "Pk3",
+"language": "GDScript",
+"path": "res://wolf_editing_tools/scenes_and_scripts/file_formats/pk3.gd"
+}, {
+"base": "Reference",
+"class": "VSwap",
+"language": "GDScript",
+"path": "res://wolf_editing_tools/scenes_and_scripts/file_formats/v_swap.gd"
+} ]
+_global_script_class_icons={
+"Pk3": "",
+"VSwap": ""
+}
+
 [application]
 
 config/name="Scene 2 UWMF"

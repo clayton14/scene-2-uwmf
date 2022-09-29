@@ -1,8 +1,6 @@
 extends ColorRect
 
 
-const Pk3 := preload("res://wolf_editing_tools/scenes_and_scripts/file_formats/pk3.gd")
-const VSwap := preload("res://wolf_editing_tools/scenes_and_scripts/file_formats/v_swap.gd")
 const OUTPUT_DIR := "res://wolf_editing_tools/generated/"
 
 var thread := Thread.new()

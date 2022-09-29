@@ -2,9 +2,6 @@ tool
 extends Node
 
 
-const Pk3 := preload("res://wolf_editing_tools/scenes_and_scripts/file_formats/pk3.gd")
-const VSwap := preload("res://wolf_editing_tools/scenes_and_scripts/file_formats/v_swap.gd")
-
 export(String, FILE, GLOBAL, "ecwolf.pk3") var ecwolf_pk3_path : String
 export(String, FILE, GLOBAL, "VSWAP.*") var v_swap_path : String
 
