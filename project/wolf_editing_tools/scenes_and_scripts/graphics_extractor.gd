@@ -1,7 +1,6 @@
 extends ColorRect
 
 
-const Util := preload("res://wolf_editing_tools/scenes_and_scripts/util.gd")
 const OUTPUT_DIR := "res://wolf_editing_tools/generated/"
 
 var thread := Thread.new()

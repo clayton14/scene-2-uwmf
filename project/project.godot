@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://wolf_editing_tools/scenes_and_scripts/file_formats/pk3.gd"
 }, {
+"base": "Object",
+"class": "Util",
+"language": "GDScript",
+"path": "res://wolf_editing_tools/scenes_and_scripts/util.gd"
+}, {
 "base": "Reference",
 "class": "VSwap",
 "language": "GDScript",
@@ -21,6 +26,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Pk3": "",
+"Util": "",
 "VSwap": ""
 }
 
