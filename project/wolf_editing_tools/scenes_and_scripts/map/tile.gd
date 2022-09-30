@@ -2,6 +2,14 @@ tool
 extends MeshInstance
 
 
+const FALLBACK_FACE_TEXTURE_PATHS := [
+	"res://wolf_editing_tools/art/s.webp",
+	"res://wolf_editing_tools/art/e.webp",
+	"res://wolf_editing_tools/art/n.webp",
+	"res://wolf_editing_tools/art/w.webp",
+	"res://wolf_editing_tools/art/e.webp",
+	"res://wolf_editing_tools/art/e.webp"
+]
 const BLACK_SQUARE_FALLBACK_ERROR := "Failed to load fallback texture. Using a completely black square as a fallback…"
 const IMAGE_FORMAT := Image.FORMAT_RGB8
 const OUTPUT_DIR := "res://wolf_editing_tools/generated/art/walls/cache/"
@@ -20,7 +28,6 @@ func _init() -> void:
 
 func effective_automap_texture_path() -> String:
 	return texture_east.resource_path
-
 
 static func _backing_texture_id(face_texture_paths : Array) -> String:
 	var face_texture_hashes := []
@@ -63,11 +70,13 @@ func _update_material() -> void:
 			var texture_to_add = load(face_texture_paths[face_number])
 			var image_to_add : Image
 			if texture_to_add == null:
+				var fallback_texture_path : String
+				fallback_texture_path = FALLBACK_FACE_TEXTURE_PATHS[face_number]
 				push_error(
 						"Failed to load “%s”. Using “%s” as a fallback…"
-						% [face_texture_paths[face_number], missing_texture.resource_path]
+						% [face_texture_paths[face_number], fallback_texture_path]
 				)
-				texture_to_add = missing_texture
+				texture_to_add = load(fallback_texture_path)
 				if texture_to_add == null:
 					push_error(BLACK_SQUARE_FALLBACK_ERROR)
 					image_to_add = Image.new()
