@@ -46,10 +46,6 @@ static func texture_path(dir_path : String, basename : String) -> String:
 	return return_value
 
 
-static func missing_texture_path() -> String:
-	return texture_path("res://wolf_editing_tools/generated/art/", "missing_texture")
-
-
 static func remove_dir_recursive_or_error(to_remove : String) -> void:
 	to_remove = add_missing_trailing_slash(to_remove)
 	var dir := Directory.new()

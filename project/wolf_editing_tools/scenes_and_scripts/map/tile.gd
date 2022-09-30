@@ -18,7 +18,6 @@ const BLACK_SQUARE_FALLBACK_ERROR := "Failed to load fallback texture. Using a c
 const IMAGE_FORMAT := Image.FORMAT_RGB8
 const OUTPUT_DIR := "res://wolf_editing_tools/generated/art/walls/cache/"
 
-var missing_texture : Texture = load(Util.missing_texture_path())
 export var texture_east : Texture = preload(FALLBACK_EAST_TEXTURE_PATH) setget set_texture_east
 export var texture_north : Texture = preload(FALLBACK_NORTH_TEXTURE_PATH) setget set_texture_north
 export var texture_south : Texture = preload(FALLBACK_SOUTH_TEXTURE_PATH) setget set_texture_south
