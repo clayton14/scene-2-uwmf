@@ -1,31 +1,26 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://wolf_editing_tools/generated/art/walls/VSWAP.WL6/GSTONEA1.tex" type="Texture" id=2]
+[ext_resource path="res://wolf_editing_tools/generated/art/walls/cache/649d595d.tex" type="Texture" id=1]
+[ext_resource path="res://wolf_editing_tools/generated/art/missing_texture.tex" type="Texture" id=2]
 [ext_resource path="res://wolf_editing_tools/scenes_and_scripts/map/tile.gd" type="Script" id=3]
-[ext_resource path="res://wolf_editing_tools/generated/art/walls/VSWAP.WL6/GSTONEA2.tex" type="Texture" id=4]
-[ext_resource path="res://wolf_editing_tools/generated/art/walls/cache/2b9209b9.tex" type="Texture" id=5]
-[ext_resource path="res://wolf_editing_tools/art/s.webp" type="Texture" id=6]
-
-[sub_resource type="GDScript" id=10]
-
-[sub_resource type="ProxyTexture" id=11]
-flags = 3
-base = ExtResource( 5 )
-script = SubResource( 10 )
-texture_east = ExtResource( 4 )
-texture_north = ExtResource( 2 )
-texture_south = ExtResource( 6 )
-texture_west = ExtResource( 4 )
-
-[sub_resource type="SpatialMaterial" id=12]
-flags_unshaded = true
-albedo_texture = SubResource( 11 )
 
 [sub_resource type="CubeMesh" id=9]
-material = SubResource( 12 )
 size = Vector3( 1, 1, 1 )
 
+[sub_resource type="ProxyTexture" id=10]
+flags = 3
+base = ExtResource( 1 )
+
+[sub_resource type="SpatialMaterial" id=11]
+flags_unshaded = true
+albedo_texture = SubResource( 10 )
+
 [node name="Tile" type="MeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 0.5 )
 mesh = SubResource( 9 )
-material/0 = null
+material/0 = SubResource( 11 )
 script = ExtResource( 3 )
+texture_east = ExtResource( 2 )
+texture_north = ExtResource( 2 )
+texture_south = ExtResource( 2 )
+texture_west = ExtResource( 2 )

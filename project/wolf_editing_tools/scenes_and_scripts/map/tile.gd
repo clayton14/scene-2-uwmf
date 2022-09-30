@@ -125,7 +125,8 @@ func _update_material() -> void:
 	var new_material := SpatialMaterial.new()
 	new_material.flags_unshaded = true
 	new_material.albedo_texture = new_albedo_texture
-	mesh.surface_set_material(0, new_material)
+	
+	set_surface_material(0, new_material)
 
 
 # This ensures that _update_material() gets run at most once per physics tic.
