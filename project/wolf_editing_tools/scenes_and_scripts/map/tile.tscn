@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://wolf_editing_tools/generated/art/walls/cache/649d595d.tex" type="Texture" id=1]
-[ext_resource path="res://wolf_editing_tools/generated/art/missing_texture.tex" type="Texture" id=2]
+[ext_resource path="res://wolf_editing_tools/generated/art/walls/cache/8ae68a17.tex" type="Texture" id=1]
 [ext_resource path="res://wolf_editing_tools/scenes_and_scripts/map/tile.gd" type="Script" id=3]
 
 [sub_resource type="CubeMesh" id=9]
@@ -19,7 +18,3 @@ albedo_texture = SubResource( 10 )
 mesh = SubResource( 9 )
 material/0 = SubResource( 11 )
 script = ExtResource( 3 )
-texture_east = ExtResource( 2 )
-texture_north = ExtResource( 2 )
-texture_south = ExtResource( 2 )
-texture_west = ExtResource( 2 )

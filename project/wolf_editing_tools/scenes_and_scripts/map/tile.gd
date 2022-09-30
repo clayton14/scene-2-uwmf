@@ -2,23 +2,27 @@ tool
 extends MeshInstance
 
 
+const FALLBACK_EAST_TEXTURE_PATH := "res://wolf_editing_tools/art/e.webp"
+const FALLBACK_NORTH_TEXTURE_PATH := "res://wolf_editing_tools/art/n.webp"
+const FALLBACK_SOUTH_TEXTURE_PATH := "res://wolf_editing_tools/art/s.webp"
+const FALLBACK_WEST_TEXTURE_PATH := "res://wolf_editing_tools/art/w.webp"
 const FALLBACK_FACE_TEXTURE_PATHS := [
-	"res://wolf_editing_tools/art/s.webp",
-	"res://wolf_editing_tools/art/e.webp",
-	"res://wolf_editing_tools/art/n.webp",
-	"res://wolf_editing_tools/art/w.webp",
-	"res://wolf_editing_tools/art/e.webp",
-	"res://wolf_editing_tools/art/e.webp"
+	FALLBACK_SOUTH_TEXTURE_PATH,
+	FALLBACK_EAST_TEXTURE_PATH,
+	FALLBACK_NORTH_TEXTURE_PATH,
+	FALLBACK_WEST_TEXTURE_PATH,
+	FALLBACK_EAST_TEXTURE_PATH,
+	FALLBACK_EAST_TEXTURE_PATH
 ]
 const BLACK_SQUARE_FALLBACK_ERROR := "Failed to load fallback texture. Using a completely black square as a fallback…"
 const IMAGE_FORMAT := Image.FORMAT_RGB8
 const OUTPUT_DIR := "res://wolf_editing_tools/generated/art/walls/cache/"
 
 var missing_texture : Texture = load(Util.missing_texture_path())
-export var texture_east : Texture = missing_texture setget set_texture_east
-export var texture_north : Texture = missing_texture setget set_texture_north
-export var texture_south : Texture = missing_texture setget set_texture_south
-export var texture_west : Texture = missing_texture setget set_texture_west
+export var texture_east : Texture = preload(FALLBACK_EAST_TEXTURE_PATH) setget set_texture_east
+export var texture_north : Texture = preload(FALLBACK_NORTH_TEXTURE_PATH) setget set_texture_north
+export var texture_south : Texture = preload(FALLBACK_SOUTH_TEXTURE_PATH) setget set_texture_south
+export var texture_west : Texture = preload(FALLBACK_WEST_TEXTURE_PATH) setget set_texture_west
 
 
 func _init() -> void:
