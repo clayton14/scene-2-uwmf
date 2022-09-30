@@ -47,10 +47,6 @@ static func _backing_texture_id(face_texture_paths : Array) -> String:
 	return "%x" % [hash(face_texture_hashes)]
 
 
-func effective_automap_texture_path() -> String:
-	return texture_east.resource_path
-
-
 static func generate_surface_material(face_texture_paths : Array) -> Material:
 	var backing_texture_id = _backing_texture_id(face_texture_paths)
 	var backing_texture_path := Util.texture_path(OUTPUT_DIR, backing_texture_id)
@@ -131,6 +127,10 @@ static func generate_surface_material(face_texture_paths : Array) -> Material:
 	return_value.albedo_texture = new_albedo_texture
 	
 	return return_value
+
+
+func effective_automap_texture_path() -> String:
+	return texture_east.resource_path
 
 
 func _update_material() -> void:
