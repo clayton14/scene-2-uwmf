@@ -26,9 +26,6 @@ func _init() -> void:
 	Util.make_dir_recursive_or_error(OUTPUT_DIR)
 
 
-func effective_automap_texture_path() -> String:
-	return texture_east.resource_path
-
 static func _backing_texture_id(face_texture_paths : Array) -> String:
 	var face_texture_hashes := []
 	face_texture_hashes.resize(len(face_texture_paths))
@@ -45,6 +42,10 @@ static func _backing_texture_id(face_texture_paths : Array) -> String:
 		else:
 			face_texture_hashes[face_number] = sha256
 	return "%x" % [hash(face_texture_hashes)]
+
+
+func effective_automap_texture_path() -> String:
+	return texture_east.resource_path
 
 
 func _update_material() -> void:
