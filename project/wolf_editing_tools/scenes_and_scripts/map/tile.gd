@@ -41,22 +41,26 @@ func _init() -> void:
 
 
 static func _albedo_texture_id(new_face_textures : Array) -> String:
-	var face_texture_hashes := []
-	face_texture_hashes.resize(len(new_face_textures))
+	var to_hash := []
+	to_hash.resize(len(new_face_textures))
 	
 	var file := File.new()
 	for face_number in len(new_face_textures):
-		var face_texture_path : String = new_face_textures[face_number].resource_path
-		var sha256 := file.get_sha256(face_texture_path)
-		if sha256.empty():
-			push_warning(
-					"Failed to get sha256 of the contents of “%s”. Hashing its path instead…"
-					% [face_texture_path]
-			)
-			face_texture_hashes[face_number] = hash(face_texture_path)
+		var new_face_texture : Texture = new_face_textures[face_number]
+		var face_texture_path : String = new_face_texture.resource_path
+		if new_face_texture is SingleColorTexture:
+			to_hash[face_number] = new_face_texture.color
 		else:
-			face_texture_hashes[face_number] = sha256
-	return "%x" % [hash(face_texture_hashes)]
+			var sha256 := file.get_sha256(face_texture_path)
+			if sha256.empty():
+				push_warning(
+						"Failed to get sha256 of the contents of “%s”. Using its path instead…"
+						% [face_texture_path]
+				)
+				to_hash[face_number] = face_texture_path
+			else:
+				to_hash[face_number] = sha256
+	return "%x" % [to_hash.hash()]
 
 
 static func expected_face_textures_length() -> int:

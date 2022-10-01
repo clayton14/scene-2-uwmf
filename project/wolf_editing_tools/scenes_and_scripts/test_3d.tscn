@@ -1,14 +1,30 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://wolf_editing_tools/generated/art/walls/VSWAP.WL6/METAL1.tex" type="Texture" id=1]
-[ext_resource path="res://wolf_editing_tools/generated/art/walls/VSWAP.WL6/METAL2.tex" type="Texture" id=2]
-[ext_resource path="res://wolf_editing_tools/generated/art/walls/VSWAP.WL6/METLSGN1.tex" type="Texture" id=3]
+[ext_resource path="res://wolf_editing_tools/art/n.webp" type="Texture" id=1]
+[ext_resource path="res://wolf_editing_tools/scenes_and_scripts/single_color_texture.gd" type="Script" id=2]
+[ext_resource path="res://wolf_editing_tools/art/s.webp" type="Texture" id=3]
+[ext_resource path="res://wolf_editing_tools/generated/art/walls/VSWAP.WL6/BRICK1.tex" type="Texture" id=4]
 [ext_resource path="res://wolf_editing_tools/scenes_and_scripts/map/tile.tscn" type="PackedScene" id=6]
 [ext_resource path="res://wolf_editing_tools/scenes_and_scripts/test_3d.gd" type="Script" id=8]
 
-[sub_resource type="SpatialMaterial" id=1]
+[sub_resource type="SpatialMaterial" id=4]
 
-[sub_resource type="SpatialMaterial" id=2]
+[sub_resource type="Image" id=5]
+data = {
+"data": PoolByteArray( 129, 18, 18 ),
+"format": "RGB8",
+"height": 1,
+"mipmaps": false,
+"width": 1
+}
+
+[sub_resource type="ImageTexture" id=3]
+image = SubResource( 5 )
+size = Vector2( 1, 1 )
+script = ExtResource( 2 )
+color = Color( 0.505882, 0.0705882, 0.0705882, 1 )
+
+[sub_resource type="SpatialMaterial" id=6]
 
 [node name="Test3D" type="Node"]
 script = ExtResource( 8 )
@@ -21,9 +37,9 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="Tile" parent="." instance=ExtResource( 6 )]
-material/0 = SubResource( 1 )
-face_textures = [ ExtResource( 2 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ) ]
+material/0 = SubResource( 4 )
+face_textures = [ ExtResource( 4 ), ExtResource( 1 ), ExtResource( 3 ), SubResource( 3 ), null ]
 
 [node name="Tile2" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 0 )
-material/0 = SubResource( 2 )
+material/0 = SubResource( 6 )
