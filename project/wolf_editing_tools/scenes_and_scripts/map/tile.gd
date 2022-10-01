@@ -17,7 +17,6 @@ const WEST_INDEX := 3
 const OVERHEAD_INDEX := 4
 const WRONG_FACE_TEXTURES_LENGTH := "new_face_textures has %s elements, but it should have %s elements."
 const NOT_A_TEXTURE := "new_face_textures[%s] should be null or a Texture but it’s actually a %s. Ignoring…"
-const IMAGE_FORMAT := Image.FORMAT_RGB8
 const OUTPUT_DIR := "res://wolf_editing_tools/generated/art/walls/cache/"
 const TEXTURE_PROPERTY_NAMES := [
 	"east_texture",
@@ -60,7 +59,9 @@ static func _albedo_texture_id(new_face_textures : Array) -> String:
 				to_hash[face_number] = face_texture_path
 			else:
 				to_hash[face_number] = sha256
-	return "%x" % [to_hash.hash()]
+	var return_value := "%x" % [to_hash.hash()]
+	print(return_value)
+	return return_value
 
 
 static func expected_face_textures_length() -> int:
@@ -76,7 +77,12 @@ static func generate_surface_material(new_face_textures : Array) -> Material:
 	else:
 		var new_albedo_image := Image.new()
 		# TODO: What are mipmaps? Should use_mipmaps be true?
-		new_albedo_image.create(VSwap.WALL_LENGTH * 3, VSwap.WALL_LENGTH * 2, false, IMAGE_FORMAT)
+		new_albedo_image.create(
+			VSwap.WALL_LENGTH * 3,
+			VSwap.WALL_LENGTH * 2,
+			false,
+			Util.TILE_IMAGE_FORMAT
+		)
 		for face_number in 6:
 			var texture_to_add : Texture = new_face_textures[face_number]
 			if texture_to_add == null:
@@ -165,6 +171,13 @@ func queue_update_material() -> void:
 
 
 func set_face_textures(new_face_textures : Array) -> void:
+	for old_texture in face_textures:
+		if (
+			old_texture is SingleColorTexture
+			and old_texture.is_connected("color_changed", self, "update_material")
+		):
+			old_texture.disconnect("color_changed", self, "update_material")
+	
 	var actual_length = len(new_face_textures)
 	var expected_length = expected_face_textures_length()
 	if actual_length != expected_length:
@@ -175,6 +188,18 @@ func set_face_textures(new_face_textures : Array) -> void:
 			face_textures[i] = element
 		else:
 			push_warning(NOT_A_TEXTURE % [i, element.get_class()])
+	
+	for new_texture in face_textures:
+		if new_texture is SingleColorTexture:
+			var error_code : int
+			error_code = new_texture.connect("color_changed", self, "update_material")
+			if error_code != OK:
+				push_error(
+						"Failed to connect new_texture.color_changed to self.update_material. If "
+						+ "new_texture’s color is changed, we won’t know that the Tile’s material "
+						+ "should be updated."
+				)
+
 	update_material()
 
 

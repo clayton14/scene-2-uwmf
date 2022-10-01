@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "SingleColorTexture",
+"class": "InvisibleTexture",
+"language": "GDScript",
+"path": "res://wolf_editing_tools/scenes_and_scripts/resource_types/invisible_texture.gd"
+}, {
 "base": "Reference",
 "class": "Pk3",
 "language": "GDScript",
@@ -35,6 +40,7 @@ _global_script_classes=[ {
 "path": "res://wolf_editing_tools/scenes_and_scripts/file_formats/v_swap.gd"
 } ]
 _global_script_class_icons={
+"InvisibleTexture": "",
 "Pk3": "",
 "SingleColorTexture": "",
 "Tile": "",

@@ -2,6 +2,9 @@ extends Object
 class_name Util
 
 
+const TILE_IMAGE_FORMAT := Image.FORMAT_RGBA8
+
+
 static func unhandled_error_while_opening_dir(error_code) -> void:
 	push_error("Unhandled error while opening directory: %s" % [error_code])
 
