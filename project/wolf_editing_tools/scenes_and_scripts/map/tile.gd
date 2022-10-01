@@ -8,11 +8,13 @@ const FALLBACK_FACE_TEXTURES := [
 	preload("res://wolf_editing_tools/art/n.webp"),
 	preload("res://wolf_editing_tools/art/s.webp"),
 	preload("res://wolf_editing_tools/art/w.webp"),
+	null
 ]
 const EAST_INDEX := 0
 const NORTH_INDEX := 1
 const SOUTH_INDEX := 2
 const WEST_INDEX := 3
+const OVERHEAD_INDEX := 4
 const WRONG_FACE_TEXTURES_LENGTH := "new_face_textures has %s elements, but it should have %s elements."
 const NOT_A_TEXTURE := "new_face_textures[%s] should be null or a Texture but it’s actually a %s. Ignoring…"
 const IMAGE_FORMAT := Image.FORMAT_RGB8
@@ -21,7 +23,8 @@ const TEXTURE_PROPERTY_NAMES := [
 	"east_texture",
 	"north_texture",
 	"south_texture",
-	"west_texture"
+	"west_texture",
+	"overhead_texture"
 ]
 
 # Originally, each face Texture had its own variable. Unfortunately, that caused
@@ -73,8 +76,10 @@ static func generate_surface_material(new_face_textures : Array) -> Material:
 		for face_number in 6:
 			var texture_to_add : Texture = new_face_textures[face_number]
 			if texture_to_add == null:
-				push_warning("face_textures[%s] was null. Using fallback texture…")
+				push_warning("new_face_texture #%s shouldn’t be null")
 				texture_to_add = FALLBACK_FACE_TEXTURES[face_number]
+				if texture_to_add == null:
+					texture_to_add = FALLBACK_FACE_TEXTURES[EAST_INDEX]
 			var image_to_add : Image
 			image_to_add = texture_to_add.get_data()
 			
@@ -115,8 +120,14 @@ static func generate_surface_material(new_face_textures : Array) -> Material:
 	return return_value
 
 
-func effective_automap_texture() -> Texture:
-	return face_textures[EAST_INDEX]
+func effective_overhead_texture() -> Texture:
+	# In UWMF, if textureOverhead is unspecified, it defaults to eastTexture.
+	# See <https://maniacsvault.net/ecwolf/wiki/UWMF#Optional_Properties>.
+	var return_value : Texture
+	return_value = face_textures[OVERHEAD_INDEX]
+	if return_value == null:
+		return_value = face_textures[EAST_INDEX]
+	return return_value
 
 
 func update_material() -> void:
@@ -127,8 +138,8 @@ func update_material() -> void:
 			get_east_texture(),
 			get_north_texture(),
 			get_west_texture(),
-			effective_automap_texture(),
-			effective_automap_texture()
+			effective_overhead_texture(),
+			effective_overhead_texture()
 		])
 	)
 
@@ -203,6 +214,16 @@ func get_west_texture() -> Texture:
 	return face_textures[WEST_INDEX]
 
 
+func set_overhead_texture(new_overhead_texture : Texture) -> void:
+	var new_face_textures := face_textures.duplicate()
+	new_face_textures[OVERHEAD_INDEX] = new_overhead_texture
+	set_face_textures(new_face_textures)
+
+
+func get_overhead_texture() -> Texture:
+	return face_textures[OVERHEAD_INDEX]
+
+
 func _get_property_list() -> Array:
 	var return_value := []
 	return_value.resize(len(TEXTURE_PROPERTY_NAMES) + 1)
@@ -244,6 +265,8 @@ func _get(property):
 			return get_south_texture()
 		"west_texture":
 			return get_west_texture()
+		"overhead_texture":
+			return get_overhead_texture()
 		"face_textures":
 			return face_textures
 
@@ -261,6 +284,9 @@ func _set(property, value) -> bool:
 			return true
 		"west_texture":
 			set_west_texture(value)
+			return true
+		"overhead_texture":
+			set_overhead_texture(value)
 			return true
 		"face_textures":
 			set_face_textures(value)
