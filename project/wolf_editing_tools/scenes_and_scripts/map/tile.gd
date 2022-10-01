@@ -29,7 +29,7 @@ func _init() -> void:
 	Util.make_dir_recursive_or_error(OUTPUT_DIR)
 
 
-static func _backing_texture_id(face_texture_paths : Array) -> String:
+static func _albedo_texture_id(face_texture_paths : Array) -> String:
 	var face_texture_hashes := []
 	face_texture_hashes.resize(len(face_texture_paths))
 	
@@ -48,15 +48,15 @@ static func _backing_texture_id(face_texture_paths : Array) -> String:
 
 
 static func generate_surface_material(face_texture_paths : Array) -> Material:
-	var backing_texture_id = _backing_texture_id(face_texture_paths)
-	var backing_texture_path := Util.texture_path(OUTPUT_DIR, backing_texture_id)
-	var new_backing_texture : Texture
-	if ResourceLoader.exists(backing_texture_path):
-		new_backing_texture = load(backing_texture_path)
+	var new_albedo_texture_id = _albedo_texture_id(face_texture_paths)
+	var new_albedo_texture_path := Util.texture_path(OUTPUT_DIR, new_albedo_texture_id)
+	var new_albedo_texture : Texture
+	if ResourceLoader.exists(new_albedo_texture_path):
+		new_albedo_texture = load(new_albedo_texture_path)
 	else:
-		var albedo_image := Image.new()
+		var new_albedo_image := Image.new()
 		# TODO: What are mipmaps? Should use_mipmaps be true?
-		albedo_image.create(VSwap.WALL_LENGTH * 3, VSwap.WALL_LENGTH * 2, false, IMAGE_FORMAT)
+		new_albedo_image.create(VSwap.WALL_LENGTH * 3, VSwap.WALL_LENGTH * 2, false, IMAGE_FORMAT)
 		for face_number in 6:
 			var texture_to_add = load(face_texture_paths[face_number])
 			var image_to_add : Image
@@ -94,26 +94,26 @@ static func generate_surface_material(face_texture_paths : Array) -> Material:
 				image_to_add.flip_x()
 				image_to_add.flip_y()
 				image_to_add.lock()
-			albedo_image.blit_rect(
+			new_albedo_image.blit_rect(
 					image_to_add,
 					Rect2(0, 0, VSwap.WALL_LENGTH, VSwap.WALL_LENGTH),
 					Vector2(row * VSwap.WALL_LENGTH, column * VSwap.WALL_LENGTH)
 			)
-		new_backing_texture = ImageTexture.new()
-		new_backing_texture.create_from_image(
-				albedo_image,
+		new_albedo_texture = ImageTexture.new()
+		new_albedo_texture.create_from_image(
+				new_albedo_image,
 				Texture.FLAGS_DEFAULT & ~Texture.FLAG_FILTER
 		)
-		backing_texture_path = Util.save_texture(
-				new_backing_texture,
+		new_albedo_texture_path = Util.save_texture(
+				new_albedo_texture,
 				OUTPUT_DIR,
-				backing_texture_id
+				new_albedo_texture_id
 		)
-		new_backing_texture.take_over_path(backing_texture_path)
+		new_albedo_texture.take_over_path(new_albedo_texture_path)
 	
 	var return_value := SpatialMaterial.new()
 	return_value.flags_unshaded = true
-	return_value.albedo_texture = new_backing_texture
+	return_value.albedo_texture = new_albedo_texture
 	
 	return return_value
 
