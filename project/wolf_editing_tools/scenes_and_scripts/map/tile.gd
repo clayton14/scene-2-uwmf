@@ -122,7 +122,7 @@ func effective_automap_texture_path() -> String:
 	return texture_east.resource_path
 
 
-func _update_material() -> void:
+func update_material() -> void:
 	set_surface_material(
 		0,
 		generate_surface_material([
@@ -136,15 +136,15 @@ func _update_material() -> void:
 	)
 
 
-# This ensures that _update_material() gets run at most once per physics tic.
+# This ensures that update_material() gets run at most once per physics tic.
 # Without something like this, the following code would unnecessarily run
-# _update_material() multiple times:
+# update_material() multiple times:
 #     set_texture_east(missing_texture)
 #     set_texture_north(missing_texture)
 #     set_texture_south(missing_texture)
 #     set_texture_west(missing_texture)
 func _physics_process(_delta) -> void:
-	_update_material()
+	update_material()
 	set_physics_process(false)
 
 
