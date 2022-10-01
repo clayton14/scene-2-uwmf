@@ -306,4 +306,11 @@ func property_can_revert(property):
 func property_get_revert(property):
 	for i in len(TEXTURE_PROPERTY_NAMES):
 		if property == TEXTURE_PROPERTY_NAMES[i]:
-			return FALLBACK_FACE_TEXTURES[i]
+			if FALLBACK_FACE_TEXTURES[i] == null:
+				# If you return null, then the property won’t be revertable.
+				# Returning Reference.new() allows us to revert the value, and
+				# when we do, the value is reverted to null instead of a
+				# Reference.
+				return Reference.new()
+			else:
+				return FALLBACK_FACE_TEXTURES[i]
