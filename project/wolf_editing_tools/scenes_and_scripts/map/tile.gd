@@ -29,26 +29,27 @@ func _init() -> void:
 	Util.make_dir_recursive_or_error(OUTPUT_DIR)
 
 
-static func _albedo_texture_id(face_texture_paths : Array) -> String:
+static func _albedo_texture_id(face_textures : Array) -> String:
 	var face_texture_hashes := []
-	face_texture_hashes.resize(len(face_texture_paths))
+	face_texture_hashes.resize(len(face_textures))
 	
 	var file := File.new()
-	for face_number in len(face_texture_paths):
-		var sha256 := file.get_sha256(face_texture_paths[face_number])
+	for face_number in len(face_textures):
+		var face_texture_path : String = face_textures[face_number].resource_path
+		var sha256 := file.get_sha256(face_texture_path)
 		if sha256.empty():
 			push_warning(
 					"Failed to get sha256 of the contents of “%s”. Hashing its path instead…"
-					% [face_texture_paths[face_number]]
+					% [face_texture_path]
 			)
-			face_texture_hashes[face_number] = hash(face_texture_paths[face_number])
+			face_texture_hashes[face_number] = hash(face_texture_path)
 		else:
 			face_texture_hashes[face_number] = sha256
 	return "%x" % [hash(face_texture_hashes)]
 
 
-static func generate_surface_material(face_texture_paths : Array) -> Material:
-	var new_albedo_texture_id = _albedo_texture_id(face_texture_paths)
+static func generate_surface_material(face_textures : Array) -> Material:
+	var new_albedo_texture_id = _albedo_texture_id(face_textures)
 	var new_albedo_texture_path := Util.texture_path(OUTPUT_DIR, new_albedo_texture_id)
 	var new_albedo_texture : Texture
 	if ResourceLoader.exists(new_albedo_texture_path):
@@ -58,14 +59,14 @@ static func generate_surface_material(face_texture_paths : Array) -> Material:
 		# TODO: What are mipmaps? Should use_mipmaps be true?
 		new_albedo_image.create(VSwap.WALL_LENGTH * 3, VSwap.WALL_LENGTH * 2, false, IMAGE_FORMAT)
 		for face_number in 6:
-			var texture_to_add = load(face_texture_paths[face_number])
+			var texture_to_add : Texture = face_textures[face_number]
 			var image_to_add : Image
 			if texture_to_add == null:
 				var fallback_texture_path : String
 				fallback_texture_path = FALLBACK_FACE_TEXTURE_PATHS[face_number]
 				push_error(
 						"Failed to load “%s”. Using “%s” as a fallback…"
-						% [face_texture_paths[face_number], fallback_texture_path]
+						% [texture_to_add.resource_path, fallback_texture_path]
 				)
 				texture_to_add = load(fallback_texture_path)
 				if texture_to_add == null:
@@ -118,20 +119,20 @@ static func generate_surface_material(face_texture_paths : Array) -> Material:
 	return return_value
 
 
-func effective_automap_texture_path() -> String:
-	return texture_east.resource_path
+func effective_automap_texture() -> Texture:
+	return texture_east
 
 
 func update_material() -> void:
 	set_surface_material(
 		0,
 		generate_surface_material([
-			texture_south.resource_path,
-			texture_east.resource_path,
-			texture_north.resource_path,
-			texture_west.resource_path,
-			effective_automap_texture_path(),
-			effective_automap_texture_path()
+			texture_south,
+			texture_east,
+			texture_north,
+			texture_west,
+			effective_automap_texture(),
+			effective_automap_texture()
 		])
 	)
 
