@@ -1,7 +1,6 @@
 extends Node
 
 
-const Tile := preload("res://wolf_editing_tools/scenes_and_scripts/map/tile.gd")
 onready var tile : Tile = $Tile
 onready var texture_rect := $TextureRect
 
