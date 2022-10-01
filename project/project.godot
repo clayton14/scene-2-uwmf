@@ -17,7 +17,7 @@ _global_script_classes=[ {
 "base": "ImageTexture",
 "class": "SingleColorTexture",
 "language": "GDScript",
-"path": "res://wolf_editing_tools/scenes_and_scripts/single_color_texture.gd"
+"path": "res://wolf_editing_tools/scenes_and_scripts/resource_types/single_color_texture.gd"
 }, {
 "base": "MeshInstance",
 "class": "Tile",

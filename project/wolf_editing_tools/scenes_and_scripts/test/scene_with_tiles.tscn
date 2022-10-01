@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://wolf_editing_tools/art/n.webp" type="Texture" id=1]
-[ext_resource path="res://wolf_editing_tools/scenes_and_scripts/single_color_texture.gd" type="Script" id=2]
+[ext_resource path="res://wolf_editing_tools/scenes_and_scripts/resource_types/single_color_texture.gd" type="Script" id=2]
 [ext_resource path="res://wolf_editing_tools/art/s.webp" type="Texture" id=3]
 [ext_resource path="res://wolf_editing_tools/generated/art/walls/VSWAP.WL6/BRICK1.tex" type="Texture" id=4]
+[ext_resource path="res://wolf_editing_tools/art/w.webp" type="Texture" id=5]
 [ext_resource path="res://wolf_editing_tools/scenes_and_scripts/map/tile.tscn" type="PackedScene" id=6]
 [ext_resource path="res://wolf_editing_tools/scenes_and_scripts/test/scene_with_tiles.gd" type="Script" id=8]
 
@@ -11,7 +12,7 @@
 
 [sub_resource type="Image" id=5]
 data = {
-"data": PoolByteArray( 128, 17, 17 ),
+"data": PoolByteArray( 0, 195, 255 ),
 "format": "RGB8",
 "height": 1,
 "mipmaps": false,
@@ -22,7 +23,7 @@ data = {
 image = SubResource( 5 )
 size = Vector2( 1, 1 )
 script = ExtResource( 2 )
-color = Color( 0.501961, 0.0666667, 0.0666667, 1 )
+color = Color( 0, 0.764706, 1, 1 )
 
 [sub_resource type="SpatialMaterial" id=6]
 
@@ -38,7 +39,7 @@ margin_bottom = 40.0
 
 [node name="Tile" parent="." instance=ExtResource( 6 )]
 material/0 = SubResource( 4 )
-face_textures = [ ExtResource( 4 ), ExtResource( 1 ), ExtResource( 3 ), SubResource( 3 ), null ]
+face_textures = [ ExtResource( 4 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 5 ), SubResource( 3 ) ]
 
 [node name="Tile2" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 0 )
