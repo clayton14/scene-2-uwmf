@@ -1,5 +1,6 @@
 extends Node
 
+const Tile := preload("res://wolf_editing_tools/scenes_and_scripts/map/tile.gd")
 const Wad := preload("res://wolf_editing_tools/scenes_and_scripts/file_formats/wad.gd")
 const NAMESPACE := "Wolf3D";
 
@@ -38,23 +39,25 @@ static func named_block(name : String, contents : Dictionary) -> String:
 	return return_value
 
 
-# TODO: Calculate width from a GridMap
-func width() -> int:
-	return 3
-
-
-# TODO: Calculate height from a GridMap
-func height() -> int:
-	return 3
+func size() -> Vector3:
+	var return_value := Vector3.ZERO
+	for child in get_children():
+		if child is Tile:
+			var position : Vector3 = child.uwmf_position()
+			return_value.x = max(return_value.x, position.x + 1)
+			return_value.y = max(return_value.y, position.y + 1)
+			return_value.z = max(return_value.z, position.z + 1)
+	return return_value
 
 
 func convert_to_uwmf() -> String:
+	var size := size()
 	return \
 		property_assignment_statement("namespace", NAMESPACE) \
 		+ property_assignment_statement("name", automap_name) \
 		+ property_assignment_statement("tileSize", tile_size) \
-		+ property_assignment_statement("width", width()) \
-		+ property_assignment_statement("height", height())
+		+ property_assignment_statement("width", int(size.x)) \
+		+ property_assignment_statement("height", int(size.y))
 
 
 # For the moment, I’m going to make _ready() export the map.

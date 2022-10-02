@@ -1,12 +1,11 @@
 tool
 extends Spatial
 
-
-const BaseMap := preload("res://wolf_editing_tools/scenes_and_scripts/map/base_map.gd")
 const EAST_FACE_PATH := @"EastFace"
 const OVERHEAD_FACE_PATH := @"OverheadFace"
 const BOTTOM_FACE_PATH := @"BottomFace"
 
+var BaseMap := load("res://wolf_editing_tools/scenes_and_scripts/map/base_map.gd")
 export var texture_east : Texture setget set_texture_east
 export var texture_north : Texture setget set_texture_north
 export var texture_south : Texture setget set_texture_south
@@ -94,3 +93,16 @@ func to_uwmf() -> String:
 	if texture_overhead != null:
 		contents["textureOverhead"] = texture_to_uwmf(texture_overhead)
 	return BaseMap.named_block("tile", contents)
+
+
+func uwmf_position() -> Vector3:
+	# Unfortunately, Godot and the UWMF disagree on the names of Axes.
+	# Godot name => UWMF name
+	# X          => X
+	# Y          => Z
+	# Z          => Y
+	return Vector3(
+		round(global_transform.origin.x),  # In UWMF, a tile’s position must be an unsigned integer.
+		round(global_transform.origin.z),
+		round(global_transform.origin.y)
+	)
