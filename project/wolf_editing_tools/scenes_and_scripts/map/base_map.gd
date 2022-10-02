@@ -3,6 +3,7 @@ extends Node
 const Tile := preload("res://wolf_editing_tools/scenes_and_scripts/map/tile.gd")
 const Wad := preload("res://wolf_editing_tools/scenes_and_scripts/file_formats/wad.gd")
 const NAMESPACE := "Wolf3D";
+const REQUIRED_COMPONENTS := ["tile", "sector", "zone"]
 
 # This will be the name of the header lump [1] when the map is exported. It also gets used as the
 # basename of the WAD file.
@@ -30,7 +31,7 @@ static func property_assignment_statement(property: String, value) -> String:
 
 
 static func named_block(name : String, contents : Dictionary) -> String:
-	var return_value := name + "{"
+	var return_value := name.to_upper() + "{"
 	for key in contents:
 		# Take a look at the comment in convert_to_uwmf for why I’m doing it
 		# like this.
@@ -52,13 +53,62 @@ func size() -> Vector3:
 
 func convert_to_uwmf() -> String:
 	var size := size()
-	return (
+	var return_value := (
 		property_assignment_statement("namespace", NAMESPACE)
 		+ property_assignment_statement("name", automap_name)
 		+ property_assignment_statement("tileSize", tile_size)
 		+ property_assignment_statement("width", int(size.x))
 		+ property_assignment_statement("height", int(size.y))
+		# TODO: This shouldn’t be hard codded.
+		+ named_block("plane", { "depth" : 64 })
 	)
+	
+	# TODO: Allow for more than one plane map.
+	var plane_map := []
+	# warning-ignore:narrowing_conversion
+	plane_map.resize(size.y)
+	for row in len(plane_map):
+		plane_map[row] = []
+		plane_map[row].resize(size.x)
+	
+	# First, populate the plane_map…
+	var next_tile_index := 0
+	var tile_to_index := {}
+	# TODO: Make this search recursive.
+	for child in get_children():
+		if child is Tile:
+			var uwmf_block : String = child.to_uwmf()
+			if not uwmf_block in tile_to_index:
+				return_value += uwmf_block
+				tile_to_index[uwmf_block] = next_tile_index
+				next_tile_index += 1
+			var position : Vector3 = child.uwmf_position()
+			if plane_map[position.y][position.x] == null:
+				plane_map[position.y][position.x] = {}
+			plane_map[position.y][position.x]["tile"] = tile_to_index[uwmf_block]
+	# …then, convert the plane_map to the UWMF.
+	return_value += "PLANEMAP{"
+	for row in len(plane_map):
+		for column in len(plane_map[row]):
+			var item = plane_map[row][column]
+			if item == null:
+				item = {}
+			
+			return_value += "{"
+			for i in len(REQUIRED_COMPONENTS):
+				return_value += var2str(item.get(REQUIRED_COMPONENTS[i], -1))
+				if i != (len(REQUIRED_COMPONENTS) - 1):
+					return_value += ","
+			if "tag" in item:
+				return_value += ","
+				return_value += var2str(item["tag"])
+			return_value += "}"
+			if column != len(plane_map[row]) - 1:
+				return_value += ","
+		if row != len(plane_map) - 1:
+			return_value += ","
+	return_value += "}"
+	return return_value
 
 
 # For the moment, I’m going to make _ready() export the map.

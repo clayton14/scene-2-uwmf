@@ -101,8 +101,16 @@ func uwmf_position() -> Vector3:
 	# X          => X
 	# Y          => Z
 	# Z          => Y
-	return Vector3(
+	var return_value =  Vector3(
 		round(global_transform.origin.x),  # In UWMF, a tile’s position must be an unsigned integer.
 		round(global_transform.origin.z),
 		round(global_transform.origin.y)
 	)
+	# TODO: Add more warnings here
+	if return_value.x < 0:
+		push_error("Tile has a negative X coordinate.")
+	if return_value.y < 0:
+		push_error("Tile has a negative Z coordinate.")
+	if return_value.z != 0:
+		push_error("Multiple planes haven’t been implemented yet. The Y coordinate for every Tile should be 0.")
+	return return_value
