@@ -22,20 +22,20 @@ func set_texture(wall : Node, new_texture : Texture) -> void:
 
 
 func set_texture_east(new_texture_east : Texture) -> void:
-	set_texture($WallEast, new_texture_east)
+	set_texture($EastFace, new_texture_east)
 	texture_east = new_texture_east
 
 
 func set_texture_north(new_texture_north : Texture) -> void:
-	set_texture($WallNorth, new_texture_north)
+	set_texture($NorthFace, new_texture_north)
 	texture_north = new_texture_north
 
 
 func set_texture_south(new_texture_south : Texture) -> void:
-	set_texture($WallSouth, new_texture_south)
+	set_texture($SouthFace, new_texture_south)
 	texture_south = new_texture_south
 
 
 func set_texture_west(new_texture_west : Texture) -> void:
-	set_texture($WallWest, new_texture_west)
+	set_texture($WestFace, new_texture_west)
 	texture_west = new_texture_west
