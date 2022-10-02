@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://wolf_editing_tools/scenes_and_scripts/map/tile.tscn" type="PackedScene" id=1]
 [ext_resource path="res://wolf_editing_tools/generated/art/walls/VSWAP.WL6/BLUSKUL1.tex" type="Texture" id=2]
 [ext_resource path="res://wolf_editing_tools/generated/art/walls/VSWAP.WL6/BLUSKUL2.tex" type="Texture" id=3]
 [ext_resource path="res://wolf_editing_tools/generated/art/walls/VSWAP.WL6/PURPLE1.tex" type="Texture" id=4]
-[ext_resource path="res://wolf_editing_tools/generated/art/walls/VSWAP.WL6/PURPLE2.tex" type="Texture" id=5]
 [ext_resource path="res://wolf_editing_tools/generated/art/walls/VSWAP.WL6/METAL1.tex" type="Texture" id=6]
 [ext_resource path="res://wolf_editing_tools/generated/art/walls/VSWAP.WL6/BSTSIGN1.tex" type="Texture" id=7]
 [ext_resource path="res://wolf_editing_tools/generated/art/walls/VSWAP.WL6/BRIKODD2.tex" type="Texture" id=8]
@@ -20,7 +19,6 @@ texture_west = ExtResource( 8 )
 
 [node name="Tile2" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2 )
-texture_east = ExtResource( 5 )
 texture_north = ExtResource( 4 )
 texture_south = ExtResource( 7 )
 texture_west = ExtResource( 9 )
