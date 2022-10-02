@@ -44,6 +44,10 @@ func get_color() -> Color:
 	return return_value
 
 
+func to_uwmf() -> String:
+	return '"#%s"' % [get_color().to_html(false)]
+
+
 static func make_color_a_property() -> bool:
 	return true
 

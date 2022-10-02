@@ -11,7 +11,7 @@ func set_color(_color) -> void:
 	push_warning("InvisibleTexture.color can’t be changed.")
 
 
-static func to_uwmf() -> String:
+func to_uwmf() -> String:
 	return '"-"'
 
 
