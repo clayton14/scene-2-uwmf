@@ -52,12 +52,13 @@ func size() -> Vector3:
 
 func convert_to_uwmf() -> String:
 	var size := size()
-	return \
-		property_assignment_statement("namespace", NAMESPACE) \
-		+ property_assignment_statement("name", automap_name) \
-		+ property_assignment_statement("tileSize", tile_size) \
-		+ property_assignment_statement("width", int(size.x)) \
+	return (
+		property_assignment_statement("namespace", NAMESPACE)
+		+ property_assignment_statement("name", automap_name)
+		+ property_assignment_statement("tileSize", tile_size)
+		+ property_assignment_statement("width", int(size.x))
 		+ property_assignment_statement("height", int(size.y))
+	)
 
 
 # For the moment, I’m going to make _ready() export the map.
