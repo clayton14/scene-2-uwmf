@@ -24,7 +24,6 @@ data = {
 image = SubResource( 5 )
 size = Vector2( 1, 1 )
 script = ExtResource( 7 )
-color = Color( 1, 1, 1, 0 )
 
 [sub_resource type="Image" id=6]
 data = {
@@ -39,7 +38,6 @@ data = {
 image = SubResource( 6 )
 size = Vector2( 1, 1 )
 script = ExtResource( 3 )
-color = Color( 0.654902, 0.180392, 0.180392, 1 )
 
 [node name="TileInstances" type="Node"]
 
