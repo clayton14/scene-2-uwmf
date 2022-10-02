@@ -12,7 +12,7 @@ func set_color(_color) -> void:
 
 
 func to_uwmf() -> String:
-	return '"-"'
+	return "-"
 
 
 static func make_color_a_property() -> bool:
