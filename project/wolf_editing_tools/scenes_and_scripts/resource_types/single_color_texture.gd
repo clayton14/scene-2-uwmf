@@ -1,4 +1,4 @@
-#tool
+tool
 class_name SingleColorTexture
 extends ImageTexture
 
@@ -6,7 +6,15 @@ extends ImageTexture
 signal color_changed
 
 
+# By default, subclasses call their parent’s _init(). We don’t want that here,
+# so we’re putting the initialization code into a function that can be fully
+# overridden. Idea taken from here:
+# <https://github.com/godotengine/godot-proposals/issues/594#issuecomment-600643905>
 func _init() -> void:
+	initialize()
+
+
+func initialize() -> void:
 	set_color(Color.white)
 
 
@@ -36,29 +44,31 @@ func get_color() -> Color:
 	return return_value
 
 
-static func color_usage() -> int:
-	return PROPERTY_USAGE_DEFAULT
+static func make_color_a_property() -> bool:
+	return true
 
 
 func _get_property_list() -> Array:
-	return [
-		{
-			"name" : "color",
-			"type" : typeof(Color.white),
-			"usage" : color_usage()
-		}
-	]
+	if make_color_a_property():
+		return [
+			{
+				"name" : "color",
+				"type" : typeof(Color.white)
+			}
+		]
+	else:
+		return []
 
 
 func _get(property):
-	if property is String and property == "color":
+	if make_color_a_property() and property is String and property == "color":
 		return get_color()
 	else:
 		return null
 
 
 func _set(property, value) -> bool:
-	if property is String and property == "color":
+	if make_color_a_property() and property is String and property == "color":
 		if value is Color:
 			set_color(value)
 		else:

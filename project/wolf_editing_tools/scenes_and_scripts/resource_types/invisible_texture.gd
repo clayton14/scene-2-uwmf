@@ -1,9 +1,9 @@
-#tool
+tool
 class_name InvisibleTexture
 extends SingleColorTexture
 
 
-func _init() -> void:
+func initialize() -> void:
 	._set_color_no_verify(Color.transparent)
 
 
@@ -15,5 +15,5 @@ func to_uwmf() -> String:
 	return '"-"'
 
 
-static func color_usage() -> int:
-	return .color_usage() & ~PROPERTY_USAGE_STORAGE
+static func make_color_a_property() -> bool:
+	return false
