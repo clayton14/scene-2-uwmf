@@ -4,6 +4,7 @@ extends Spatial
 
 const EAST_FACE_PATH := @"EastFace"
 const OVERHEAD_FACE_PATH := @"OverheadFace"
+const BOTTOM_FACE_PATH := @"BottomFace"
 
 export var texture_east : Texture setget set_texture_east
 export var texture_north : Texture setget set_texture_north
@@ -33,8 +34,24 @@ func set_texture(path : NodePath, new_texture : Texture) -> void:
 			face.material_override = new_material
 
 
+func update_overhead_and_bottom_materials() -> void:
+	if texture_overhead == null:
+		var east_face = get_mesh_instance(EAST_FACE_PATH)
+		var overhead_face = get_mesh_instance(OVERHEAD_FACE_PATH)
+		var bottom_face = get_mesh_instance(BOTTOM_FACE_PATH)
+		if east_face != null:
+			if overhead_face != null:
+				overhead_face.material_override = east_face.material_override
+			if bottom_face != null:
+				bottom_face.material_override = east_face.material_override
+	else:
+		set_texture(OVERHEAD_FACE_PATH, texture_overhead)
+		set_texture(BOTTOM_FACE_PATH, texture_overhead)
+
+
 func set_texture_east(new_texture_east : Texture) -> void:
 	set_texture(EAST_FACE_PATH, new_texture_east)
+	update_overhead_and_bottom_materials()
 	texture_east = new_texture_east
 
 
@@ -54,11 +71,5 @@ func set_texture_west(new_texture_west : Texture) -> void:
 
 
 func set_texture_overhead(new_texture_overhead : Texture) -> void:
-	if new_texture_overhead == null:
-		var overhead_face = get_mesh_instance(OVERHEAD_FACE_PATH)
-		var east_face = get_mesh_instance(EAST_FACE_PATH)
-		if overhead_face != null and east_face != null:
-			overhead_face.material_override = east_face.material_override
-	else:
-		set_texture(OVERHEAD_FACE_PATH, new_texture_overhead)
 	texture_overhead = new_texture_overhead
+	update_overhead_and_bottom_materials()
