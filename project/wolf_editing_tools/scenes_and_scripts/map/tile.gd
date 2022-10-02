@@ -30,6 +30,7 @@ func set_texture(path : NodePath, new_texture : Texture) -> void:
 		else:
 			var new_material := SpatialMaterial.new()
 			new_material.flags_unshaded = true
+			new_material.flags_transparent = true
 			new_material.albedo_texture = new_texture
 			face.material_override = new_material
 
