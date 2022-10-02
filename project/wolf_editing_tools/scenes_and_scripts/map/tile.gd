@@ -2,6 +2,7 @@ tool
 extends Spatial
 
 
+const BaseMap := preload("res://wolf_editing_tools/scenes_and_scripts/map/base_map.gd")
 const EAST_FACE_PATH := @"EastFace"
 const OVERHEAD_FACE_PATH := @"OverheadFace"
 const BOTTOM_FACE_PATH := @"BottomFace"
@@ -74,3 +75,22 @@ func set_texture_west(new_texture_west : Texture) -> void:
 func set_texture_overhead(new_texture_overhead : Texture) -> void:
 	texture_overhead = new_texture_overhead
 	update_overhead_and_bottom_materials()
+
+
+static func texture_to_uwmf(texture : Texture) -> String:
+	if texture is SingleColorTexture:
+		return texture.to_uwmf()
+	else:
+		return '"%s"' % [texture.resource_path.get_basename().get_file()]
+
+
+func to_uwmf() -> String:
+	var contents := {
+		"textureEast" : texture_to_uwmf(texture_east),
+		"textureNorth" : texture_to_uwmf(texture_north),
+		"textureSouth" : texture_to_uwmf(texture_south),
+		"textureWest" : texture_to_uwmf(texture_west)
+	}
+	if texture_overhead != null:
+		contents["textureOverhead"] = texture_to_uwmf(texture_overhead)
+	return BaseMap.named_block("tile", contents)

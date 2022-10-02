@@ -17,6 +17,14 @@ static func property_assignment_statement(property: String, value) -> String:
 	return '%s=%s;' % [property, var2str(value)]
 
 
+static func named_block(name : String, contents : Dictionary) -> String:
+	var return_value := name + "{"
+	for key in contents:
+		return_value += property_assignment_statement(key, contents[key])
+	return_value += "}"
+	return return_value
+
+
 # TODO: Calculate width from a GridMap
 func width() -> int:
 	return 3
