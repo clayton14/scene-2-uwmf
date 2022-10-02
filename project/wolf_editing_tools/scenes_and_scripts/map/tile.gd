@@ -3,18 +3,27 @@ extends Spatial
 
 
 export var texture_east : Texture setget set_texture_east
+export var texture_north : Texture setget set_texture_north
 
 
-func set_texture_east(new_texture_east : Texture) -> void:
-	var wall_east := $WallEast
-	if wall_east is MeshInstance:
-		if new_texture_east == null:
-			wall_east.material_override = null
+func set_texture(wall : Node, new_texture : Texture) -> void:
+	if wall is MeshInstance:
+		if new_texture == null:
+			wall.material_override = null
 		else:
 			var new_material := SpatialMaterial.new()
 			new_material.flags_unshaded = true
-			new_material.albedo_texture = new_texture_east
-			wall_east.material_override = new_material
+			new_material.albedo_texture = new_texture
+			wall.material_override = new_material
 	else:
 		push_error("wall_east wasn’t a MeshInstance.")
+
+
+func set_texture_east(new_texture_east : Texture) -> void:
+	set_texture($WallEast, new_texture_east)
 	texture_east = new_texture_east
+
+
+func set_texture_north(new_texture_north : Texture) -> void:
+	set_texture($WallNorth, new_texture_north)
+	texture_north = new_texture_north
