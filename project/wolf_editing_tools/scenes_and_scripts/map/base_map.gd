@@ -43,11 +43,11 @@ static func named_block(name : String, contents : Dictionary) -> String:
 func size() -> Vector3:
 	var return_value := Vector3.ZERO
 	for child in get_children():
-		if child is Tile:
-			var position : Vector3 = child.uwmf_position()
-			return_value.x = max(return_value.x, position.x + 1)
-			return_value.y = max(return_value.y, position.y + 1)
-			return_value.z = max(return_value.z, position.z + 1)
+		if child is MapObject:
+			var max_coordinates : Vector3 = child.max_uwmf_x_y_z()
+			return_value.x = max(return_value.x, max_coordinates.x)
+			return_value.y = max(return_value.y, max_coordinates.y)
+			return_value.z = max(return_value.z, max_coordinates.z)
 	return return_value
 
 

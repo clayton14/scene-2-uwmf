@@ -1,5 +1,5 @@
 tool
-extends Spatial
+extends MapObject
 
 const EAST_FACE_PATH := @"EastFace"
 const OVERHEAD_FACE_PATH := @"OverheadFace"
@@ -96,21 +96,13 @@ func to_uwmf() -> String:
 
 
 func uwmf_position() -> Vector3:
-	# Unfortunately, Godot and the UWMF disagree on the names of Axes.
-	# Godot name => UWMF name
-	# X          => X
-	# Y          => Z
-	# Z          => Y
-	var return_value =  Vector3(
-		round(global_transform.origin.x),  # In UWMF, a tile’s position must be an unsigned integer.
-		round(global_transform.origin.z),
-		round(global_transform.origin.y)
-	)
-	# TODO: Add more warnings here
-	if return_value.x < 0:
-		push_error("Tile has a negative X coordinate.")
-	if return_value.y < 0:
-		push_error("Tile has a negative Z coordinate.")
+	var return_value := .uwmf_position()
+	return_value = return_value.round()
+	# TODO: Errors for when Tiles have coordinates that aren’t whole numbers.
 	if return_value.z != 0:
 		push_error("Multiple planes haven’t been implemented yet. The Y coordinate for every Tile should be 0.")
 	return return_value
+
+
+func max_uwmf_x_y_z() -> Vector3:
+	return uwmf_position() + Vector3(1, 1, 1)

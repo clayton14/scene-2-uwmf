@@ -6,7 +6,7 @@
 
 [sub_resource type="Image" id=15]
 data = {
-"data": PoolByteArray( 26, 31, 88, 255 ),
+"data": PoolByteArray( 26, 31, 87, 255 ),
 "format": "RGBA8",
 "height": 1,
 "mipmaps": false,
@@ -17,11 +17,11 @@ data = {
 image = SubResource( 15 )
 size = Vector2( 1, 1 )
 script = ExtResource( 2 )
-color = Color( 0.101961, 0.121569, 0.345098, 1 )
+color = Color( 0.101961, 0.121569, 0.341176, 1 )
 
 [sub_resource type="Image" id=16]
 data = {
-"data": PoolByteArray( 26, 31, 88, 255 ),
+"data": PoolByteArray( 26, 31, 87, 255 ),
 "format": "RGBA8",
 "height": 1,
 "mipmaps": false,
@@ -32,11 +32,11 @@ data = {
 image = SubResource( 16 )
 size = Vector2( 1, 1 )
 script = ExtResource( 2 )
-color = Color( 0.101961, 0.121569, 0.345098, 1 )
+color = Color( 0.101961, 0.121569, 0.341176, 1 )
 
 [sub_resource type="Image" id=17]
 data = {
-"data": PoolByteArray( 26, 31, 88, 255 ),
+"data": PoolByteArray( 26, 31, 87, 255 ),
 "format": "RGBA8",
 "height": 1,
 "mipmaps": false,
@@ -47,11 +47,11 @@ data = {
 image = SubResource( 17 )
 size = Vector2( 1, 1 )
 script = ExtResource( 2 )
-color = Color( 0.101961, 0.121569, 0.345098, 1 )
+color = Color( 0.101961, 0.121569, 0.341176, 1 )
 
 [sub_resource type="Image" id=18]
 data = {
-"data": PoolByteArray( 26, 31, 88, 255 ),
+"data": PoolByteArray( 26, 31, 87, 255 ),
 "format": "RGBA8",
 "height": 1,
 "mipmaps": false,
@@ -62,7 +62,7 @@ data = {
 image = SubResource( 18 )
 size = Vector2( 1, 1 )
 script = ExtResource( 2 )
-color = Color( 0.101961, 0.121569, 0.345098, 1 )
+color = Color( 0.101961, 0.121569, 0.341176, 1 )
 
 [sub_resource type="Image" id=19]
 data = {
