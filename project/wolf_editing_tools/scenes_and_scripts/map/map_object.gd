@@ -2,6 +2,11 @@ class_name MapObject
 extends Spatial
 
 
+func to_uwmf() -> String:
+	push_error("A child class should have overridden this method (to_uwmf()).")
+	return ""
+
+
 func uwmf_position() -> Vector3:
 	# Unfortunately, Godot and the UWMF disagree on the names of the axes.
 	# Godot name => UWMF name

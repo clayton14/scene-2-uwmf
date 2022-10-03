@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://wolf_editing_tools/generated/art/missing_texture.tex" type="Texture" id=1]
+[ext_resource path="res://wolf_editing_tools/scenes_and_scripts/map/thing.gd" type="Script" id=2]
+
+[node name="Thing" type="Sprite3D"]
+pixel_size = 0.0156
+billboard = 1
+texture = ExtResource( 1 )
+script = ExtResource( 2 )

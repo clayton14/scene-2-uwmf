@@ -71,22 +71,26 @@ func convert_to_uwmf() -> String:
 		plane_map[row] = []
 		plane_map[row].resize(size.x)
 	
-	# First, populate the plane_map…
+	# First, convert everything that doesn’t belong in the plane map to UWMF and
+	# populate the plane_map…
 	var next_tile_index := 0
 	var tile_to_index := {}
 	# TODO: Make this search recursive.
 	for child in get_children():
-		if child is Tile:
+		if child is MapObject:
 			var uwmf_block : String = child.to_uwmf()
-			if not uwmf_block in tile_to_index:
+			if child is Tile:
+				if not uwmf_block in tile_to_index:
+					return_value += uwmf_block
+					tile_to_index[uwmf_block] = next_tile_index
+					next_tile_index += 1
+				var position : Vector3 = child.uwmf_position()
+				if plane_map[position.y][position.x] == null:
+					plane_map[position.y][position.x] = {}
+				plane_map[position.y][position.x]["tile"] = tile_to_index[uwmf_block]
+			else:
 				return_value += uwmf_block
-				tile_to_index[uwmf_block] = next_tile_index
-				next_tile_index += 1
-			var position : Vector3 = child.uwmf_position()
-			if plane_map[position.y][position.x] == null:
-				plane_map[position.y][position.x] = {}
-			plane_map[position.y][position.x]["tile"] = tile_to_index[uwmf_block]
-	# …then, convert the plane_map to the UWMF.
+	# …then, convert the plane_map to UWMF.
 	return_value += "PLANEMAP{"
 	for row in len(plane_map):
 		for column in len(plane_map[row]):

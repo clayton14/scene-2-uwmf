@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://wolf_editing_tools/scenes_and_scripts/map/base_map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://wolf_editing_tools/scenes_and_scripts/resource_types/single_color_texture.gd" type="Script" id=2]
 [ext_resource path="res://wolf_editing_tools/scenes_and_scripts/map/tile.tscn" type="PackedScene" id=3]
+[ext_resource path="res://wolf_editing_tools/scenes_and_scripts/map/thing.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Image" id=15]
 data = {
@@ -401,3 +402,6 @@ texture_east = SubResource( 2 )
 texture_north = SubResource( 4 )
 texture_south = SubResource( 6 )
 texture_west = SubResource( 8 )
+
+[node name="Thing" parent="." index="46" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2 )
