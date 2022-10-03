@@ -1,13 +1,43 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://wolf_editing_tools/scenes_and_scripts/map/base_map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://wolf_editing_tools/scenes_and_scripts/resource_types/single_color_texture.gd" type="Script" id=2]
 [ext_resource path="res://wolf_editing_tools/scenes_and_scripts/map/tile.tscn" type="PackedScene" id=3]
 [ext_resource path="res://wolf_editing_tools/scenes_and_scripts/map/thing.tscn" type="PackedScene" id=4]
 
-[sub_resource type="Image" id=15]
+[sub_resource type="Image" id=19]
 data = {
-"data": PoolByteArray( 26, 31, 87, 255 ),
+"data": PoolByteArray( 56, 56, 56, 255 ),
+"format": "RGBA8",
+"height": 1,
+"mipmaps": false,
+"width": 1
+}
+
+[sub_resource type="ImageTexture" id=16]
+image = SubResource( 19 )
+size = Vector2( 1, 1 )
+script = ExtResource( 2 )
+color = Color( 0.219608, 0.219608, 0.219608, 1 )
+
+[sub_resource type="Image" id=20]
+data = {
+"data": PoolByteArray( 113, 113, 113, 255 ),
+"format": "RGBA8",
+"height": 1,
+"mipmaps": false,
+"width": 1
+}
+
+[sub_resource type="ImageTexture" id=18]
+image = SubResource( 20 )
+size = Vector2( 1, 1 )
+script = ExtResource( 2 )
+color = Color( 0.443137, 0.443137, 0.443137, 1 )
+
+[sub_resource type="Image" id=21]
+data = {
+"data": PoolByteArray( 26, 31, 86, 255 ),
 "format": "RGBA8",
 "height": 1,
 "mipmaps": false,
@@ -15,14 +45,14 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id=2]
-image = SubResource( 15 )
+image = SubResource( 21 )
 size = Vector2( 1, 1 )
 script = ExtResource( 2 )
-color = Color( 0.101961, 0.121569, 0.341176, 1 )
+color = Color( 0.101961, 0.121569, 0.337255, 1 )
 
-[sub_resource type="Image" id=16]
+[sub_resource type="Image" id=22]
 data = {
-"data": PoolByteArray( 26, 31, 87, 255 ),
+"data": PoolByteArray( 26, 31, 86, 255 ),
 "format": "RGBA8",
 "height": 1,
 "mipmaps": false,
@@ -30,14 +60,14 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id=4]
-image = SubResource( 16 )
+image = SubResource( 22 )
 size = Vector2( 1, 1 )
 script = ExtResource( 2 )
-color = Color( 0.101961, 0.121569, 0.341176, 1 )
+color = Color( 0.101961, 0.121569, 0.337255, 1 )
 
-[sub_resource type="Image" id=17]
+[sub_resource type="Image" id=23]
 data = {
-"data": PoolByteArray( 26, 31, 87, 255 ),
+"data": PoolByteArray( 26, 31, 86, 255 ),
 "format": "RGBA8",
 "height": 1,
 "mipmaps": false,
@@ -45,14 +75,14 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id=6]
-image = SubResource( 17 )
+image = SubResource( 23 )
 size = Vector2( 1, 1 )
 script = ExtResource( 2 )
-color = Color( 0.101961, 0.121569, 0.341176, 1 )
+color = Color( 0.101961, 0.121569, 0.337255, 1 )
 
-[sub_resource type="Image" id=18]
+[sub_resource type="Image" id=24]
 data = {
-"data": PoolByteArray( 26, 31, 87, 255 ),
+"data": PoolByteArray( 26, 31, 86, 255 ),
 "format": "RGBA8",
 "height": 1,
 "mipmaps": false,
@@ -60,12 +90,12 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id=8]
-image = SubResource( 18 )
+image = SubResource( 24 )
 size = Vector2( 1, 1 )
 script = ExtResource( 2 )
-color = Color( 0.101961, 0.121569, 0.341176, 1 )
+color = Color( 0.101961, 0.121569, 0.337255, 1 )
 
-[sub_resource type="Image" id=19]
+[sub_resource type="Image" id=25]
 data = {
 "data": PoolByteArray( 253, 255, 0, 255 ),
 "format": "RGBA8",
@@ -75,12 +105,15 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id=14]
-image = SubResource( 19 )
+image = SubResource( 25 )
 size = Vector2( 1, 1 )
 script = ExtResource( 2 )
 color = Color( 0.992157, 1, 0, 1 )
 
 [node name="SolitaryConfinement" instance=ExtResource( 1 )]
+default_sector/enabled = true
+default_sector/texture_ceiling = SubResource( 16 )
+default_sector/texture_floor = SubResource( 18 )
 
 [node name="Tile" parent="." index="0" instance=ExtResource( 3 )]
 texture_east = SubResource( 2 )

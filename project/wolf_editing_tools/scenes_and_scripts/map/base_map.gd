@@ -1,10 +1,16 @@
+tool
 extends Node
 
 const Tile := preload("res://wolf_editing_tools/scenes_and_scripts/map/tile.gd")
 const Wad := preload("res://wolf_editing_tools/scenes_and_scripts/file_formats/wad.gd")
 const NAMESPACE := "Wolf3D";
 const REQUIRED_COMPONENTS := ["tile", "sector", "zone"]
+const TRIED_TO_SET_WRONG_TYPE := "Tried to set %s to something that isn’t a %s."
 
+
+var Sector = load("res://wolf_editing_tools/scenes_and_scripts/map/sector.gd")
+var default_sector_enabled := true
+var default_sector = Sector.new()
 # This will be the name of the header lump [1] when the map is exported. It also gets used as the
 # basename of the WAD file.
 #
@@ -51,6 +57,13 @@ func size() -> Vector3:
 	return return_value
 
 
+func component_default(component : String):
+	if component == "sector" and default_sector_enabled:
+		return 0
+	else:
+		return -1
+
+
 func convert_to_uwmf() -> String:
 	var size := size()
 	var return_value := (
@@ -62,6 +75,9 @@ func convert_to_uwmf() -> String:
 		# TODO: This shouldn’t be hard codded.
 		+ named_block("plane", { "depth" : 64 })
 	)
+	
+	if default_sector_enabled:
+		return_value += default_sector.to_uwmf()
 	
 	# TODO: Allow for more than one plane map.
 	var plane_map := []
@@ -100,7 +116,10 @@ func convert_to_uwmf() -> String:
 			
 			return_value += "{"
 			for i in len(REQUIRED_COMPONENTS):
-				return_value += var2str(item.get(REQUIRED_COMPONENTS[i], -1))
+				return_value += var2str(item.get(
+					REQUIRED_COMPONENTS[i],
+					component_default(REQUIRED_COMPONENTS[i])
+				))
 				if i != (len(REQUIRED_COMPONENTS) - 1):
 					return_value += ","
 			if "tag" in item:
@@ -117,11 +136,113 @@ func convert_to_uwmf() -> String:
 
 # For the moment, I’m going to make _ready() export the map.
 func _ready() -> void:
-	var wad := Wad.new()
-	var lumps := [
-		Wad.Lump.new(internal_name, PoolByteArray()),
-		Wad.Lump.new("TEXTMAP", convert_to_uwmf().to_utf8()),
-		Wad.Lump.new("ENDMAP", PoolByteArray()),
+	if !Engine.editor_hint:
+		var wad := Wad.new()
+		var lumps := [
+			Wad.Lump.new(internal_name, PoolByteArray()),
+			Wad.Lump.new("TEXTMAP", convert_to_uwmf().to_utf8()),
+			Wad.Lump.new("ENDMAP", PoolByteArray()),
+		]
+		assert(wad.set_lumps(lumps), "Setting lumps failed.")
+		assert(wad.save("user://%s.WAD" % [internal_name]) == OK, "Saving WAD failed.")
+
+
+static func _texture_property(name : String) -> Dictionary:
+	return {
+		"name" : name,
+		"type" : TYPE_OBJECT,
+		"hint" : PROPERTY_HINT_RESOURCE_TYPE,
+		"hint_string" : "Texture"
+	}
+
+
+static func is_valid_texture_value(property_name : String, value) -> bool:
+	if value == null or value is Texture:
+		return true
+	else:
+		push_error(TRIED_TO_SET_WRONG_TYPE % [property_name, "Texture"])
+		return false
+
+
+static func are_textures_equal(texture1 : Texture, texture2 : Texture) -> bool:
+	if texture1 is SingleColorTexture and texture2 is SingleColorTexture:
+		return (
+			texture1.color.r8 == texture2.color.r8
+			and texture1.color.g8 == texture2.color.g8
+			and texture1.color.b8 == texture2.color.b8
+			and texture1.color.a8 == texture2.color.a8
+		)
+	elif texture1.resource_path != "" and texture2.resource_path != "":
+		return texture1.resource_path == texture2.resource_path
+	else:
+		return texture1 == texture2
+
+
+func _get_property_list() -> Array:
+	return [
+		{
+			"name" : "default_sector/enabled",
+			"type" : TYPE_BOOL
+		},
+		_texture_property("default_sector/texture_ceiling"),
+		_texture_property("default_sector/texture_floor")
 	]
-	assert(wad.set_lumps(lumps), "Setting lumps failed.")
-	assert(wad.save("user://%s.WAD" % [internal_name]) == OK, "Saving WAD failed.")
+
+
+func _get(property):
+	match property:
+		"default_sector/enabled":
+			return default_sector_enabled
+		"default_sector/texture_ceiling":
+			return default_sector.texture_ceiling
+		"default_sector/texture_floor":
+			return default_sector.texture_floor
+	return null
+
+
+func _set(property, value) -> bool:
+	if property is String and property.begins_with("default_sector/"):
+		match property.substr(len("default_sector/")):
+			"enabled":
+				if value is bool:
+					default_sector_enabled = value
+					return true
+				else:
+					push_error(TRIED_TO_SET_WRONG_TYPE % [property, "bool"])
+			"texture_ceiling":
+				if is_valid_texture_value("default_sector/texture_ceiling", value):
+					default_sector.texture_ceiling = value
+					return true
+			"texture_floor":
+				if is_valid_texture_value("default_sector/texture_floor", value):
+					default_sector.texture_floor = value
+					return true
+	return false
+
+
+func property_can_revert(name) -> bool:
+	match name:
+		"default_sector/enabled":
+			return !default_sector_enabled
+		"default_sector/texture_ceiling":
+			return !are_textures_equal(
+				default_sector.texture_ceiling,
+				Sector.default_texture_ceiling()
+			)
+		"default_sector/texture_floor":
+			return !are_textures_equal(
+				default_sector.texture_floor,
+				Sector.default_texture_floor()
+			)
+	return false
+
+
+func property_get_revert(name):
+	match name:
+		"default_sector/enabled":
+			return true
+		"default_sector/texture_ceiling":
+			return Sector.default_texture_ceiling()
+		"default_sector/texture_floor":
+			return Sector.default_texture_floor()
+	return null

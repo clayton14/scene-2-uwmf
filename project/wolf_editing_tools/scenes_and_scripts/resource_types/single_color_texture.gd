@@ -18,6 +18,12 @@ func initialize() -> void:
 	set_color(Color.white)
 
 
+static func from_color(color : Color):
+	var SingleColorTextureType = load("res://wolf_editing_tools/scenes_and_scripts/resource_types/single_color_texture.gd")
+	var return_value = SingleColorTextureType.new()
+	return_value.set_color(color)
+	return return_value
+
 func _set_color_no_verify(new_color : Color) -> void:
 	var new_image = Image.new()
 	new_image.create(1, 1, false, Util.TILE_IMAGE_FORMAT)
