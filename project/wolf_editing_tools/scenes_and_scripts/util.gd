@@ -97,7 +97,7 @@ static func texture_to_uwmf(texture : Texture) -> String:
 	if texture is SingleColorTextureType:
 		return texture.to_uwmf()
 	else:
-		return '"%s"' % [texture.resource_path.get_basename().get_file()]
+		return "%s" % [texture.resource_path.get_basename().get_file()]
 
 
 func _init() -> void:
