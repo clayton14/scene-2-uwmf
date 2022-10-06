@@ -75,10 +75,10 @@ func convert_to_uwmf() -> String:
 		# TODO: This shouldn’t be hard codded.
 		+ named_block("plane", { "depth" : 64 })
 	)
-	
+
 	if default_sector_enabled:
 		return_value += default_sector.to_uwmf()
-	
+
 	# TODO: Allow for more than one plane map.
 	var plane_map := []
 	# warning-ignore:narrowing_conversion
@@ -86,7 +86,7 @@ func convert_to_uwmf() -> String:
 	for row in len(plane_map):
 		plane_map[row] = []
 		plane_map[row].resize(size.x)
-	
+
 	# First, convert everything that doesn’t belong in the plane map to UWMF and
 	# populate the plane_map…
 	var next_tile_index := 0
@@ -113,7 +113,7 @@ func convert_to_uwmf() -> String:
 			var item = plane_map[row][column]
 			if item == null:
 				item = {}
-			
+
 			return_value += "{"
 			for i in len(REQUIRED_COMPONENTS):
 				return_value += var2str(item.get(

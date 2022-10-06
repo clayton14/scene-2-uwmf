@@ -33,7 +33,7 @@ func prompt_for_file() -> void:
 	else:
 		window_title = "Open VSWAP.*"
 		filters = PoolStringArray(["VSWAP.* ; VSWAP"])
-	
+
 	var popup_size : Vector2 = get_viewport().get_visible_rect().size
 	popup_size *= 0.75
 	file_dialog.window_title = window_title
@@ -79,18 +79,18 @@ Check the debugger for details."""
 		var art_dir := OUTPUT_DIR + "art/"
 		Util.make_dir_recursive_or_error(art_dir)
 		Util.save_texture(ecwolf_pk3.missing_texture, art_dir, "missing_texture")
-		
+
 		var walls_dir : String = art_dir + "walls/" + v_swap_path.get_file() + "/"
 		Util.remove_dir_recursive_or_error(walls_dir)
 		Util.make_dir_recursive_or_error(walls_dir)
 		for wall_name in v_swap.walls:
 			Util.save_texture(v_swap.walls[wall_name], walls_dir, wall_name)
-		
+
 		color = Color("439300")
 		finished_screen.text = """Finished extracting graphics.
 Please check the debugger for any errors."""
 	finished_screen.text += "\n(You can close out of this window now)"
-	
+
 	loading_screen.hide()
 	finished_screen.show()
 

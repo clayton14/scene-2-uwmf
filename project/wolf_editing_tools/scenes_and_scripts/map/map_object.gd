@@ -25,12 +25,12 @@ func uwmf_position() -> Vector3:
 		push_error("MapObject has a negative Z coordinate.")
 	if return_value.z < 0:
 		push_error("MapObject has a negative Y coordinate.")
-	
+
 	return return_value
 
 
 # Returns the largest X coordinate of any point inside this MapObjet,
 # the largest Y coordinate of any point indside this MapObject and the largest Z
-# coordinate of any point inside this MapObject. 
+# coordinate of any point inside this MapObject.
 func max_uwmf_x_y_z() -> Vector3:
 	return uwmf_position()

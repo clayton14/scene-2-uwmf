@@ -92,7 +92,7 @@ func _update_data_map(
 	unparsed_data_map: String
 ) -> void:
 	data_maps[base_game_data_extension] = {}
-	
+
 	var current_token = null
 	var looking_for = Token.NAMED_BLOCK_NAME
 	var in_single_line_comment := false
@@ -127,7 +127,7 @@ func _update_data_map(
 					Token.NAMED_BLOCK_NAME:
 						if is_whitespace(unparsed_data_map[i]) or unparsed_data_map[i] == "(":
 							data_maps[base_game_data_extension][named_block_name] = []
-							
+
 							if unparsed_data_map[i] == "(":
 								current_token = Token.ANYTHING_FOLLOWED_BY_A_CLOSING_PARENTHESIS
 							else:
@@ -170,7 +170,7 @@ func _update_data_map(
 						if unparsed_data_map[i] == '"':
 							data_maps[base_game_data_extension][named_block_name].append(item_contents)
 							item_contents = ""
-							
+
 							current_token = null
 							looking_for = Token.ANYTHING_FOLLOWED_BY_A_COMMA_OR_BLOCK_END
 						else:
@@ -181,7 +181,7 @@ func _update_data_map(
 							looking_for = Token.ITEM_START_OR_BLOCK_END
 						elif unparsed_data_map[i] == '}':
 							named_block_name = ""
-							
+
 							current_token = null
 							looking_for = Token.NAMED_BLOCK_NAME
 					_:
@@ -242,7 +242,7 @@ func set_archive_path(new_archive_path: String) -> bool:
 		missing_texture = image_texture
 	else:
 		push_error((FAILED_TO_DECOMPRESS + NO_MISSING_TEXTURE) % [MISSING_TEXTURE_PATH])
-	
+
 	archive_path = new_archive_path
 	return true
 

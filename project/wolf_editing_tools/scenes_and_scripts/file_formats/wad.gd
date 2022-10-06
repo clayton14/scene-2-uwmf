@@ -8,19 +8,19 @@ class Lump extends Reference:
 	const LAST_ASCII_CODEPOINT := 127
 	const NAME_LENGTH_LIMIT := 8
 	const NAME_LENGHT_WARNING := "Lump names can be at most " + str(NAME_LENGTH_LIMIT) + " characters. Truncating “%s” to “%s”…"
-	
+
 	const CONTENTS_SIZE_LIMIT := 0xFF_FF_FF_FF
 	const CONTENTS_SIZE_ERROR := \
 			"Tried to create a lump who’s contents are 0x%X bytes large. " \
 			+ "The contents of a lump may be at most 0x%X bytes." % [CONTENTS_SIZE_LIMIT] \
 			+ "Truncating to 0x%X bytes…" % [CONTENTS_SIZE_LIMIT]
-	
+
 	var name: String setget set_name
 	var contents: PoolByteArray setget set_contents
 	# This get used to remember what should be written to the directory (see
 	# <https://doomwiki.org/wiki/WAD#Directory>).
 	var _filepos: int
-	
+
 	func set_name(new_name: String) -> void:
 		for character in new_name:
 			var codepoint := ord(character)
@@ -32,9 +32,9 @@ class Lump extends Reference:
 			var truncated_name := new_name.substr(0, 8)
 			push_warning(NAME_LENGHT_WARNING % [new_name, truncated_name])
 			new_name = truncated_name
-		
+
 		name = new_name
-	
+
 	func set_contents(new_contents: PoolByteArray) -> void:
 		# I don’t think that this condition can be true anyway due to bugs with
 		# Godot. See <https://github.com/godotengine/godot/issues/18094> and
@@ -42,9 +42,9 @@ class Lump extends Reference:
 		if contents.size() > CONTENTS_SIZE_LIMIT:
 			push_error(CONTENTS_SIZE_ERROR % contents.size())
 			new_contents = new_contents.subarray(0, CONTENTS_SIZE_LIMIT - 1)
-		
+
 		contents = new_contents
-	
+
 	func nul_terminated_name() -> PoolByteArray:
 		var return_value := name.to_ascii()
 		if return_value.size() < NAME_LENGTH_LIMIT:
@@ -54,7 +54,7 @@ class Lump extends Reference:
 				return_value.set(i, 0)
 				i += 1
 		return return_value
-	
+
 	func _init(initial_name: String, initial_contents: PoolByteArray) -> void:
 		set_name(initial_name)
 		set_contents(initial_contents)
@@ -119,6 +119,6 @@ func save(file_path: String) -> int:
 	# Fix the directory pointer from before.
 	file.seek(DIRECTORY_POINTER_LOCATION)
 	file.store_32(directory_offset)
-	
+
 	file.close()
 	return OK

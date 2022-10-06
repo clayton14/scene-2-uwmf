@@ -22,7 +22,7 @@ func _on_PaletteSelector_item_selected(index: int) -> void:
 func update_palette_test(file_extension: String) -> void:
 	while palette_grid_container.get_child_count() > 0:
 		palette_grid_container.remove_child(palette_grid_container.get_child(0))
-	
+
 	var palette = pk3.palettes.get(file_extension)
 
 	if palette == null:
@@ -65,7 +65,7 @@ func _ready() -> void:
 		for file_extension in pk3.palettes:
 			palette_selector.add_item(file_extension)
 		update_palette_test(pk3.palettes.keys()[0])
-		
+
 		v_swap = VSwap.new(pk3, v_swap_path)
 		assert(v_swap.v_swap_path == v_swap_path)
 		var wall_names := v_swap.wall_names()

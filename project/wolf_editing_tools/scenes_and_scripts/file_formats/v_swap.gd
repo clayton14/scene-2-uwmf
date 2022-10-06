@@ -57,7 +57,7 @@ func get_value_or_fallback_to_wl6(dictionary: Dictionary, missing_key_warning: S
 		file_extension = "wl6"
 	else:
 		file_extension = file_extension.to_lower()
-	
+
 	var return_value = dictionary.get(file_extension)
 	if return_value == null:
 		push_warning(missing_key_warning)
@@ -67,12 +67,12 @@ func get_value_or_fallback_to_wl6(dictionary: Dictionary, missing_key_warning: S
 
 func palette() -> Array:
 	var return_value = get_value_or_fallback_to_wl6(ecwolf_pk3.palettes, MISSING_PALETTE % [v_swap_path])
-	
+
 	if len(return_value) < Pk3.TOTAL_COLORS_IN_PALETTE:
 		push_error(TOO_FEW_COLORS % [Pk3.TOTAL_COLORS_IN_PALETTE, return_value])
 	elif len(return_value) > Pk3.TOTAL_COLORS_IN_PALETTE:
 		push_warning(WRONG_NUMBER_OF_COLORS % [Pk3.TOTAL_COLORS_IN_PALETTE, return_value])
-	
+
 	return return_value
 
 
@@ -86,7 +86,7 @@ func set_v_swap_path(new_v_swap_path : String) -> bool:
 	if file.open(new_v_swap_path, File.READ) != OK:
 		push_error("Failed to open “%s” for reading." % [new_v_swap_path])
 		return false
-	
+
 	var total_chunks = _next_uint16_or_null(file, MISSING_TOTAL_CHUNKS % [new_v_swap_path])
 	if total_chunks == null:
 		return false
@@ -96,7 +96,7 @@ func set_v_swap_path(new_v_swap_path : String) -> bool:
 	var first_sound_index = _next_uint16_or_null(file, MISSING_FIRST_SOUND_INDEX % [new_v_swap_path])
 	if first_sound_index == null:
 		return false
-	
+
 	var chunk_addresses := []
 	chunk_addresses.resize(total_chunks)
 	for i in total_chunks:
@@ -109,7 +109,7 @@ func set_v_swap_path(new_v_swap_path : String) -> bool:
 		chunk_lengths[i] = _next_uint16_or_null(file, MISSING_CHUNK_STARTS % [new_v_swap_path])
 		if chunk_lengths[i] == null:
 			return false
-	
+
 	walls.clear()
 	var palette : Array = palette()
 	var wall_names : Array = wall_names()
@@ -135,12 +135,12 @@ func set_v_swap_path(new_v_swap_path : String) -> bool:
 						var color_number : int = file.get_8()
 						wall_image.set_pixel(column, row, palette[color_number])
 				wall_image.unlock()
-				
+
 				var wall_name : String = wall_names[wall_index]
 				var wall_texture := ImageTexture.new()
 				wall_texture.create_from_image(wall_image, Texture.FLAGS_DEFAULT - Texture.FLAG_FILTER)
 				walls[wall_name] = wall_texture
-		
+
 	v_swap_path = new_v_swap_path
 	return true
 
