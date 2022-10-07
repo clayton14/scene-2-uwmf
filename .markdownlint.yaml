@@ -1,0 +1,6 @@
+%YAML 1.2
+---
+MD010: false
+# For whatever reason, tab characters are counted as being shorter than two
+# spaces which causes MD007 to fail.
+MD007: false
