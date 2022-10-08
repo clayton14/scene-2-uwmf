@@ -41,8 +41,12 @@ This allows you to:
 	- Pushwalls
 	- Level exits (you have to create a boss that will end the level or a
 	  [Spear of Destiny][SOD item]).
-- There’s essentially no documentation
+- The documentation is largely incomplete.
 - Support for vanilla map formats isn’t even planned.
+
+## Getting Started
+
+See [`doc/Getting Started.md`](doc/Getting%40Started.md).
 
 [SOD item]: https://maniacsvault.net/ecwolf/wiki/Classes:SpearOfDestiny
 [things]: https://maniacsvault.net/ecwolf/wiki/Universal_Wolfenstein_Map_Format#Things
