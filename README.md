@@ -33,6 +33,8 @@ This allows you to:
 	- easily assign any texture to any side of any tile.
 	- easily create tiles with single-color or invisible textures.
 	- create [things] that have fractional coordinates.
+- If you already know how to use Godot, then learning how to use Scene 2 UWMF
+will be easy.
 
 ## Disadvantages of using Scene 2 UWMF
 
@@ -43,6 +45,8 @@ This allows you to:
 	  [Spear of Destiny][SOD item]).
 - The documentation is largely incomplete.
 - Support for vanilla map formats isn’t even planned.
+- If you don’t already know how to use Godot, then learning how to use Scene
+2 UWMF will be tedious.
 
 ## Getting Started
 
