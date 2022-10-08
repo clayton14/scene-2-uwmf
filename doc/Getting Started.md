@@ -104,16 +104,16 @@ version of [nixpkgs](https://github.com/NixOS/nixpkgs).
 
 	1. In [Godot’s main menus][editor vocab], click on “Scene” then “New
 	Scene”.
-	2. In [Godot’s Scene dock], click on the Instance Child Scene button.
-	The Instance Child Scene button looks like a chain and is next to a
-	button that’s shaped like a plus.
+	2. In [Godot’s Scene dock][first look], click on the Instance Child
+	Scene button. The Instance Child Scene button looks like a chain and is
+	next to a button that’s shaped like a plus.
 	3. In the “Open Base Scene” window, navigate to the
 	`wolf_editing_tools/scenes_and_scripts/map` directory.
 	4. Choose `base_map.tscn` (select it and then click “Open”).
 
 2. _(Optional)_ Rename the scene’s root `Node`:
 
-	1. In [Godot’s Scene dock], find the `Node` named “BaseMap”.
+	1. In [Godot’s Scene dock][first look], find the `Node` named “BaseMap”.
 	2. Right click on “BaseMap” and then click “Rename”.
 	3. Type in a new name for the `Node`. [The Godot Docs recommend that you
 	use PascalCase for the names of `Node`s.][style guide] This name won’t
@@ -131,9 +131,59 @@ version of [nixpkgs](https://github.com/NixOS/nixpkgs).
 	`Node`, then I would recommend taking that name, converting it into
 	snake_case and using it as the filename.
 
-## 6. Create the bare minimum required for a level
+## 6. Create the bare minimum required for a level that doesn’t crash
 
-TODO
+1. Create a Tile:
+
+	1. In [Godot’s Scene dock][first look], make sure that your scene’s root
+	`Node` is selected. The scene’s root `Node` is the one at the top of the
+	list.
+	2. In [Godot’s Scene dock][first look], click on the Instance Child
+	Scene button. The Instance Child Scene button looks like a chain and is
+	next to a button that’s shaped like a plus.
+	3. Choose `wolf_editing_tools/scenes_and_scripts/map/tile.tscn` (select
+	it and then click “Open”).
+	4. In [Godot’s Inspector][first look], find the “Texture East” property.
+	At the moment, Texture East will be set to “[empty]”.
+	5. To the right of Texture East’s value (“[empty]”), there should be a
+	drop-down arrow. Click on that arrow.
+	6. Click “New SingleColorTexture”.
+	7. Repeat steps 4–6 for the Texture North, Texture South and Texture
+	West properties.
+
+2. Enable snapping. In [Godot’s toolbar][first look], click on the “Use Snap”
+button. The “Use Snap” button looks like three dots with a magnet. This will
+prevent you from moving Tiles into impossible positions (in UWMF, tiles must
+have whole number coordinates).
+3. Create 7 more Tiles:
+
+	1. In [Godot’s Scene dock][first look], find the `Node` named “Tile”.
+	2. Right click on it.
+	3. Click “Duplicate”.
+	4. Repeat steps 1–3 until there are 8 Tiles total.
+
+4. Arrange the Tiles into an O shaped pattern. Make sure that you don’t
+accidentally give one of the Tiles a negative coordinate or a Z coordinate
+that isn’t 0. In other words, Tiles should be
+
+	- east of the blue line,
+	- south of the red line and
+	- sitting on top of the square grid pattern.
+
+	When you have a Tile selected, the red movement arrow will point east
+	and the blue movement arrow will point south.
+
+5. Create a player start:
+
+	1. In [Godot’s Scene dock][first look], make sure that your scene’s root
+	`Node` is selected.
+	2. In [Godot’s Scene dock][first look], click on the Instance Child
+	Scene button.
+	3. Choose `wolf_editing_tools/scenes_and_scripts/map/thing.tscn`.
+	4. Disable snapping. In [Godot’s toolbar][first look], click on the “Use
+	Snap” button. The “Use Snap” button looks like three dots with a magnet.
+	This will allow you to place the player start in the center of you map.
+	5. Move the newly created Thing into the center of the O.
 
 ## 7. Test the level
 
@@ -141,8 +191,8 @@ TODO
 
 [ECWolf]: https://maniacsvault.net/ecwolf/
 [editor vocab]: https://docs.godotengine.org/en/3.4/community/contributing/docs_writing_guidelines.html#common-vocabulary-to-use-in-godot-s-documentation
+[first look]: https://docs.godotengine.org/en/3.4/getting_started/introduction/first_look_at_the_editor.html#id1
 [Godot]: https://godotengine.org/
-[Godot’s Scene dock]: https://docs.godotengine.org/en/3.4/getting_started/introduction/first_look_at_the_editor.html#id1
 [LZWolf]: https://bitbucket.org/linuxwolf6/lzwolf/src/master/
 [Godot’s Project Manger]: https://docs.godotengine.org/en/3.4/getting_started/introduction/first_look_at_the_editor.html#the-project-manager
 [style guide]: https://docs.godotengine.org/en/3.4/tutorials/best_practices/project_organization.html?highlight=PascalCase#style-guide
