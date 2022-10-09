@@ -14,8 +14,7 @@ You can also use Scene 2 UWMF to create levels for:
 
 - [Spear of Destiny](https://www.mobygames.com/game/dos/spear-of-destiny)
 - The Spear of Destiny
-[mission](https://www.mobygames.com/game/mission-2-return-to-danger-accessory-game-for-spear-of-destiny)
-[packs](https://www.mobygames.com/game/mission-3-ultimate-challenge-accessory-game-for-spear-of-destiny).
+[mission packs](https://wolfenstein.fandom.com/wiki/Spear_of_Destiny_mission_packs)
 - [Super 3D Noah’s Ark](https://wisdomtree.itch.io/s3dna)
 
 ## Advantages of using Scene 2 UWMF
