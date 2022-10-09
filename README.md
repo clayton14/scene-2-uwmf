@@ -52,9 +52,12 @@ will be easy.
 
 See [`doc/Getting Started.md`](doc/Getting%20Started.md).
 
-## Contributing
+## Value 4 Value
 
-See [`doc/How to Contribute.md`](doc/How%20to%20Contribute.md).
+Scene 2 UWMF is completely free (it’s both [libre and
+gratis](https://www.gnu.org/philosophy/free-sw.en.html)). Have you gotten any
+value from using Scene 2 UWMF? If so [**please contribute value back to the
+project**](doc/How%20to%20Contribute.md).
 
 ## Copying information
 
