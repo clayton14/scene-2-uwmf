@@ -27,8 +27,8 @@ You can also use Scene 2 UWMF to create levels for:
 	- [The Web](https://www.w3.org/TR/webarch/#intro)
 	- [Windows](http://microsoft.com/windows)
 - Edit levels from a 3D perspective view or a 2D top-down view.
-- Partial support for ECWolf’s [Universal Wolfenstein Map
-Format](https://maniacsvault.net/ecwolf/wiki/Universal_Wolfenstein_Map_Format)
+- Partial support for ECWolf’s [Universal Wolfenstein Map Format
+(UWMF)](https://maniacsvault.net/ecwolf/wiki/Universal_Wolfenstein_Map_Format)
 This allows you to:
 	- easily assign any texture to any side of any tile.
 	- easily create tiles with single-color or invisible textures.
