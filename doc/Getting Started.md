@@ -204,6 +204,11 @@ you can
 
 	- or drag and drop MAP01.WAD onto ECWolf’s executable.
 
+## 8. Next steps
+
+Take a look at [Scene 2 UWMF’s reference document](Reference.md). It describes
+everything that you can add to or customize about a map.
+
 [ECWolf]: https://maniacsvault.net/ecwolf/
 [editor vocab]: https://docs.godotengine.org/en/3.4/community/contributing/docs_writing_guidelines.html#common-vocabulary-to-use-in-godot-s-documentation
 [first look]: https://docs.godotengine.org/en/3.4/getting_started/introduction/first_look_at_the_editor.html#id1
