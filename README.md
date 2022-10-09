@@ -50,11 +50,11 @@ will be easy.
 
 ## Getting Started
 
-See [`doc/Getting Started.md`](doc/Getting%40Started.md).
+See [`doc/Getting Started.md`](doc/Getting%20Started.md).
 
 ## Contributing
 
-See [`doc/How to Contribute.md`](doc/How%40to%40Contribute.md).
+See [`doc/How to Contribute.md`](doc/How%20to%20Contribute.md).
 
 ## Copying information
 
