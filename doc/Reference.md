@@ -33,9 +33,7 @@ use textures from both `VSWAP.SOD` and `VSWAP.SD2` or textures from both
 
 A `SingleColorTexture` can be created using any `Texture` property’s drop-down
 menu. If property is set to a `SingleColorTexture`, then you can click on the
-texture and edit its one property property:
-
-- `color`
+texture and edit its one and only property: `color`
 
 ### `InvisibleTexture`
 
