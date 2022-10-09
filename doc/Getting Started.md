@@ -187,7 +187,22 @@ that isn’t 0. In other words, Tiles should be
 
 ## 7. Test the level
 
-TODO
+1. In [Godot’s playtest buttons][editor vocab], click on the Play Scene button.
+The Play Scene button looks like a clapperboard with a triangle on it.
+2. A new window will appear. Once Scene 2 UWMF has finished generating a WAD
+file for your map, that window will turn gray. Once the window is gray, close
+out of it.
+3. In [Godot’s main menus][editor vocab], click “Project” then “Open Project
+Data Folder”.
+4. In your file manager, you should see a file named “MAP01.WAD”. You can now
+load that map in your source port and test it out. If you’re using ECWolf, then
+you can
+
+	- run
+
+			ecwolf --file <path-to-MAP01.WAD>
+
+	- or drag and drop MAP01.WAD onto ECWolf’s executable.
 
 [ECWolf]: https://maniacsvault.net/ecwolf/
 [editor vocab]: https://docs.godotengine.org/en/3.4/community/contributing/docs_writing_guidelines.html#common-vocabulary-to-use-in-godot-s-documentation
