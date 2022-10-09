@@ -60,8 +60,11 @@ other words when you run a BaseMap scene, it will build your map.
 that the `BaseMap` generates. It should be eight characters or less since
 [that’s the limit for lump names][WAD directory]. Additionally, the generated
 [WAD] file’s name will be based on the internal name.
+- **Automap Name:** The name of the level that will be displayed when the player
+opens the automap. In ECWolf, this name may be overridden by [MAPINFO].
 
 [map header]: https://zdoom.org/wiki/Universal_Doom_Map_Format#Map_lumps
+[MAPINFO]: https://maniacsvault.net/ecwolf/wiki/MAPINFO
 [ready]: https://docs.godotengine.org/en/3.4/classes/class_node.html#class-node-constant-notification-ready
 [WAD]: https://doomwiki.org/wiki/WAD
 [WAD directory]: https://doomwiki.org/wiki/WAD#Directory
