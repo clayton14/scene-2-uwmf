@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=2]
+[gd_scene load_steps=67 format=2]
 
 [ext_resource path="res://wolf_editing_tools/scenes_and_scripts/map/base_map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://wolf_editing_tools/generated/art/walls/VSWAP.SOD/METAL2.tex" type="Texture" id=2]
@@ -27,7 +27,6 @@
 [ext_resource path="res://wolf_editing_tools/generated/art/walls/VSWAP.SOD/WOOD1.tex" type="Texture" id=25]
 [ext_resource path="res://wolf_editing_tools/generated/art/walls/VSWAP.SOD/WOOD2.tex" type="Texture" id=26]
 [ext_resource path="res://wolf_editing_tools/generated/art/walls/VSWAP.SOD/WODCROS2.tex" type="Texture" id=27]
-[ext_resource path="res://wolf_editing_tools/generated/art/walls/VSWAP.SOD/WODCROS1.tex" type="Texture" id=28]
 [ext_resource path="res://wolf_editing_tools/generated/art/walls/VSWAP.SOD/BSTONEA2.tex" type="Texture" id=29]
 [ext_resource path="res://wolf_editing_tools/generated/art/walls/VSWAP.SOD/BSTONEA1.tex" type="Texture" id=30]
 [ext_resource path="res://wolf_editing_tools/generated/art/walls/VSWAP.SOD/BSTONEB2.tex" type="Texture" id=31]
@@ -3714,8 +3713,8 @@ texture_west = ExtResource( 26 )
 [node name="Tile114" parent="." index="519" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 0 )
 texture_east = ExtResource( 27 )
-texture_north = ExtResource( 28 )
-texture_south = ExtResource( 28 )
+texture_north = ExtResource( 58 )
+texture_south = ExtResource( 58 )
 texture_west = ExtResource( 27 )
 
 [node name="Tile101" parent="." index="520" instance=ExtResource( 3 )]
