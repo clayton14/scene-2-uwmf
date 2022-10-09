@@ -43,3 +43,16 @@ An `InvisibleTexture` can be created using any `Texture` property’s drop-down
 menu. Make sure that there’s something visible behind one of these, or else it
 will cause
 [the hall of mirrors effect](https://doomwiki.org/wiki/Hall_of_mirrors).
+
+## Scenes used to build levels
+
+### BaseMap
+
+**Location:** `res://wolf_editing_tools/scenes_and_scripts/map/base_map.tscn`
+
+**Description:** When a `BaseMap` `Node` is [ready], it will use information
+about itself and its children to generate a [WAD] file that contains a map. In
+other words when you run a BaseMap scene, it will build your map.
+
+[ready]: https://docs.godotengine.org/en/3.4/classes/class_node.html#class-node-constant-notification-ready
+[WAD]: https://doomwiki.org/wiki/WAD
