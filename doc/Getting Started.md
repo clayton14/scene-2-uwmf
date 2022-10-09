@@ -2,9 +2,8 @@
 
 ## 1. Make sure that you have a compatible source port set up
 
-In order to test your maps, you’ll need a source port that supports
-[the Universal Wolfenstein Map Format](https://maniacsvault.net/ecwolf/wiki/Universal_Wolfenstein_Map_Format).
-These ports are known to support UWMF:
+In order to test your maps, you’ll need a source port that supports the
+Universal Wolfenstein Map Format. These ports are known to support UWMF:
 
 - [ECWolf]
 - [LZWolf]\*
