@@ -54,5 +54,14 @@ will cause
 about itself and its children to generate a [WAD] file that contains a map. In
 other words when you run a BaseMap scene, it will build your map.
 
+#### Properties
+
+- **Internal Name:** This name is used as the [map header] in the [WAD] file
+that the `BaseMap` generates. It should be eight characters or less since
+[that’s the limit for lump names][WAD directory]. Additionally, the generated
+[WAD] file’s name will be based on the internal name.
+
+[map header]: https://zdoom.org/wiki/Universal_Doom_Map_Format#Map_lumps
 [ready]: https://docs.godotengine.org/en/3.4/classes/class_node.html#class-node-constant-notification-ready
 [WAD]: https://doomwiki.org/wiki/WAD
+[WAD directory]: https://doomwiki.org/wiki/WAD#Directory
