@@ -36,3 +36,10 @@ menu. If property is set to a `SingleColorTexture`, then you can click on the
 texture and edit its one property property:
 
 - `color`
+
+### `InvisibleTexture`
+
+An `InvisibleTexture` can be created using any `Texture` property’s drop-down
+menu. Make sure that there’s something visible behind one of these, or else it
+will cause
+[the hall of mirrors effect](https://doomwiki.org/wiki/Hall_of_mirrors).
