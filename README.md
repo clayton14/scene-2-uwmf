@@ -52,5 +52,9 @@ will be easy.
 
 See [`doc/Getting Started.md`](doc/Getting%40Started.md).
 
+## Copying information
+
+See [`COPYING.txt`](COPYING.txt).
+
 [SOD item]: https://maniacsvault.net/ecwolf/wiki/Classes:SpearOfDestiny
 [things]: https://maniacsvault.net/ecwolf/wiki/Universal_Wolfenstein_Map_Format#Things
