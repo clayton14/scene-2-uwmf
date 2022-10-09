@@ -52,6 +52,10 @@ will be easy.
 
 See [`doc/Getting Started.md`](doc/Getting%40Started.md).
 
+## Contributing
+
+See [`doc/How to Contribute.md`](doc/How%40to%40Contribute.md).
+
 ## Copying information
 
 See [`COPYING.txt`](COPYING.txt).
