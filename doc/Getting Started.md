@@ -123,7 +123,7 @@ version of [nixpkgs](https://github.com/NixOS/nixpkgs).
 	1. In [Godot’s main menus][editor vocab], click on “Scene” then “Save
 	Scene”.
 	2. Choose a directory to save the scene in. I recommend saving your maps
-	in a new directory inside `res://` named “user_maps”. [The Godot Docs
+	in a new directory named “user_maps” inside `res://`. [The Godot Docs
 	recommend that you use snake_case for directory names.][style guide]
 	3. Choose name for your scene file. [The Godot Docs recommend that you
 	use snake_case for filenames.][style guide] If you renamed your root
