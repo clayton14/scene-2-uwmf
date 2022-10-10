@@ -60,7 +60,13 @@ that the `BaseMap` generates. It should be eight characters or less since
 [WAD] file’s name will be based on the internal name.
 - **Automap Name:** The name of the level that will be displayed when the player
 opens the automap. In ECWolf, this name may be overridden by [MAPINFO].
+- **Tile Size:** You should probably leave this set at 64. The Tile Size
+property corresponds to [the global `tileSize` property in
+UWMF][global properties]. The latest stable version of ECWolf (1.3.3) seems to
+ignore `tileSize` at the moment. I’m not sure if `tileSize` can be used in
+other ports or the latest development version of ECWolf.
 
+[global properties]: https://maniacsvault.net/ecwolf/wiki/Universal_Wolfenstein_Map_Format#Global_Properties
 [map header]: https://zdoom.org/wiki/Universal_Doom_Map_Format#Map_lumps
 [MAPINFO]: https://maniacsvault.net/ecwolf/wiki/MAPINFO
 [ready]: https://docs.godotengine.org/en/3.4/classes/class_node.html#class-node-constant-notification-ready
