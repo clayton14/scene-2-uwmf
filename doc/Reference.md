@@ -151,6 +151,8 @@ difficulty (“Can I play, Daddy?” in Wolf 3D).
 difficulty (“Don’t hurt me.” in Wolf 3D).
 - **Skill 3:** Whether or not this thing will be created on the medium-hard
 difficulty (“Bring ’em on!” in Wolf 3D).
+- **Skill 4:** Whether or not this thing will be created on the hardest
+difficulty (“I am Death incarnate!” in Wolf 3D).
 
 [`Actor`]: https://maniacsvault.net/ecwolf/wiki/Classes:Actor
 [Actor properties rendering]: https://maniacsvault.net/ecwolf/wiki/Actor_properties#Rendering
