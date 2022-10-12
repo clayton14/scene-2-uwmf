@@ -134,6 +134,17 @@ a part of. This section contains the following properties:
 
 **Description:** See the glossary’s definition of “thing”.
 
+#### Properties
+
+- **Type:** The thing’s editor number.
+
+	- To create a player 1 start, set this to 1.
+	- To create an [`Actor`], set this to the `Actor`’s
+	[`ednum`](https://maniacsvault.net/ecwolf/wiki/DECORATE#Syntax).
+	You can find a complete list of `Actor`s that are built into ECWolf
+	[here](https://maniacsvault.net/ecwolf/wiki/Classes). Click on the
+	`Actor` that you want and look for the box that says “DoomEd Number”.
+
 [`Actor`]: https://maniacsvault.net/ecwolf/wiki/Classes:Actor
 [Actor properties rendering]: https://maniacsvault.net/ecwolf/wiki/Actor_properties#Rendering
 [Actor states usage]: https://maniacsvault.net/ecwolf/wiki/Actor_states#Usage

@@ -4,3 +4,5 @@ MD010: false
 # For whatever reason, tab characters are counted as being shorter than two
 # spaces which causes MD007 to fail.
 MD007: false
+# As long as the headings are in two different sections, this is fine.
+MD024: false
