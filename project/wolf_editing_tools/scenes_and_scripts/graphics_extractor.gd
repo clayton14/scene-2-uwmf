@@ -2,16 +2,41 @@ extends ColorRect
 
 
 const OUTPUT_DIR := "res://wolf_editing_tools/generated/"
+const SETTINGS_FILE := "user://graphics_extractor_settings.cfg"
+const FAILED_TO_LOAD_SETTINGS := (
+	"Failed to load “"
+	+ SETTINGS_FILE
+	+ "” as a ConfigFile. Error code %s."
+)
+const FAILED_TO_SAVE_SETTINGS := (
+	"Failed to save “"
+	+ SETTINGS_FILE
+	+ "”. You’ll have to re-enter your settings the next time you run the "
+	+ "GraphicsExtractor."
+)
 
+var settings := ConfigFile.new()
 var thread := Thread.new()
 var ecwolf_pk3_path : String setget set_ecwolf_pk3_path
 var v_swap_path : String setget set_v_swap_path
+var single_thread_wanted : bool setget set_single_thread_wanted
 var prompting_for_ecwolf_pk3 := true
 
 onready var file_dialog : FileDialog = $FileDialog
 onready var ecwolf_pk3_input_field : LineEdit = $MainScreen/VBoxContainer/GridContainer/EcwolfPk3PathInputField
 onready var v_swap_input_field : LineEdit = $MainScreen/VBoxContainer/GridContainer/VSwapPathInputField
 onready var loading_screen : Control = $LoadingScreen
+onready var single_thread_check_box : CheckBox = $MainScreen/VBoxContainer/GridContainer/SingleThreadCheckBox
+
+
+func _ready() -> void:
+	var error_code := settings.load(SETTINGS_FILE)
+	if error_code != OK and error_code != ERR_FILE_NOT_FOUND:
+		push_warning(FAILED_TO_LOAD_SETTINGS % [error_code])
+	else:
+		set_ecwolf_pk3_path(settings.get_value("main", "ecwolf_pk3_path", ""))
+		set_v_swap_path(settings.get_value("main", "v_swap_path", ""))
+		set_single_thread_wanted(settings.get_value("main", "single_thread_wanted", false))
 
 
 static func make_dir_recursive_or_error(to_create : String) -> void:
@@ -36,6 +61,14 @@ static func save_texture(
 		push_error("Failed to save “%s”" % [full_path])
 
 
+func save_settings() -> void:
+	settings.set_value("main", "ecwolf_pk3_path", ecwolf_pk3_path)
+	settings.set_value("main", "v_swap_path", v_swap_path)
+	settings.set_value("main", "single_thread_wanted", single_thread_wanted)
+	if settings.save(SETTINGS_FILE) != OK:
+		push_warning(FAILED_TO_SAVE_SETTINGS)
+
+
 func set_ecwolf_pk3_path(new_ecwolf_pk3_path : String) -> void:
 	ecwolf_pk3_input_field.text = new_ecwolf_pk3_path
 	ecwolf_pk3_path = new_ecwolf_pk3_path
@@ -44,6 +77,11 @@ func set_ecwolf_pk3_path(new_ecwolf_pk3_path : String) -> void:
 func set_v_swap_path(new_v_swap_path : String) -> void:
 	v_swap_input_field.text = new_v_swap_path
 	v_swap_path = new_v_swap_path
+
+
+func set_single_thread_wanted(new_single_thread_wanted : bool) -> void:
+	single_thread_check_box.pressed = new_single_thread_wanted
+	single_thread_wanted = new_single_thread_wanted
 
 
 func prompt_for_file() -> void:
@@ -88,10 +126,19 @@ func _on_VSwapPathInputField_text_changed(new_text : String) -> void:
 	v_swap_path = new_text
 
 
+func _on_SingleThreadCheckBox_toggled(button_pressed : bool) -> void:
+	single_thread_wanted = button_pressed
+
+
 # VisualServer.request_frame_drawn_callback() always passes a userdata argument
 # to the funtion that’s being called, even if we don’t want to have a userdata
 # argument.
 func extract_assets(_userdata = null) -> void:
+	# Even if the rest of this function crashes, the settings should still be
+	# saved. If they weren’t, then users would have to re-enter information
+	# whenever they want to try again after a crash.
+	save_settings()
+
 	var ecwolf_pk3 := Pk3.new(ecwolf_pk3_path)
 	var v_swap := VSwap.new(ecwolf_pk3, v_swap_path)
 	var finished_screen : Label = $FinishedScreen
@@ -123,7 +170,6 @@ Please check the debugger for any errors."""
 func _on_ExtractGraphics_pressed() -> void:
 	loading_screen.show()
 	$MainScreen.hide()
-	var single_thread_wanted : bool = $MainScreen/VBoxContainer/GridContainer/CheckBox.pressed
 	if single_thread_wanted or thread.start(self, "extract_assets") != OK:
 		if not single_thread_wanted:
 			push_warning("Failed to start separate Thread for generating assets. Generating assets on the main thread…")
@@ -132,5 +178,7 @@ func _on_ExtractGraphics_pressed() -> void:
 
 
 func _exit_tree() -> void:
+	save_settings()
+
 	if thread != null and thread.is_active():
 		thread.wait_to_finish()

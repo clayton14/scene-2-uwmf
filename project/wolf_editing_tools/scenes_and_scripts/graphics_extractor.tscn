@@ -78,7 +78,7 @@ margin_right = 955.0
 margin_bottom = 47.0
 text = "VSWAP.* (examples: VSWAP.WL6, VSWAP.SOD, vswap.n3d)"
 
-[node name="CheckBox" type="CheckBox" parent="MainScreen/VBoxContainer/GridContainer"]
+[node name="SingleThreadCheckBox" type="CheckBox" parent="MainScreen/VBoxContainer/GridContainer"]
 margin_top = 56.0
 margin_right = 512.0
 margin_bottom = 80.0
@@ -128,5 +128,6 @@ current_path = "/"
 [connection signal="pressed" from="MainScreen/VBoxContainer/GridContainer/EcwolfPk3PathBrowseButton" to="." method="_on_EcwolfPk3PathBrowseButton_pressed"]
 [connection signal="text_changed" from="MainScreen/VBoxContainer/GridContainer/VSwapPathInputField" to="." method="_on_VSwapPathInputField_text_changed"]
 [connection signal="pressed" from="MainScreen/VBoxContainer/GridContainer/VSwapPathBrowseButton" to="." method="_on_VSwapPathBrowseButton_pressed"]
+[connection signal="toggled" from="MainScreen/VBoxContainer/GridContainer/SingleThreadCheckBox" to="." method="_on_SingleThreadCheckBox_toggled"]
 [connection signal="pressed" from="MainScreen/VBoxContainer/MarginContainer/ExtractGraphics" to="." method="_on_ExtractGraphics_pressed"]
 [connection signal="file_selected" from="FileDialog" to="." method="_on_FileDialog_file_selected"]
