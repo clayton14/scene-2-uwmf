@@ -19,6 +19,11 @@ be measured in map pixels.
 number of map pixels. A BaseMap’s Tile Size (see below) determines the number of
 map pixels in 1 tile unit.
 
+- **wall** — a rectangle. Walls are always 1 tile unit long. The front side of a
+wall may have a texture applied to it. The back side of a wall is always
+invisible. Walls always face either east, north, south or west. In other words,
+you can’t create diagonal walls.
+
 ## Usable Textures
 
 [There are many different types of textures that can be used in Godot
