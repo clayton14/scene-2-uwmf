@@ -132,6 +132,8 @@ a part of. This section contains the following properties:
 
 **Location:** `res://wolf_editing_tools/scenes_and_scripts/map/thing.tscn`
 
+**Description:** See the glossary’s definition of “thing”.
+
 [`Actor`]: https://maniacsvault.net/ecwolf/wiki/Classes:Actor
 [Actor properties rendering]: https://maniacsvault.net/ecwolf/wiki/Actor_properties#Rendering
 [Actor states usage]: https://maniacsvault.net/ecwolf/wiki/Actor_states#Usage
