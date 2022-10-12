@@ -34,6 +34,7 @@ var _is_whitespace_regex: RegEx = RegEx.new()
 var archive_path: String setget set_archive_path
 # These are the files that give names to data stored in
 # the base game files (the .WL6, .SOD, etc. files).
+# See <https://maniacsvault.net/ecwolf/wiki/WL6_Maps>.
 var data_maps: Dictionary setget , get_data_maps
 var palettes: Dictionary setget , get_palettes
 var missing_texture : Texture setget , get_missing_texture
