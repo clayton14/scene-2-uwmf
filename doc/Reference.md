@@ -145,6 +145,9 @@ a part of. This section contains the following properties:
 	[here](https://maniacsvault.net/ecwolf/wiki/Classes). Click on the
 	`Actor` that you want and look for the box that says “DoomEd Number”.
 
+- **Skill 1:** Whether or not this thing will be created on the easiest
+difficulty (“Can I play, Daddy?” in Wolf 3D).
+
 [`Actor`]: https://maniacsvault.net/ecwolf/wiki/Classes:Actor
 [Actor properties rendering]: https://maniacsvault.net/ecwolf/wiki/Actor_properties#Rendering
 [Actor states usage]: https://maniacsvault.net/ecwolf/wiki/Actor_states#Usage
