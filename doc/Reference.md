@@ -24,6 +24,10 @@ wall may have a texture applied to it. The back side of a wall is always
 invisible. Walls always face either east, north, south or west. In other words,
 you can’t create diagonal walls.
 
+	Walls are normally squares, but they don’t have to be. At the moment,
+	Scene 2 UWMF and the latest stable version of ECWolf (1.3.3) only
+	support square walls.
+
 ## Usable Textures
 
 [There are many different types of textures that can be used in Godot
