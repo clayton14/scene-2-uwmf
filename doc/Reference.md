@@ -158,6 +158,10 @@ doesn’t change anything about the map that gets generated. You can change a
 Thing’s texture so that the Thing looks different in Godot. Give each type of
 Thing in your map a different texture to make your map easier to edit.
 
+### Tile
+
+**Location:** `res://wolf_editing_tools/scenes_and_scripts/map/tile.tscn`
+
 [`Actor`]: https://maniacsvault.net/ecwolf/wiki/Classes:Actor
 [Actor properties rendering]: https://maniacsvault.net/ecwolf/wiki/Actor_properties#Rendering
 [Actor states usage]: https://maniacsvault.net/ecwolf/wiki/Actor_states#Usage
