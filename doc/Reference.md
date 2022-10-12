@@ -164,9 +164,22 @@ Thing in your map a different texture to make your map easier to edit.
 
 **Description:** See the glossary’s definition of “tile”.
 
+#### Properties
+
+- **Texture East**, **Texture North**, **Texture South** and **Texture West:**
+The texture used by each of the tile’s walls. In normal maps, the east and west
+textures will be dark and the north and south textures will be bright in order
+to create [fake contrast].
+
+	The default values for these properties are all \[empty]. When one of
+	these properties is \[empty], the face of the Tile will look like a crudely
+	drawn letter E, N, S or W. _If you leave any of these properties set to
+	\[empty], then Scene 2 UWMF will fail to export your map._
+
 [`Actor`]: https://maniacsvault.net/ecwolf/wiki/Classes:Actor
 [Actor properties rendering]: https://maniacsvault.net/ecwolf/wiki/Actor_properties#Rendering
 [Actor states usage]: https://maniacsvault.net/ecwolf/wiki/Actor_states#Usage
+[fake contrast]: https://doomwiki.org/wiki/Fake_contrast#Previous_implementations
 [global properties]: https://maniacsvault.net/ecwolf/wiki/Universal_Wolfenstein_Map_Format#Global_Properties
 [map header]: https://zdoom.org/wiki/Universal_Doom_Map_Format#Map_lumps
 [MAPINFO]: https://maniacsvault.net/ecwolf/wiki/MAPINFO
