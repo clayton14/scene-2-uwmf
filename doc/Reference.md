@@ -2,6 +2,19 @@
 
 WIP: This document is missing a lot of stuff at the moment.
 
+## Glossary
+
+- map pixel — the absolute unit used by [UWMF]. Anything in a UWMF map can be
+measured in map pixels.
+
+	1 map pixel is not necessarily the same length as 1 pixel in a graphic
+	used by the source port. For example, let’s say that an [`Actor`] uses
+	a PNG [sprite][Actor states usage] that is 32 pixels wide. A [`TEXTURES` lump]
+	could be used to scale that PNG to half of its original size.
+	Additionally, the [`Actor`’s `scale`][Actor properties rendering] might
+	scale the `Actor` down to half of its regular size. In this example, 1
+	pixel in the PNG sprite would become 0.25 map pixels in game.
+
 ## Usable Textures
 
 [There are many different types of textures that can be used in Godot
@@ -66,9 +79,14 @@ UWMF][global properties]. The latest stable version of ECWolf (1.3.3) seems to
 ignore `tileSize` at the moment. I’m not sure if `tileSize` can be used in
 other ports or the latest development version of ECWolf.
 
+[`Actor`]: https://maniacsvault.net/ecwolf/wiki/Classes:Actor
+[Actor properties rendering]: https://maniacsvault.net/ecwolf/wiki/Actor_properties#Rendering
+[Actor states usage]: https://maniacsvault.net/ecwolf/wiki/Actor_states#Usage
 [global properties]: https://maniacsvault.net/ecwolf/wiki/Universal_Wolfenstein_Map_Format#Global_Properties
 [map header]: https://zdoom.org/wiki/Universal_Doom_Map_Format#Map_lumps
 [MAPINFO]: https://maniacsvault.net/ecwolf/wiki/MAPINFO
 [ready]: https://docs.godotengine.org/en/3.4/classes/class_node.html#class-node-constant-notification-ready
+[`TEXTURES` lump]: https://maniacsvault.net/ecwolf/wiki/TEXTURES
+[UWMF]: https://maniacsvault.net/ecwolf/wiki/Universal_Wolfenstein_Map_Format
 [WAD]: https://doomwiki.org/wiki/WAD
 [WAD directory]: https://doomwiki.org/wiki/WAD#Directory
