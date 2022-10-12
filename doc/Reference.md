@@ -32,7 +32,7 @@ you can’t create diagonal walls.
 a north, a south and a west wall.
 
 	In Godot, tiles will appear to have top and a bottom face. This is just
-	to help you preview what you level’s automap will look like. In source
+	to help you preview what your level’s automap will look like. In source
 	ports, tiles don’t have top or bottom faces.
 
 - **map spot** — a space that’s shaped like a tile. In UWMF, a map is a grid of
