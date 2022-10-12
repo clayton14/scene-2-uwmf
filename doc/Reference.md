@@ -79,7 +79,7 @@ texture and edit its one and only property: `color`
 An `InvisibleTexture` can be created using any `Texture` property’s drop-down
 menu. Make sure that there’s something visible behind one of these, or else it
 will cause
-[the hall of mirrors effect](https://doomwiki.org/wiki/Hall_of_mirrors).
+[the hall of mirrors effect].
 
 ## Scenes used to build levels
 
@@ -108,7 +108,18 @@ opens the automap. In ECWolf, this name may be overridden by [MAPINFO].
 	be used in other ports or the latest development version of ECWolf.
 
 - **Default Sector:** These properties determine which sector every map spot is
-a part of.
+a part of. This section contains the following properties:
+
+	- **Enabled:**
+
+		If _enabled_ is checked, then every map spot will be a part
+		of a sector. That sector can be configured using the rest of the
+		properties in this section.
+
+		If _enabled_ is unchecked, then every map spot won’t be a part
+		of any sector. This will cause every floor and ceiling to have
+		no texture which will in turn cause
+		[the hall of mirrors effect].
 
 [`Actor`]: https://maniacsvault.net/ecwolf/wiki/Classes:Actor
 [Actor properties rendering]: https://maniacsvault.net/ecwolf/wiki/Actor_properties#Rendering
@@ -118,6 +129,7 @@ a part of.
 [MAPINFO]: https://maniacsvault.net/ecwolf/wiki/MAPINFO
 [ready]: https://docs.godotengine.org/en/3.4/classes/class_node.html#class-node-constant-notification-ready
 [`TEXTURES` lump]: https://maniacsvault.net/ecwolf/wiki/TEXTURES
+[the hall of mirrors effect]: https://doomwiki.org/wiki/Hall_of_mirrors
 [UWMF]: https://maniacsvault.net/ecwolf/wiki/Universal_Wolfenstein_Map_Format
 [WAD]: https://doomwiki.org/wiki/WAD
 [WAD directory]: https://doomwiki.org/wiki/WAD#Directory
