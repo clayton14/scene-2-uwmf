@@ -107,6 +107,9 @@ opens the automap. In ECWolf, this name may be overridden by [MAPINFO].
 	seems to ignore `tileSize` at the moment. I’m not sure if `tileSize` can
 	be used in other ports or the latest development version of ECWolf.
 
+- **Default Sector:** These properties determine which sector every map spot is
+a part of.
+
 [`Actor`]: https://maniacsvault.net/ecwolf/wiki/Classes:Actor
 [Actor properties rendering]: https://maniacsvault.net/ecwolf/wiki/Actor_properties#Rendering
 [Actor states usage]: https://maniacsvault.net/ecwolf/wiki/Actor_states#Usage
