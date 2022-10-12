@@ -23,7 +23,7 @@
 [ext_resource path="res://wolf_editing_tools/generated/art/walls/VSWAP.WL6/GSTONEB2.tex" type="Texture" id=21]
 [ext_resource path="res://wolf_editing_tools/generated/art/walls/VSWAP.WL6/PURPLE1.tex" type="Texture" id=22]
 
-[node name="Cognative" instance=ExtResource( 1 )]
+[node name="Cognitive" instance=ExtResource( 1 )]
 
 [node name="Tile" parent="." index="0" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 6 )
