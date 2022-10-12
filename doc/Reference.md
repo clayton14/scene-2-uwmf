@@ -147,6 +147,8 @@ a part of. This section contains the following properties:
 
 - **Skill 1:** Whether or not this thing will be created on the easiest
 difficulty (“Can I play, Daddy?” in Wolf 3D).
+- **Skill 2:** Whether or not this thing will be created on the easy-medium
+difficulty (“Don’t hurt me.” in Wolf 3D).
 
 [`Actor`]: https://maniacsvault.net/ecwolf/wiki/Classes:Actor
 [Actor properties rendering]: https://maniacsvault.net/ecwolf/wiki/Actor_properties#Rendering
