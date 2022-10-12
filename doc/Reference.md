@@ -123,6 +123,8 @@ a part of. This section contains the following properties:
 
 		It’s strongly recommended that you keep _enabled_ checked.
 
+	- **Texture Ceiling:** What every ceiling in the map will look like.
+
 [`Actor`]: https://maniacsvault.net/ecwolf/wiki/Classes:Actor
 [Actor properties rendering]: https://maniacsvault.net/ecwolf/wiki/Actor_properties#Rendering
 [Actor states usage]: https://maniacsvault.net/ecwolf/wiki/Actor_states#Usage
