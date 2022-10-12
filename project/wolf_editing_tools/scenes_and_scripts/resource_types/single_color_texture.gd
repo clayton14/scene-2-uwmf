@@ -26,7 +26,7 @@ static func from_color(color : Color):
 
 func _set_color_no_verify(new_color : Color) -> void:
 	var new_image = Image.new()
-	new_image.create(1, 1, false, Util.TILE_IMAGE_FORMAT)
+	new_image.create(1, 1, false, Image.FORMAT_RGBA8)
 	new_image.lock()
 	new_image.set_pixelv(Vector2.ZERO, new_color)
 	new_image.unlock()

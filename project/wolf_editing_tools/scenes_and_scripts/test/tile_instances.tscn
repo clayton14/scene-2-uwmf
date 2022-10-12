@@ -27,7 +27,7 @@ script = ExtResource( 7 )
 
 [sub_resource type="Image" id=6]
 data = {
-"data": PoolByteArray( 153, 40, 40, 255 ),
+"data": PoolByteArray( 182, 100, 243, 255 ),
 "format": "RGBA8",
 "height": 1,
 "mipmaps": false,
@@ -38,7 +38,7 @@ data = {
 image = SubResource( 6 )
 size = Vector2( 1, 1 )
 script = ExtResource( 3 )
-color = Color( 0.6, 0.156863, 0.156863, 1 )
+color = Color( 0.713726, 0.392157, 0.952941, 1 )
 
 [node name="TileInstances" type="Node"]
 
