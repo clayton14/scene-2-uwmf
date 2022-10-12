@@ -41,6 +41,8 @@ map spots. Each map spot can be empty or filled with a tile.
 - **sector** — a group of map spots. Every map spot in a sector has the same
 floor and ceiling texture.
 
+- **thing** — either an [`Actor`] or a player start.
+
 ## Usable Textures
 
 [There are many different types of textures that can be used in Godot
