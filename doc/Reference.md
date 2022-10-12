@@ -4,8 +4,8 @@ WIP: This document is missing a lot of stuff at the moment.
 
 ## Glossary
 
-- map pixel — the absolute unit used by [UWMF]. Anything in a UWMF map can be
-measured in map pixels.
+- **map pixel** — the absolute unit used by [UWMF]. Anything in a UWMF map can
+be measured in map pixels.
 
 	1 map pixel is not necessarily the same length as 1 pixel in a graphic
 	used by the source port. For example, let’s say that an [`Actor`] uses
@@ -15,7 +15,7 @@ measured in map pixels.
 	scale the `Actor` down to half of its regular size. In this example, 1
 	pixel in the PNG sprite would become 0.25 map pixels in game.
 
-- tile unit — the relative unit used by UWMF. 1 tile unit equals a certain
+- **tile unit** — the relative unit used by UWMF. 1 tile unit equals a certain
 number of map pixels. A BaseMap’s Tile Size (see below) determines the number of
 map pixels in 1 tile unit.
 
