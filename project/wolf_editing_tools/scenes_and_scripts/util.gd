@@ -66,23 +66,6 @@ static func remove_dir_recursive_or_error(to_remove : String) -> void:
 		unhandled_error_while_opening_dir(error_code)
 
 
-static func save_texture(
-		texture : Resource,
-		output_dir : String,
-		base_filename : String
-) -> void:
-	output_dir = add_missing_trailing_slash(output_dir)
-	var recognized_extensions : Array = ResourceSaver.get_recognized_extensions(texture)
-	var file_extension : String
-	if "tex" in recognized_extensions:
-		file_extension = "tex"
-	else:
-		file_extension = recognized_extensions[0]
-	var full_path : String = output_dir + base_filename + "." + file_extension
-	if ResourceSaver.save(full_path, texture) != OK:
-		push_error("Failed to save “%s”" % [full_path])
-
-
 static func texture_to_uwmf(texture : Texture) -> String:
 	var SingleColorTextureType = load("res://wolf_editing_tools/scenes_and_scripts/resource_types/single_color_texture.gd")
 	if texture is SingleColorTextureType:
