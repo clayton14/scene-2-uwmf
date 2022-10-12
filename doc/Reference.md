@@ -28,6 +28,9 @@ you can’t create diagonal walls.
 	Scene 2 UWMF and the latest stable version of ECWolf (1.3.3) only
 	support square walls.
 
+- **tile** — a group of four walls. Specifically, a tile is made up of an east,
+a north, a south and a west wall.
+
 ## Usable Textures
 
 [There are many different types of textures that can be used in Godot
