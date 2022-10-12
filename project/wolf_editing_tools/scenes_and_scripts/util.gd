@@ -70,7 +70,7 @@ static func save_texture(
 		texture : Resource,
 		output_dir : String,
 		base_filename : String
-) -> String:
+) -> void:
 	output_dir = add_missing_trailing_slash(output_dir)
 	var recognized_extensions : Array = ResourceSaver.get_recognized_extensions(texture)
 	var file_extension : String
@@ -81,7 +81,6 @@ static func save_texture(
 	var full_path : String = output_dir + base_filename + "." + file_extension
 	if ResourceSaver.save(full_path, texture) != OK:
 		push_error("Failed to save “%s”" % [full_path])
-	return full_path
 
 
 static func texture_to_uwmf(texture : Texture) -> String:
