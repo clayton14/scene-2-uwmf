@@ -121,6 +121,8 @@ a part of. This section contains the following properties:
 		no texture which will in turn cause
 		[the hall of mirrors effect].
 
+		It’s strongly recommended that you keep _enabled_ checked.
+
 [`Actor`]: https://maniacsvault.net/ecwolf/wiki/Classes:Actor
 [Actor properties rendering]: https://maniacsvault.net/ecwolf/wiki/Actor_properties#Rendering
 [Actor states usage]: https://maniacsvault.net/ecwolf/wiki/Actor_states#Usage
