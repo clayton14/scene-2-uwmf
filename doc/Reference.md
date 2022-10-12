@@ -31,6 +31,10 @@ you can’t create diagonal walls.
 - **tile** — a group of four walls. Specifically, a tile is made up of an east,
 a north, a south and a west wall.
 
+	In Godot, tiles will appear to have top and a bottom face. This is just
+	to help you preview what you level’s automap will look like. In source
+	ports, tiles don’t have top or bottom faces.
+
 ## Usable Textures
 
 [There are many different types of textures that can be used in Godot
