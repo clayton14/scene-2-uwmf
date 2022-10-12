@@ -153,6 +153,10 @@ difficulty (“Don’t hurt me.” in Wolf 3D).
 difficulty (“Bring ’em on!” in Wolf 3D).
 - **Skill 4:** Whether or not this thing will exist on the hardest
 difficulty (“I am Death incarnate!” in Wolf 3D).
+- **Texture:** This property comes from Godot itself, not from Scene 2 UWMF. It
+doesn’t change anything about the map that gets generated. You can change a
+Thing’s texture so that the Thing looks different in Godot. Give each type of
+Thing in your map a different texture to make your map easier to edit.
 
 [`Actor`]: https://maniacsvault.net/ecwolf/wiki/Classes:Actor
 [Actor properties rendering]: https://maniacsvault.net/ecwolf/wiki/Actor_properties#Rendering
