@@ -103,8 +103,10 @@ Please check the debugger for any errors."""
 func _on_ExtractGraphics_pressed() -> void:
 	loading_screen.show()
 	$MainScreen.hide()
-	if thread.start(self, "extract_assets") != OK:
-		push_warning("Failed to start separate Thread for generating assets. Generating assets on the main thread…")
+	var single_thread_wanted : bool = $MainScreen/VBoxContainer/GridContainer/CheckBox.pressed
+	if single_thread_wanted or thread.start(self, "extract_assets") != OK:
+		if not single_thread_wanted:
+			push_warning("Failed to start separate Thread for generating assets. Generating assets on the main thread…")
 		extract_assets()
 
 

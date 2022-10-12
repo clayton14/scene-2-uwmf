@@ -21,7 +21,7 @@ custom_constants/margin_bottom = 32
 margin_left = 32.0
 margin_top = 32.0
 margin_right = 992.0
-margin_bottom = 184.0
+margin_bottom = 186.0
 
 [node name="Label" type="Label" parent="MainScreen/VBoxContainer"]
 margin_right = 960.0
@@ -33,7 +33,7 @@ valign = 1
 [node name="GridContainer" type="GridContainer" parent="MainScreen/VBoxContainer"]
 margin_top = 18.0
 margin_right = 960.0
-margin_bottom = 70.0
+margin_bottom = 98.0
 columns = 3
 
 [node name="EcwolfPk3PathInputField" type="LineEdit" parent="MainScreen/VBoxContainer/GridContainer"]
@@ -78,10 +78,16 @@ margin_right = 955.0
 margin_bottom = 47.0
 text = "VSWAP.* (examples: VSWAP.WL6, VSWAP.SOD, vswap.n3d)"
 
+[node name="CheckBox" type="CheckBox" parent="MainScreen/VBoxContainer/GridContainer"]
+margin_top = 56.0
+margin_right = 512.0
+margin_bottom = 80.0
+text = "Use a single thread (useful for debugging)"
+
 [node name="MarginContainer" type="MarginContainer" parent="MainScreen/VBoxContainer"]
-margin_top = 74.0
+margin_top = 102.0
 margin_right = 960.0
-margin_bottom = 126.0
+margin_bottom = 154.0
 custom_constants/margin_top = 32
 
 [node name="ExtractGraphics" type="Button" parent="MainScreen/VBoxContainer/MarginContainer"]
