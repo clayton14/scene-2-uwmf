@@ -145,13 +145,13 @@ a part of. This section contains the following properties:
 	[here](https://maniacsvault.net/ecwolf/wiki/Classes). Click on the
 	`Actor` that you want and look for the box that says “DoomEd Number”.
 
-- **Skill 1:** Whether or not this thing will be created on the easiest
+- **Skill 1:** Whether or not this thing will exist on the easiest
 difficulty (“Can I play, Daddy?” in Wolf 3D).
-- **Skill 2:** Whether or not this thing will be created on the easy-medium
+- **Skill 2:** Whether or not this thing will exist on the easy-medium
 difficulty (“Don’t hurt me.” in Wolf 3D).
-- **Skill 3:** Whether or not this thing will be created on the medium-hard
+- **Skill 3:** Whether or not this thing will exist on the medium-hard
 difficulty (“Bring ’em on!” in Wolf 3D).
-- **Skill 4:** Whether or not this thing will be created on the hardest
+- **Skill 4:** Whether or not this thing will exist on the hardest
 difficulty (“I am Death incarnate!” in Wolf 3D).
 
 [`Actor`]: https://maniacsvault.net/ecwolf/wiki/Classes:Actor
