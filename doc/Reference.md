@@ -15,6 +15,10 @@ measured in map pixels.
 	scale the `Actor` down to half of its regular size. In this example, 1
 	pixel in the PNG sprite would become 0.25 map pixels in game.
 
+- tile unit — the relative unit used by UWMF. 1 tile unit equals a certain
+number of map pixels. A BaseMap’s Tile Size (see below) determines the number of
+map pixels in 1 tile unit.
+
 ## Usable Textures
 
 [There are many different types of textures that can be used in Godot
