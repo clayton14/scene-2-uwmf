@@ -77,11 +77,13 @@ that the `BaseMap` generates. It should be eight characters or less since
 [WAD] file’s name will be based on the internal name.
 - **Automap Name:** The name of the level that will be displayed when the player
 opens the automap. In ECWolf, this name may be overridden by [MAPINFO].
-- **Tile Size:** You should probably leave this set at 64. The Tile Size
-property corresponds to [the global `tileSize` property in
-UWMF][global properties]. The latest stable version of ECWolf (1.3.3) seems to
-ignore `tileSize` at the moment. I’m not sure if `tileSize` can be used in
-other ports or the latest development version of ECWolf.
+- **Tile Size:** Determines the length (in map pixels) of 1 tile unit.
+
+	You should probably leave this set at 64. The Tile Size property
+	corresponds to [the global `tileSize` property in
+	UWMF][global properties]. The latest stable version of ECWolf (1.3.3)
+	seems to ignore `tileSize` at the moment. I’m not sure if `tileSize` can
+	be used in other ports or the latest development version of ECWolf.
 
 [`Actor`]: https://maniacsvault.net/ecwolf/wiki/Classes:Actor
 [Actor properties rendering]: https://maniacsvault.net/ecwolf/wiki/Actor_properties#Rendering
