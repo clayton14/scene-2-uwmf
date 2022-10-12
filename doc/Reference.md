@@ -162,6 +162,8 @@ Thing in your map a different texture to make your map easier to edit.
 
 **Location:** `res://wolf_editing_tools/scenes_and_scripts/map/tile.tscn`
 
+**Description:** See the glossary’s definition of “tile”.
+
 [`Actor`]: https://maniacsvault.net/ecwolf/wiki/Classes:Actor
 [Actor properties rendering]: https://maniacsvault.net/ecwolf/wiki/Actor_properties#Rendering
 [Actor states usage]: https://maniacsvault.net/ecwolf/wiki/Actor_states#Usage
