@@ -88,7 +88,10 @@ func _on_VSwapPathInputField_text_changed(new_text : String) -> void:
 	v_swap_path = new_text
 
 
-func extract_assets() -> void:
+# VisualServer.request_frame_drawn_callback() always passes a userdata argument
+# to the funtion that’s being called, even if we don’t want to have a userdata
+# argument.
+func extract_assets(_userdata = null) -> void:
 	var ecwolf_pk3 := Pk3.new(ecwolf_pk3_path)
 	var v_swap := VSwap.new(ecwolf_pk3, v_swap_path)
 	var finished_screen : Label = $FinishedScreen
@@ -124,7 +127,8 @@ func _on_ExtractGraphics_pressed() -> void:
 	if single_thread_wanted or thread.start(self, "extract_assets") != OK:
 		if not single_thread_wanted:
 			push_warning("Failed to start separate Thread for generating assets. Generating assets on the main thread…")
-		extract_assets()
+		loading_screen.text += "\n(Using a single thread. The UI will be unresponsive.)"
+		VisualServer.request_frame_drawn_callback(self, "extract_assets", null)
 
 
 func _exit_tree() -> void:
