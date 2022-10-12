@@ -176,6 +176,8 @@ to create [fake contrast].
 	drawn letter E, N, S or W. _If you leave any of these properties set to
 	\[empty], then Scene 2 UWMF will fail to export your map._
 
+- **Texture Overhead:** What the tile will look like on the automap.
+
 [`Actor`]: https://maniacsvault.net/ecwolf/wiki/Classes:Actor
 [Actor properties rendering]: https://maniacsvault.net/ecwolf/wiki/Actor_properties#Rendering
 [Actor states usage]: https://maniacsvault.net/ecwolf/wiki/Actor_states#Usage
