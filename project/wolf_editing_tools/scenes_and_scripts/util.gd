@@ -19,11 +19,6 @@ static func add_missing_trailing_slash(path_to_dir : String) -> String:
 		return path_to_dir + "/"
 
 
-static func make_dir_recursive_or_error(to_create : String) -> void:
-	if Directory.new().make_dir_recursive(to_create) != OK:
-		push_error("Failed to create directory “%s”" % [to_create])
-
-
 static func texture_path(dir_path : String, basename : String) -> String:
 	dir_path = add_missing_trailing_slash(dir_path)
 	# This is just a guess to fallback on if the file doesn’t exist.
