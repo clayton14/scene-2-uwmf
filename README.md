@@ -42,7 +42,7 @@ will be easy.
 	- Pushwalls
 	- Level exits (you have to create a boss that will end the level or a
 	  [Spear of Destiny][SOD item]).
-- The documentation is largely incomplete.
+- The documentation is incomplete.
 - Support for vanilla map formats isn’t even planned.
 - If you don’t already know how to use Godot, then learning how to use Scene
 2 UWMF will be tedious.

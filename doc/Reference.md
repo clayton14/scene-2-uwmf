@@ -1,6 +1,6 @@
 # Reference for Scenes and Scripts Included with Scene 2 UWMF
 
-WIP: This document is missing a lot of stuff at the moment.
+WIP: This document is missing a some stuff at the moment.
 
 ## Glossary
 
