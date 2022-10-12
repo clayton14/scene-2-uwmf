@@ -19,28 +19,6 @@ static func add_missing_trailing_slash(path_to_dir : String) -> String:
 		return path_to_dir + "/"
 
 
-static func texture_path(dir_path : String, basename : String) -> String:
-	dir_path = add_missing_trailing_slash(dir_path)
-	# This is just a guess to fallback on if the file doesn’t exist.
-	var return_value := dir_path + basename + ".tex"
-	var dir := Directory.new()
-	var error_code : int = dir.open(dir_path)
-	if error_code == OK:
-		error_code = dir.list_dir_begin(true)
-		if error_code == OK:
-			var current_name := dir.get_next()
-			while current_name != "":
-				if current_name.get_file().get_basename() == basename:
-					return_value = dir_path + current_name
-					break
-				current_name = dir.get_next()
-		else:
-			failed_to_ls(dir, error_code)
-	else:
-		unhandled_error_while_opening_dir(error_code)
-	return return_value
-
-
 static func remove_dir_recursive_or_error(to_remove : String) -> void:
 	to_remove = add_missing_trailing_slash(to_remove)
 	var dir := Directory.new()
