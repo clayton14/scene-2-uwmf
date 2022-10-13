@@ -24,6 +24,7 @@ static func from_color(color : Color):
 	return_value.set_color(color)
 	return return_value
 
+
 func _set_color_no_verify(new_color : Color) -> void:
 	var new_image = Image.new()
 	new_image.create(1, 1, false, Image.FORMAT_RGBA8)
