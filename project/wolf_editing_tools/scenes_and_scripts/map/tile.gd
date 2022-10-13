@@ -1,5 +1,5 @@
 tool
-extends MapObject
+extends "res://wolf_editing_tools/scenes_and_scripts/map/map_spot_locked_object.gd"
 
 const EAST_FACE_PATH := @"EastFace"
 const OVERHEAD_FACE_PATH := @"OverheadFace"
