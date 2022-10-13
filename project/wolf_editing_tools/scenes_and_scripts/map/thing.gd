@@ -1,9 +1,6 @@
 extends MapObject
 
 
-var BaseMap := load("res://wolf_editing_tools/scenes_and_scripts/map/base_map.gd")
-
-
 # The UWMF spec says that type should be a string, but the latest stable version
 # of ECWolf requires that ints are used. I took a look at ECWolf’s master
 # branch, and it looks like using ints for thing types is still supported, but
@@ -36,4 +33,4 @@ func to_uwmf() -> String:
 		contents["skill3"] = true
 	if skill4:
 		contents["skill4"] = true
-	return BaseMap.named_block("thing", contents)
+	return Util.named_block("thing", contents)

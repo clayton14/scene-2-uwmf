@@ -1,7 +1,6 @@
 extends Reference
 
 
-var BaseMap := load("res://wolf_editing_tools/scenes_and_scripts/map/base_map.gd")
 var texture_ceiling : Texture = default_texture_ceiling() setget set_texture_ceiling
 var texture_floor : Texture = default_texture_floor() setget set_texture_floor
 
@@ -28,7 +27,7 @@ func set_texture_floor(new_texture : Texture) -> void:
 
 
 func to_uwmf() -> String:
-	return BaseMap.named_block(
+	return Util.named_block(
 		"sector",
 		{
 			"textureCeiling" : Util.texture_to_uwmf(texture_ceiling),
