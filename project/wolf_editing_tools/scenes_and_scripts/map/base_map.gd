@@ -39,7 +39,7 @@ func component_default(component : String):
 		return -1
 
 
-func convert_to_uwmf() -> String:
+func to_uwmf() -> String:
 	var size := size()
 	var return_value := (
 		Util.property_assignment_statement("namespace", NAMESPACE)
@@ -115,7 +115,7 @@ func _ready() -> void:
 		var wad := Wad.new()
 		var lumps := [
 			Wad.Lump.new(internal_name, PoolByteArray()),
-			Wad.Lump.new("TEXTMAP", convert_to_uwmf().to_utf8()),
+			Wad.Lump.new("TEXTMAP", to_uwmf().to_utf8()),
 			Wad.Lump.new("ENDMAP", PoolByteArray()),
 		]
 		assert(wad.set_lumps(lumps), "Setting lumps failed.")
