@@ -3,7 +3,7 @@
 [ext_resource path="res://wolf_editing_tools/scenes_and_scripts/map/base_map.gd" type="Script" id=1]
 [ext_resource path="res://wolf_editing_tools/scenes_and_scripts/resource_types/single_color_texture.gd" type="Script" id=2]
 
-[sub_resource type="Image" id=3]
+[sub_resource type="Image" id=6]
 data = {
 "data": PoolByteArray( 56, 56, 56, 255 ),
 "format": "RGBA8",
@@ -13,14 +13,14 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id=2]
-image = SubResource( 3 )
+image = SubResource( 6 )
 size = Vector2( 1, 1 )
 script = ExtResource( 2 )
 color = Color( 0.219608, 0.219608, 0.219608, 1 )
 
-[sub_resource type="Image" id=4]
+[sub_resource type="Image" id=7]
 data = {
-"data": PoolByteArray( 113, 113, 113, 255 ),
+"data": PoolByteArray( 112, 112, 112, 255 ),
 "format": "RGBA8",
 "height": 1,
 "mipmaps": false,
@@ -28,10 +28,10 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id=5]
-image = SubResource( 4 )
+image = SubResource( 7 )
 size = Vector2( 1, 1 )
 script = ExtResource( 2 )
-color = Color( 0.443137, 0.443137, 0.443137, 1 )
+color = Color( 0.439216, 0.439216, 0.439216, 1 )
 
 [node name="BaseMap" type="Node"]
 script = ExtResource( 1 )
