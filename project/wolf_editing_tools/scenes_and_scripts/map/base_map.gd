@@ -1,6 +1,7 @@
 tool
 extends Node
 
+const Sector = preload("res://wolf_editing_tools/scenes_and_scripts/map/sector.gd")
 const Tile := preload("res://wolf_editing_tools/scenes_and_scripts/map/tile.gd")
 const Wad := preload("res://wolf_editing_tools/scenes_and_scripts/file_formats/wad.gd")
 const NAMESPACE := "Wolf3D";
@@ -8,7 +9,6 @@ const REQUIRED_COMPONENTS := ["tile", "sector", "zone"]
 const TRIED_TO_SET_WRONG_TYPE := "Tried to set %s to something that isn’t a %s."
 
 
-var Sector = load("res://wolf_editing_tools/scenes_and_scripts/map/sector.gd")
 var default_sector_enabled := true
 var default_sector = Sector.new()
 # This will be the name of the header lump [1] when the map is exported. It also gets used as the
