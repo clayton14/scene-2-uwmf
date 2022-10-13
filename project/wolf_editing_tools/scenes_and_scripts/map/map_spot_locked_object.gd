@@ -13,3 +13,4 @@ func _init() -> void:
 func _notification(what) -> void:
 	if what == NOTIFICATION_TRANSFORM_CHANGED:
 		global_transform.origin = global_transform.origin.round()
+		global_transform.basis = Basis.IDENTITY
