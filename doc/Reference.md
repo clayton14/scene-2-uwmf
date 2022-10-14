@@ -43,6 +43,10 @@ floor and ceiling texture.
 
 - **thing** — either an [`Actor`] or a player start.
 
+- **trigger** — an invisible area that’s shaped like a tile. When a trigger is
+activated, its [action special] is activated. A trigger’s properties determine
+how it can be activated.
+
 ## Usable Textures
 
 [There are many different types of textures that can be used in Godot
@@ -179,6 +183,7 @@ to create [fake contrast].
 - **Texture Overhead:** What the tile will look like on the automap.
 
 [`Actor`]: https://maniacsvault.net/ecwolf/wiki/Classes:Actor
+[action special]: https://maniacsvault.net/ecwolf/wiki/Action_specials
 [Actor properties rendering]: https://maniacsvault.net/ecwolf/wiki/Actor_properties#Rendering
 [Actor states usage]: https://maniacsvault.net/ecwolf/wiki/Actor_states#Usage
 [fake contrast]: https://doomwiki.org/wiki/Fake_contrast#Previous_implementations
