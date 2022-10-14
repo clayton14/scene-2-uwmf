@@ -201,6 +201,10 @@ found [here][action special].
 - **Player Cross:** If _Player Cross_ is checked, then the _Action_ will be
 activated when the player crosses one of the trigger’s faces.
 
+- **Active Color:** What color the Trigger will use in Godot. This is purely
+cosmetic. You might change this property because you’re color blind or because
+you’re putting the Trigger in the same space as a green Tile.
+
 [`Actor`]: https://maniacsvault.net/ecwolf/wiki/Classes:Actor
 [action special]: https://maniacsvault.net/ecwolf/wiki/Action_specials
 [Actor properties rendering]: https://maniacsvault.net/ecwolf/wiki/Actor_properties#Rendering
