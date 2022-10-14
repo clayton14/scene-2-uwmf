@@ -11,7 +11,7 @@ Universal Wolfenstein Map Format. These ports are known to support UWMF:
 Make sure that you’re able to play at least one of the following games.
 
 - Wolfenstein 3D, Shareware version\*
-- Wolfenstein 3D, 6 episode registered version\*
+- Wolfenstein 3D, 6 episode registered version
 - Spear of Destiny
 - Spear of Destiny Demo\*
 - Mission 2: Return to Danger\*
