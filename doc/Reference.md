@@ -190,7 +190,7 @@ to create [fake contrast].
 
 #### Properties
 
-- **action:** the number of the action special that this trigger activates. The
+- **Action:** the number of the action special that this trigger activates. The
 list of action specials supported by ECWolf (along with their numbers) can be
 found [here][action special].
 
