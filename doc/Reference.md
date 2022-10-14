@@ -198,6 +198,9 @@ found [here][action special].
 	number. This is to ensure that you change the action special before
 	using it. In other words, don’t rely on the default!
 
+- **Player Cross:** If _Player Cross_ is checked, then the _Action_ will be
+activated when the player crosses one of the trigger’s faces.
+
 [`Actor`]: https://maniacsvault.net/ecwolf/wiki/Classes:Actor
 [action special]: https://maniacsvault.net/ecwolf/wiki/Action_specials
 [Actor properties rendering]: https://maniacsvault.net/ecwolf/wiki/Actor_properties#Rendering
