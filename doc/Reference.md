@@ -182,6 +182,10 @@ to create [fake contrast].
 
 - **Texture Overhead:** What the tile will look like on the automap.
 
+### Trigger
+
+**Location:** `res://wolf_editing_tools/scenes_and_scripts/map/trigger.tscn`
+
 [`Actor`]: https://maniacsvault.net/ecwolf/wiki/Classes:Actor
 [action special]: https://maniacsvault.net/ecwolf/wiki/Action_specials
 [Actor properties rendering]: https://maniacsvault.net/ecwolf/wiki/Actor_properties#Rendering
