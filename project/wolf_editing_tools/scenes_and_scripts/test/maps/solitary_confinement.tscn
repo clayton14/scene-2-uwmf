@@ -1,41 +1,27 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://wolf_editing_tools/scenes_and_scripts/map/base_map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://wolf_editing_tools/scenes_and_scripts/resource_types/single_color_texture.gd" type="Script" id=2]
 [ext_resource path="res://wolf_editing_tools/scenes_and_scripts/map/tile.tscn" type="PackedScene" id=3]
 [ext_resource path="res://wolf_editing_tools/scenes_and_scripts/map/thing.tscn" type="PackedScene" id=4]
+[ext_resource path="res://wolf_editing_tools/scenes_and_scripts/map/trigger.tscn" type="PackedScene" id=5]
 
-[sub_resource type="Image" id=19]
+[sub_resource type="Image" id=30]
 data = {
-"data": PoolByteArray( 56, 56, 56, 255 ),
+"data": PoolByteArray( 113, 113, 113, 255 ),
 "format": "RGBA8",
 "height": 1,
 "mipmaps": false,
 "width": 1
 }
 
-[sub_resource type="ImageTexture" id=16]
-image = SubResource( 19 )
+[sub_resource type="ImageTexture" id=29]
+image = SubResource( 30 )
 size = Vector2( 1, 1 )
 script = ExtResource( 2 )
-color = Color( 0.219608, 0.219608, 0.219608, 1 )
+color = Color( 0.443137, 0.443137, 0.443137, 1 )
 
-[sub_resource type="Image" id=20]
-data = {
-"data": PoolByteArray( 112, 112, 112, 255 ),
-"format": "RGBA8",
-"height": 1,
-"mipmaps": false,
-"width": 1
-}
-
-[sub_resource type="ImageTexture" id=18]
-image = SubResource( 20 )
-size = Vector2( 1, 1 )
-script = ExtResource( 2 )
-color = Color( 0.439216, 0.439216, 0.439216, 1 )
-
-[sub_resource type="Image" id=21]
+[sub_resource type="Image" id=31]
 data = {
 "data": PoolByteArray( 26, 31, 86, 255 ),
 "format": "RGBA8",
@@ -45,12 +31,12 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id=2]
-image = SubResource( 21 )
+image = SubResource( 31 )
 size = Vector2( 1, 1 )
 script = ExtResource( 2 )
 color = Color( 0.101961, 0.121569, 0.337255, 1 )
 
-[sub_resource type="Image" id=22]
+[sub_resource type="Image" id=32]
 data = {
 "data": PoolByteArray( 26, 31, 86, 255 ),
 "format": "RGBA8",
@@ -60,12 +46,12 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id=4]
-image = SubResource( 22 )
+image = SubResource( 32 )
 size = Vector2( 1, 1 )
 script = ExtResource( 2 )
 color = Color( 0.101961, 0.121569, 0.337255, 1 )
 
-[sub_resource type="Image" id=23]
+[sub_resource type="Image" id=33]
 data = {
 "data": PoolByteArray( 26, 31, 86, 255 ),
 "format": "RGBA8",
@@ -75,12 +61,12 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id=6]
-image = SubResource( 23 )
+image = SubResource( 33 )
 size = Vector2( 1, 1 )
 script = ExtResource( 2 )
 color = Color( 0.101961, 0.121569, 0.337255, 1 )
 
-[sub_resource type="Image" id=24]
+[sub_resource type="Image" id=34]
 data = {
 "data": PoolByteArray( 26, 31, 86, 255 ),
 "format": "RGBA8",
@@ -90,12 +76,12 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id=8]
-image = SubResource( 24 )
+image = SubResource( 34 )
 size = Vector2( 1, 1 )
 script = ExtResource( 2 )
 color = Color( 0.101961, 0.121569, 0.337255, 1 )
 
-[sub_resource type="Image" id=25]
+[sub_resource type="Image" id=35]
 data = {
 "data": PoolByteArray( 253, 255, 0, 255 ),
 "format": "RGBA8",
@@ -105,335 +91,808 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id=14]
-image = SubResource( 25 )
+image = SubResource( 35 )
 size = Vector2( 1, 1 )
 script = ExtResource( 2 )
 color = Color( 0.992157, 1, 0, 1 )
 
+[sub_resource type="Image" id=36]
+data = {
+"data": PoolByteArray( 0, 207, 255, 255 ),
+"format": "RGBA8",
+"height": 1,
+"mipmaps": false,
+"width": 1
+}
+
+[sub_resource type="ImageTexture" id=27]
+image = SubResource( 36 )
+size = Vector2( 1, 1 )
+script = ExtResource( 2 )
+color = Color( 0, 0.811765, 1, 1 )
+
 [node name="SolitaryConfinement" instance=ExtResource( 1 )]
-default_sector/texture_ceiling = SubResource( 16 )
-default_sector/texture_floor = SubResource( 18 )
+default_sector/texture_floor = SubResource( 29 )
 
 [node name="Tile" parent="." index="0" instance=ExtResource( 3 )]
-texture_east = SubResource( 2 )
-texture_north = SubResource( 4 )
-texture_south = SubResource( 6 )
-texture_west = SubResource( 8 )
-
-[node name="Tile7" parent="." index="1" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1 )
-texture_east = SubResource( 2 )
-texture_north = SubResource( 4 )
-texture_south = SubResource( 6 )
-texture_west = SubResource( 8 )
-
-[node name="Tile8" parent="." index="2" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2 )
-texture_east = SubResource( 2 )
-texture_north = SubResource( 4 )
-texture_south = SubResource( 6 )
-texture_west = SubResource( 8 )
-
-[node name="Tile9" parent="." index="3" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3 )
-texture_east = SubResource( 2 )
-texture_north = SubResource( 4 )
-texture_south = SubResource( 6 )
-texture_west = SubResource( 8 )
-
-[node name="Tile19" parent="." index="4" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 3 )
-texture_east = SubResource( 2 )
-texture_north = SubResource( 4 )
-texture_south = SubResource( 6 )
-texture_west = SubResource( 8 )
-
-[node name="Tile20" parent="." index="5" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 2 )
-texture_east = SubResource( 2 )
-texture_north = SubResource( 4 )
-texture_south = SubResource( 6 )
-texture_west = SubResource( 8 )
-
-[node name="Tile21" parent="." index="6" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 1 )
-texture_east = SubResource( 2 )
-texture_north = SubResource( 4 )
-texture_south = SubResource( 6 )
-texture_west = SubResource( 8 )
-
-[node name="Tile28" parent="." index="7" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 6 )
-texture_east = SubResource( 2 )
-texture_north = SubResource( 4 )
-texture_south = SubResource( 6 )
-texture_west = SubResource( 8 )
-
-[node name="Tile29" parent="." index="8" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 5 )
-texture_east = SubResource( 2 )
-texture_north = SubResource( 4 )
-texture_south = SubResource( 6 )
-texture_west = SubResource( 8 )
-
-[node name="Tile30" parent="." index="9" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 4 )
-texture_east = SubResource( 2 )
-texture_north = SubResource( 4 )
-texture_south = SubResource( 6 )
-texture_west = SubResource( 8 )
-
-[node name="Tile22" parent="." index="10" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 0 )
-texture_east = SubResource( 2 )
-texture_north = SubResource( 4 )
-texture_south = SubResource( 6 )
-texture_west = SubResource( 8 )
-
-[node name="Tile12" parent="." index="11" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5 )
-texture_east = SubResource( 2 )
-texture_north = SubResource( 4 )
-texture_south = SubResource( 6 )
-texture_west = SubResource( 8 )
-
-[node name="Tile10" parent="." index="12" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4 )
-texture_east = SubResource( 2 )
-texture_north = SubResource( 4 )
-texture_south = SubResource( 6 )
-texture_west = SubResource( 8 )
-
-[node name="Tile11" parent="." index="13" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6 )
-texture_east = SubResource( 2 )
-texture_north = SubResource( 4 )
-texture_south = SubResource( 6 )
-texture_west = SubResource( 8 )
-
-[node name="Tile13" parent="." index="14" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 3 )
-texture_east = SubResource( 14 )
-texture_north = SubResource( 14 )
-texture_south = SubResource( 14 )
-texture_west = SubResource( 14 )
-
-[node name="Tile14" parent="." index="15" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 3 )
-texture_east = SubResource( 14 )
-texture_north = SubResource( 14 )
-texture_south = SubResource( 14 )
-texture_west = SubResource( 14 )
-
-[node name="Tile15" parent="." index="16" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 6 )
-texture_east = SubResource( 14 )
-texture_north = SubResource( 14 )
-texture_south = SubResource( 14 )
-texture_west = SubResource( 14 )
-
-[node name="Tile16" parent="." index="17" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 7 )
-texture_east = SubResource( 14 )
-texture_north = SubResource( 14 )
-texture_south = SubResource( 14 )
-texture_west = SubResource( 14 )
-
-[node name="Tile17" parent="." index="18" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 7 )
-texture_east = SubResource( 14 )
-texture_north = SubResource( 14 )
-texture_south = SubResource( 14 )
-texture_west = SubResource( 14 )
-
-[node name="Tile18" parent="." index="19" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 6 )
-texture_east = SubResource( 14 )
-texture_north = SubResource( 14 )
-texture_south = SubResource( 14 )
-texture_west = SubResource( 14 )
-
-[node name="Tile2" parent="." index="20" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0 )
-texture_east = SubResource( 2 )
-texture_north = SubResource( 4 )
-texture_south = SubResource( 6 )
-texture_west = SubResource( 8 )
-
-[node name="Tile3" parent="." index="21" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0 )
-texture_east = SubResource( 2 )
-texture_north = SubResource( 4 )
-texture_south = SubResource( 6 )
-texture_west = SubResource( 8 )
-
-[node name="Tile4" parent="." index="22" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0 )
-texture_east = SubResource( 2 )
-texture_north = SubResource( 4 )
-texture_south = SubResource( 6 )
-texture_west = SubResource( 8 )
-
-[node name="Tile5" parent="." index="23" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0 )
-texture_east = SubResource( 2 )
-texture_north = SubResource( 4 )
-texture_south = SubResource( 6 )
-texture_west = SubResource( 8 )
-
-[node name="Tile6" parent="." index="24" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0 )
-texture_east = SubResource( 2 )
-texture_north = SubResource( 4 )
-texture_south = SubResource( 6 )
-texture_west = SubResource( 8 )
-
-[node name="Tile23" parent="." index="25" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0 )
 texture_east = SubResource( 2 )
 texture_north = SubResource( 4 )
 texture_south = SubResource( 6 )
 texture_west = SubResource( 8 )
 
-[node name="Tile24" parent="." index="26" instance=ExtResource( 3 )]
+[node name="Tile7" parent="." index="1" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 1 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile8" parent="." index="2" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 2 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile9" parent="." index="3" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 3 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile19" parent="." index="4" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 3 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile20" parent="." index="5" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 2 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile21" parent="." index="6" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 1 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile28" parent="." index="7" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 6 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile29" parent="." index="8" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 5 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile30" parent="." index="9" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 4 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile22" parent="." index="10" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 0 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile12" parent="." index="11" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 5 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile10" parent="." index="12" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 4 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile11" parent="." index="13" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 6 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile13" parent="." index="14" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 3 )
+texture_east = SubResource( 14 )
+texture_north = SubResource( 14 )
+texture_south = SubResource( 14 )
+texture_west = SubResource( 14 )
+
+[node name="Tile14" parent="." index="15" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 3 )
+texture_east = SubResource( 14 )
+texture_north = SubResource( 14 )
+texture_south = SubResource( 14 )
+texture_west = SubResource( 14 )
+
+[node name="Tile15" parent="." index="16" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 6 )
+texture_east = SubResource( 14 )
+texture_north = SubResource( 14 )
+texture_south = SubResource( 14 )
+texture_west = SubResource( 14 )
+
+[node name="Tile16" parent="." index="17" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 7 )
+texture_east = SubResource( 14 )
+texture_north = SubResource( 14 )
+texture_south = SubResource( 14 )
+texture_west = SubResource( 14 )
+
+[node name="Tile17" parent="." index="18" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 7 )
+texture_east = SubResource( 14 )
+texture_north = SubResource( 14 )
+texture_south = SubResource( 14 )
+texture_west = SubResource( 14 )
+
+[node name="Tile18" parent="." index="19" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 6 )
+texture_east = SubResource( 14 )
+texture_north = SubResource( 14 )
+texture_south = SubResource( 14 )
+texture_west = SubResource( 14 )
+
+[node name="Tile2" parent="." index="20" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0 )
 texture_east = SubResource( 2 )
 texture_north = SubResource( 4 )
 texture_south = SubResource( 6 )
 texture_west = SubResource( 8 )
 
-[node name="Tile25" parent="." index="27" instance=ExtResource( 3 )]
+[node name="Tile3" parent="." index="21" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0 )
 texture_east = SubResource( 2 )
 texture_north = SubResource( 4 )
 texture_south = SubResource( 6 )
 texture_west = SubResource( 8 )
 
-[node name="Tile26" parent="." index="28" instance=ExtResource( 3 )]
+[node name="Tile4" parent="." index="22" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0 )
 texture_east = SubResource( 2 )
 texture_north = SubResource( 4 )
 texture_south = SubResource( 6 )
 texture_west = SubResource( 8 )
 
-[node name="Tile27" parent="." index="29" instance=ExtResource( 3 )]
+[node name="Tile5" parent="." index="23" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0 )
 texture_east = SubResource( 2 )
 texture_north = SubResource( 4 )
 texture_south = SubResource( 6 )
 texture_west = SubResource( 8 )
 
+[node name="Tile6" parent="." index="24" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 0 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile23" parent="." index="25" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile24" parent="." index="26" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 0 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile25" parent="." index="27" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile26" parent="." index="28" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 0 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile27" parent="." index="29" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 0 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
 [node name="Tile31" parent="." index="30" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9 )
-texture_east = SubResource( 2 )
-texture_north = SubResource( 4 )
-texture_south = SubResource( 6 )
-texture_west = SubResource( 8 )
-
-[node name="Tile32" parent="." index="31" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7 )
-texture_east = SubResource( 2 )
-texture_north = SubResource( 4 )
-texture_south = SubResource( 6 )
-texture_west = SubResource( 8 )
-
-[node name="Tile46" parent="." index="32" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8 )
-texture_east = SubResource( 2 )
-texture_north = SubResource( 4 )
-texture_south = SubResource( 6 )
-texture_west = SubResource( 8 )
-
-[node name="Tile33" parent="." index="33" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 7 )
-texture_east = SubResource( 2 )
-texture_north = SubResource( 4 )
-texture_south = SubResource( 6 )
-texture_west = SubResource( 8 )
-
-[node name="Tile45" parent="." index="34" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 8 )
-texture_east = SubResource( 2 )
-texture_north = SubResource( 4 )
-texture_south = SubResource( 6 )
-texture_west = SubResource( 8 )
-
-[node name="Tile34" parent="." index="35" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 9 )
-texture_east = SubResource( 2 )
-texture_north = SubResource( 4 )
-texture_south = SubResource( 6 )
-texture_west = SubResource( 8 )
-
-[node name="Tile35" parent="." index="36" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 9 )
-texture_east = SubResource( 2 )
-texture_north = SubResource( 4 )
-texture_south = SubResource( 6 )
-texture_west = SubResource( 8 )
-
-[node name="Tile36" parent="." index="37" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 9 )
-texture_east = SubResource( 2 )
-texture_north = SubResource( 4 )
-texture_south = SubResource( 6 )
-texture_west = SubResource( 8 )
-
-[node name="Tile37" parent="." index="38" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 9 )
-texture_east = SubResource( 2 )
-texture_north = SubResource( 4 )
-texture_south = SubResource( 6 )
-texture_west = SubResource( 8 )
-
-[node name="Tile38" parent="." index="39" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 9 )
-texture_east = SubResource( 2 )
-texture_north = SubResource( 4 )
-texture_south = SubResource( 6 )
-texture_west = SubResource( 8 )
-
-[node name="Tile39" parent="." index="40" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 9 )
-texture_east = SubResource( 2 )
-texture_north = SubResource( 4 )
-texture_south = SubResource( 6 )
-texture_west = SubResource( 8 )
-
-[node name="Tile40" parent="." index="41" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 9 )
 texture_east = SubResource( 2 )
 texture_north = SubResource( 4 )
 texture_south = SubResource( 6 )
 texture_west = SubResource( 8 )
 
-[node name="Tile41" parent="." index="42" instance=ExtResource( 3 )]
+[node name="Tile32" parent="." index="31" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 7 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile46" parent="." index="32" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 8 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile33" parent="." index="33" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 7 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile45" parent="." index="34" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 8 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile34" parent="." index="35" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 9 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile35" parent="." index="36" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 9 )
 texture_east = SubResource( 2 )
 texture_north = SubResource( 4 )
 texture_south = SubResource( 6 )
 texture_west = SubResource( 8 )
 
-[node name="Tile42" parent="." index="43" instance=ExtResource( 3 )]
+[node name="Tile36" parent="." index="37" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 9 )
 texture_east = SubResource( 2 )
 texture_north = SubResource( 4 )
 texture_south = SubResource( 6 )
 texture_west = SubResource( 8 )
 
-[node name="Tile43" parent="." index="44" instance=ExtResource( 3 )]
+[node name="Tile37" parent="." index="38" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 9 )
 texture_east = SubResource( 2 )
 texture_north = SubResource( 4 )
 texture_south = SubResource( 6 )
 texture_west = SubResource( 8 )
 
-[node name="Tile44" parent="." index="45" instance=ExtResource( 3 )]
+[node name="Tile38" parent="." index="39" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 9 )
 texture_east = SubResource( 2 )
 texture_north = SubResource( 4 )
 texture_south = SubResource( 6 )
 texture_west = SubResource( 8 )
 
-[node name="Thing" parent="." index="46" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2 )
+[node name="Tile39" parent="." index="40" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 14 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile40" parent="." index="41" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 14 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile61" parent="." index="42" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 15 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile62" parent="." index="43" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 15 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile63" parent="." index="44" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 15 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile64" parent="." index="45" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 15 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile65" parent="." index="46" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 15 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile71" parent="." index="47" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 15 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile72" parent="." index="48" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 15 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile73" parent="." index="49" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 15 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile74" parent="." index="50" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 15 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile75" parent="." index="51" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 15 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile66" parent="." index="52" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 15 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile67" parent="." index="53" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 15 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile68" parent="." index="54" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 15 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile69" parent="." index="55" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 15 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile70" parent="." index="56" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 15 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile76" parent="." index="57" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 15 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile77" parent="." index="58" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, 15 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile78" parent="." index="59" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 15 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile79" parent="." index="60" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, 15 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile80" parent="." index="61" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 15 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile51" parent="." index="62" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 21 )
+texture_east = SubResource( 27 )
+texture_north = SubResource( 27 )
+texture_south = SubResource( 27 )
+texture_west = SubResource( 27 )
+
+[node name="Tile52" parent="." index="63" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 21 )
+texture_east = SubResource( 27 )
+texture_north = SubResource( 27 )
+texture_south = SubResource( 27 )
+texture_west = SubResource( 27 )
+
+[node name="Tile53" parent="." index="64" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 21 )
+texture_east = SubResource( 27 )
+texture_north = SubResource( 27 )
+texture_south = SubResource( 27 )
+texture_west = SubResource( 27 )
+
+[node name="Tile54" parent="." index="65" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 21 )
+texture_east = SubResource( 27 )
+texture_north = SubResource( 27 )
+texture_south = SubResource( 27 )
+texture_west = SubResource( 27 )
+
+[node name="Tile57" parent="." index="66" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 21 )
+texture_east = SubResource( 27 )
+texture_north = SubResource( 27 )
+texture_south = SubResource( 27 )
+texture_west = SubResource( 27 )
+
+[node name="Tile60" parent="." index="67" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 21 )
+texture_east = SubResource( 27 )
+texture_north = SubResource( 27 )
+texture_south = SubResource( 27 )
+texture_west = SubResource( 27 )
+
+[node name="Tile81" parent="." index="68" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 21 )
+texture_east = SubResource( 27 )
+texture_north = SubResource( 27 )
+texture_south = SubResource( 27 )
+texture_west = SubResource( 27 )
+
+[node name="Tile82" parent="." index="69" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 21 )
+texture_east = SubResource( 27 )
+texture_north = SubResource( 27 )
+texture_south = SubResource( 27 )
+texture_west = SubResource( 27 )
+
+[node name="Tile83" parent="." index="70" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 21 )
+texture_east = SubResource( 27 )
+texture_north = SubResource( 27 )
+texture_south = SubResource( 27 )
+texture_west = SubResource( 27 )
+
+[node name="Tile84" parent="." index="71" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 21 )
+texture_east = SubResource( 27 )
+texture_north = SubResource( 27 )
+texture_south = SubResource( 27 )
+texture_west = SubResource( 27 )
+
+[node name="Tile85" parent="." index="72" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 21 )
+texture_east = SubResource( 27 )
+texture_north = SubResource( 27 )
+texture_south = SubResource( 27 )
+texture_west = SubResource( 27 )
+
+[node name="Tile86" parent="." index="73" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 21 )
+texture_east = SubResource( 27 )
+texture_north = SubResource( 27 )
+texture_south = SubResource( 27 )
+texture_west = SubResource( 27 )
+
+[node name="Tile95" parent="." index="74" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, 21 )
+texture_east = SubResource( 27 )
+texture_north = SubResource( 27 )
+texture_south = SubResource( 27 )
+texture_west = SubResource( 27 )
+
+[node name="Tile99" parent="." index="75" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 21 )
+texture_east = SubResource( 27 )
+texture_north = SubResource( 27 )
+texture_south = SubResource( 27 )
+texture_west = SubResource( 27 )
+
+[node name="Tile100" parent="." index="76" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 21 )
+texture_east = SubResource( 27 )
+texture_north = SubResource( 27 )
+texture_south = SubResource( 27 )
+texture_west = SubResource( 27 )
+
+[node name="Tile101" parent="." index="77" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, 21 )
+texture_east = SubResource( 27 )
+texture_north = SubResource( 27 )
+texture_south = SubResource( 27 )
+texture_west = SubResource( 27 )
+
+[node name="Tile102" parent="." index="78" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 21 )
+texture_east = SubResource( 27 )
+texture_north = SubResource( 27 )
+texture_south = SubResource( 27 )
+texture_west = SubResource( 27 )
+
+[node name="Tile103" parent="." index="79" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 21 )
+texture_east = SubResource( 27 )
+texture_north = SubResource( 27 )
+texture_south = SubResource( 27 )
+texture_west = SubResource( 27 )
+
+[node name="Tile104" parent="." index="80" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 21 )
+texture_east = SubResource( 27 )
+texture_north = SubResource( 27 )
+texture_south = SubResource( 27 )
+texture_west = SubResource( 27 )
+
+[node name="Tile105" parent="." index="81" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 21 )
+texture_east = SubResource( 27 )
+texture_north = SubResource( 27 )
+texture_south = SubResource( 27 )
+texture_west = SubResource( 27 )
+
+[node name="Tile87" parent="." index="82" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19 )
+texture_east = SubResource( 27 )
+texture_north = SubResource( 27 )
+texture_south = SubResource( 27 )
+texture_west = SubResource( 27 )
+
+[node name="Tile88" parent="." index="83" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20 )
+texture_east = SubResource( 27 )
+texture_north = SubResource( 27 )
+texture_south = SubResource( 27 )
+texture_west = SubResource( 27 )
+
+[node name="Tile91" parent="." index="84" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 17 )
+texture_east = SubResource( 27 )
+texture_north = SubResource( 27 )
+texture_south = SubResource( 27 )
+texture_west = SubResource( 27 )
+
+[node name="Tile92" parent="." index="85" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 18 )
+texture_east = SubResource( 27 )
+texture_north = SubResource( 27 )
+texture_south = SubResource( 27 )
+texture_west = SubResource( 27 )
+
+[node name="Tile93" parent="." index="86" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15 )
+texture_east = SubResource( 27 )
+texture_north = SubResource( 27 )
+texture_south = SubResource( 27 )
+texture_west = SubResource( 27 )
+
+[node name="Tile94" parent="." index="87" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16 )
+texture_east = SubResource( 27 )
+texture_north = SubResource( 27 )
+texture_south = SubResource( 27 )
+texture_west = SubResource( 27 )
+
+[node name="Tile89" parent="." index="88" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 21 )
+texture_east = SubResource( 27 )
+texture_north = SubResource( 27 )
+texture_south = SubResource( 27 )
+texture_west = SubResource( 27 )
+
+[node name="Tile90" parent="." index="89" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 21 )
+texture_east = SubResource( 27 )
+texture_north = SubResource( 27 )
+texture_south = SubResource( 27 )
+texture_west = SubResource( 27 )
+
+[node name="Tile96" parent="." index="90" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 0, 19 )
+texture_east = SubResource( 27 )
+texture_north = SubResource( 27 )
+texture_south = SubResource( 27 )
+texture_west = SubResource( 27 )
+
+[node name="Tile97" parent="." index="91" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 0, 20 )
+texture_east = SubResource( 27 )
+texture_north = SubResource( 27 )
+texture_south = SubResource( 27 )
+texture_west = SubResource( 27 )
+
+[node name="Tile98" parent="." index="92" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 0, 17 )
+texture_east = SubResource( 27 )
+texture_north = SubResource( 27 )
+texture_south = SubResource( 27 )
+texture_west = SubResource( 27 )
+
+[node name="Tile106" parent="." index="93" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 0, 18 )
+texture_east = SubResource( 27 )
+texture_north = SubResource( 27 )
+texture_south = SubResource( 27 )
+texture_west = SubResource( 27 )
+
+[node name="Tile107" parent="." index="94" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 0, 15 )
+texture_east = SubResource( 27 )
+texture_north = SubResource( 27 )
+texture_south = SubResource( 27 )
+texture_west = SubResource( 27 )
+
+[node name="Tile108" parent="." index="95" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 0, 16 )
+texture_east = SubResource( 27 )
+texture_north = SubResource( 27 )
+texture_south = SubResource( 27 )
+texture_west = SubResource( 27 )
+
+[node name="Tile109" parent="." index="96" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 0, 21 )
+texture_east = SubResource( 27 )
+texture_north = SubResource( 27 )
+texture_south = SubResource( 27 )
+texture_west = SubResource( 27 )
+
+[node name="Tile110" parent="." index="97" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 21 )
+texture_east = SubResource( 27 )
+texture_north = SubResource( 27 )
+texture_south = SubResource( 27 )
+texture_west = SubResource( 27 )
+
+[node name="Tile41" parent="." index="98" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 9 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile47" parent="." index="99" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 10 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile48" parent="." index="100" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 11 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile49" parent="." index="101" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 12 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile50" parent="." index="102" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 13 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile55" parent="." index="103" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 10 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile56" parent="." index="104" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 11 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile58" parent="." index="105" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 12 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile59" parent="." index="106" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 13 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile42" parent="." index="107" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 9 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile43" parent="." index="108" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 9 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Tile44" parent="." index="109" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 9 )
+texture_east = SubResource( 2 )
+texture_north = SubResource( 4 )
+texture_south = SubResource( 6 )
+texture_west = SubResource( 8 )
+
+[node name="Thing" parent="." index="110" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.0916, 0, 2 )
+
+[node name="Trigger" parent="." index="111" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 14 )
+action = 6
+player_cross = true
+
+[node name="Trigger2" parent="." index="112" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 14 )
+action = 6
+player_cross = true
