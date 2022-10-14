@@ -40,8 +40,9 @@ will be easy.
 - You can’t create these fundamental level components:
 	- Doors
 	- Pushwalls
-	- Level exits (you have to create a boss that will end the level or a
-	  [Spear of Destiny][SOD item]).
+	- Standard level exits (you have to create a boss that will end the
+	level, a [Spear of Destiny][SOD item] or a trigger that activates
+	[`Exit_VictorySpin()` or a similar action special][action specials]).
 - The documentation is incomplete.
 - Support for vanilla map formats isn’t even planned.
 - If you don’t already know how to use Godot, then learning how to use Scene
@@ -62,5 +63,6 @@ project**](doc/How%20to%20Contribute.md).
 
 See [`COPYING.txt`](COPYING.txt).
 
+[action specials]: https://maniacsvault.net/ecwolf/wiki/Action_specials#List_of_Action_specials
 [SOD item]: https://maniacsvault.net/ecwolf/wiki/Classes:SpearOfDestiny
 [things]: https://maniacsvault.net/ecwolf/wiki/Universal_Wolfenstein_Map_Format#Things
