@@ -150,18 +150,14 @@ version of [nixpkgs](https://github.com/NixOS/nixpkgs).
 	7. Repeat steps 4–6 for the Texture North, Texture South and Texture
 	West properties.
 
-2. Enable snapping. In [Godot’s toolbar][first look], click on the “Use Snap”
-button. The “Use Snap” button looks like three dots with a magnet. This will
-prevent you from moving Tiles into impossible positions (in UWMF, tiles must
-have whole number coordinates).
-3. Create 7 more Tiles:
+2. Create 7 more Tiles:
 
 	1. In [Godot’s Scene dock][first look], find the `Node` named “Tile”.
 	2. Right click on it.
 	3. Click “Duplicate”.
 	4. Repeat steps 1–3 until there are 8 Tiles total.
 
-4. Arrange the Tiles into an O shaped pattern. Make sure that you don’t
+3. Arrange the Tiles into an O shaped pattern. Make sure that you don’t
 accidentally give one of the Tiles a negative coordinate or a Z coordinate
 that isn’t 0. In other words, Tiles should be
 
@@ -172,17 +168,14 @@ that isn’t 0. In other words, Tiles should be
 	When you have a Tile selected, the red movement arrow will point east
 	and the blue movement arrow will point south.
 
-5. Create a player start:
+4. Create a player start:
 
 	1. In [Godot’s Scene dock][first look], make sure that your scene’s root
 	`Node` is selected.
 	2. In [Godot’s Scene dock][first look], click on the Instance Child
 	Scene button.
 	3. Choose `wolf_editing_tools/scenes_and_scripts/map/thing.tscn`.
-	4. Disable snapping. In [Godot’s toolbar][first look], click on the “Use
-	Snap” button. The “Use Snap” button looks like three dots with a magnet.
-	This will allow you to place the player start in the center of you map.
-	5. Move the newly created Thing into the center of the O.
+	4. Move the newly created Thing into the center of the O.
 
 ## 7. Test the level
 
