@@ -9,8 +9,6 @@ const REQUIRED_COMPONENTS := ["tile", "sector", "zone"]
 const TRIED_TO_SET_WRONG_TYPE := "Tried to set %s to something that isn’t a %s."
 
 
-var default_sector_enabled := true
-var default_sector = Sector.new()
 # This will be the name of the header lump [1] when the map is exported. It also gets used as the
 # basename of the WAD file.
 #
@@ -19,6 +17,8 @@ export var internal_name := "MAP01"
 export var automap_name : String = internal_name
 # Are there any ports that even support a different value?
 export var tile_size := 64
+var default_sector_enabled := true
+var default_sector = Sector.new()
 
 
 func size() -> Vector3:
