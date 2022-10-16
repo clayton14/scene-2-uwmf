@@ -140,7 +140,7 @@ a part of. This section contains the following properties:
 
 #### Properties
 
-- **Type:** This thing’s editor number.
+- **Type Number:** This thing’s editor number.
 
 	- To create a player 1 start, set this to 1.
 	- To create an [`Actor`], set this to the `Actor`’s
