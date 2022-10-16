@@ -4,6 +4,8 @@ extends Node
 const Sector = preload("res://wolf_editing_tools/scenes_and_scripts/map/sector.gd")
 const Tile := preload("res://wolf_editing_tools/scenes_and_scripts/map/tile.gd")
 const Wad := preload("res://wolf_editing_tools/scenes_and_scripts/file_formats/wad.gd")
+const BASE_MAP_SCENE_PATH := "res://wolf_editing_tools/scenes_and_scripts/map/base_map.tscn"
+const LATEST_API_VERSION := 0
 const NAMESPACE := "Wolf3D";
 const REQUIRED_COMPONENTS := ["tile", "sector", "zone"]
 const TRIED_TO_SET_WRONG_TYPE := "Tried to set %s to something that isn’t a %s."
@@ -17,8 +19,20 @@ export var internal_name := "MAP01"
 export var automap_name : String = internal_name
 # Are there any ports that even support a different value?
 export var tile_size := 64
+# -1 isn’t a real api_version. -1 means “api_verison hasn’t been initialized
+# yet.”
+var api_version := -1
 var default_sector_enabled := true
 var default_sector = Sector.new()
+# If this is true, then this script is attached to the scene located at
+# BASE_MAP_SCENE_PATH. If this is false, then this script is almost certainly
+# attached to either an instance of the BaseMap scene or a scene which inherits
+# from the BaseMap scene.
+var _attached_to_base_map_scene : bool
+
+
+func _enter_tree() -> void:
+	_attached_to_base_map_scene = filename == BASE_MAP_SCENE_PATH
 
 
 func size() -> Vector3:
@@ -109,8 +123,37 @@ func to_uwmf() -> String:
 	return return_value
 
 
-# For the moment, I’m going to make _ready() export the map.
 func _ready() -> void:
+	# At this point, Godot will have set all of the properties saved in the
+	# current scene’s file. If api_version is still -1, then we’re in one of
+	# these three situations:
+		#
+		# 1. _attached_to_base_map_scene is true,
+		# 2. this script is attached to a brand new level or
+		# 3. the current scene is an old level that doesn’t have an api_version
+		# becauase it was last edited before api_version was added.
+		#
+	# We can ignore situation 1. The BaseMap scene’s api_level doesn’t really
+	# matter because users shouldn’t use the BaseMap scene directly (they should
+	# inherit from it).
+	#
+	# Unfortunately, it’s impossible to truly differentiate between situations
+	# 2 and 3. The best I’ve come up with is the following:
+		#
+		# • If this Node has children, then assume that we’re in situation 3.
+		# • If this Node does not have children, then assume that we’re in
+		# situation 2.
+		#
+	# Those assumptions aren’t perfect. A user could have created an old level
+	# that just so happended to be empty. That being said, I can’t think of any
+	# consequences for incorrectly updating an empty level’s api_verison.
+	if api_version == -1:
+		if get_child_count() == 0:
+			api_version = 0
+		else:
+			api_version = LATEST_API_VERSION
+
+	# For the moment, I’m going to make _ready() export the map.
 	if !Engine.editor_hint:
 		var wad := Wad.new()
 		var lumps := [
@@ -154,7 +197,7 @@ static func are_textures_equal(texture1 : Texture, texture2 : Texture) -> bool:
 
 
 func _get_property_list() -> Array:
-	return [
+	var return_value := [
 		{
 			"name" : "default_sector/enabled",
 			"type" : TYPE_BOOL
@@ -163,9 +206,25 @@ func _get_property_list() -> Array:
 		_texture_property("default_sector/texture_floor")
 	]
 
+	# api_version shouldn’t be stored in the BaseMap scene. It should only be
+	# stored in scenes that instantiate the BaseMap scene or inherit from the
+	# BaseMap scene. Doing so ensures that updating Scene 2 UWMF doesn’t
+	# inadvertently increase a map’s api_version.
+	if not _attached_to_base_map_scene:
+		return_value.append({
+			"name" : "api_version",
+			"type" : typeof(api_version),
+			"usage" : PROPERTY_USAGE_NOEDITOR
+		})
+
+	return return_value
+
 
 func _get(property):
 	match property:
+		"api_version":
+			if not _attached_to_base_map_scene:
+				return api_version
 		"default_sector/enabled":
 			return default_sector_enabled
 		"default_sector/texture_ceiling":
@@ -176,22 +235,25 @@ func _get(property):
 
 
 func _set(property, value) -> bool:
-	if property is String and property.begins_with("default_sector/"):
-		match property.substr(len("default_sector/")):
-			"enabled":
-				if value is bool:
-					default_sector_enabled = value
-					return true
-				else:
-					push_error(TRIED_TO_SET_WRONG_TYPE % [property, "bool"])
-			"texture_ceiling":
-				if is_valid_texture_value("default_sector/texture_ceiling", value):
-					default_sector.texture_ceiling = value
-					return true
-			"texture_floor":
-				if is_valid_texture_value("default_sector/texture_floor", value):
-					default_sector.texture_floor = value
-					return true
+	match property:
+		"api_version":
+			if not _attached_to_base_map_scene and value is int:
+				api_version = value
+				return true
+		"default_sector/enabled":
+			if value is bool:
+				default_sector_enabled = value
+				return true
+			else:
+				push_error(TRIED_TO_SET_WRONG_TYPE % [property, "bool"])
+		"default_sector/texture_ceiling":
+			if is_valid_texture_value("default_sector/texture_ceiling", value):
+				default_sector.texture_ceiling = value
+				return true
+		"default_sector/texture_floor":
+			if is_valid_texture_value("default_sector/texture_floor", value):
+				default_sector.texture_floor = value
+				return true
 	return false
 
 
