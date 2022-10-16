@@ -3762,598 +3762,599 @@ texture_west = ExtResource( 21 )
 
 [node name="Thing" parent="." index="526" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 8.5 )
-type = 24
+type_number = 24
 
 [node name="Thing33" parent="." index="527" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 0, 2.5 )
-type = 14
+type_number = 14
 
 [node name="Thing34" parent="." index="528" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, 0, 1.5 )
-type = 63
+type_number = 63
 
 [node name="Thing35" parent="." index="529" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 0, 1.5 )
-type = 63
+type_number = 63
 
 [node name="Thing59" parent="." index="530" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 0, 17.5 )
-type = 39
+type_number = 39
 
 [node name="Thing61" parent="." index="531" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, 0, 16.5 )
-type = 14
+type_number = 14
 
 [node name="Thing60" parent="." index="532" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, 0, 13.5 )
-type = 59
+type_number = 59
 
 [node name="Thing36" parent="." index="533" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 1.5 )
-type = 63
+type_number = 63
 
 [node name="Thing37" parent="." index="534" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5, 0, 1.5 )
-type = 63
+type_number = 63
 
 [node name="Thing45" parent="." index="535" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5, 0, 1.5 )
-type = 57
+type_number = 57
 
 [node name="Thing46" parent="." index="536" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30.5, 0, 1.5 )
-type = 57
+type_number = 57
 
 [node name="Thing47" parent="." index="537" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.5, 0, 1.5 )
-type = 57
+type_number = 57
 
 [node name="Thing48" parent="." index="538" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.5, 0, 2.5 )
-type = 57
+type_number = 57
 
 [node name="Thing49" parent="." index="539" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.5, 0, 3.5 )
-type = 57
+type_number = 57
 
 [node name="Thing50" parent="." index="540" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30.5, 0, 3.5 )
-type = 57
+type_number = 57
 
 [node name="Thing51" parent="." index="541" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5, 0, 3.5 )
-type = 57
+type_number = 57
 
 [node name="Thing52" parent="." index="542" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5, 0, 2.5 )
-type = 57
+type_number = 57
 
 [node name="Thing53" parent="." index="543" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30.5, 0, 2.5 )
-type = 57
+type_number = 57
 
 [node name="Thing5" parent="." index="544" instance=ExtResource( 8 )]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 21.5, 0, 8.5 )
-type = 62
+type_number = 62
 
 [node name="Thing9" parent="." index="545" instance=ExtResource( 8 )]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 21.8536, 0, 8.14645 )
-type = 62
+type_number = 62
 
 [node name="Thing10" parent="." index="546" instance=ExtResource( 8 )]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 21.8536, 0, 8.14645 )
-type = 62
+type_number = 62
 
 [node name="Thing11" parent="." index="547" instance=ExtResource( 8 )]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 21.1464, 0, 8.85355 )
-type = 62
+type_number = 62
 
 [node name="Thing12" parent="." index="548" instance=ExtResource( 8 )]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 21.1464, 0, 8.85355 )
-type = 62
+type_number = 62
 
 [node name="Thing13" parent="." index="549" instance=ExtResource( 8 )]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 21.1464, 0, 8.14645 )
-type = 62
+type_number = 62
 
 [node name="Thing14" parent="." index="550" instance=ExtResource( 8 )]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 21.1464, 0, 8.14645 )
-type = 62
+type_number = 62
 
 [node name="Thing15" parent="." index="551" instance=ExtResource( 8 )]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 21.8536, 0, 8.85355 )
-type = 62
+type_number = 62
 
 [node name="Thing16" parent="." index="552" instance=ExtResource( 8 )]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 21.8536, 0, 8.85355 )
-type = 62
+type_number = 62
 
 [node name="Thing17" parent="." index="553" instance=ExtResource( 8 )]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 20.7929, 0, 7.79289 )
-type = 62
+type_number = 62
 
 [node name="Thing18" parent="." index="554" instance=ExtResource( 8 )]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 20.7929, 0, 7.79289 )
-type = 62
+type_number = 62
 
 [node name="Thing19" parent="." index="555" instance=ExtResource( 8 )]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 21.1464, 0, 7.43934 )
-type = 62
+type_number = 62
 
 [node name="Thing20" parent="." index="556" instance=ExtResource( 8 )]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 21.1464, 0, 7.43934 )
-type = 62
+type_number = 62
 
 [node name="Thing21" parent="." index="557" instance=ExtResource( 8 )]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 22.2071, 0, 7.79289 )
-type = 62
+type_number = 62
 
 [node name="Thing22" parent="." index="558" instance=ExtResource( 8 )]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 22.2071, 0, 7.79289 )
-type = 62
+type_number = 62
 
 [node name="Thing23" parent="." index="559" instance=ExtResource( 8 )]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 22.5607, 0, 8.14645 )
-type = 62
+type_number = 62
 
 [node name="Thing24" parent="." index="560" instance=ExtResource( 8 )]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 22.5607, 0, 8.14645 )
-type = 62
+type_number = 62
 
 [node name="Thing38" parent="." index="561" instance=ExtResource( 8 )]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 29.5, 0, 13.5 )
-type = 65
+type_number = 65
 
 [node name="Thing39" parent="." index="562" instance=ExtResource( 8 )]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 30.5, 0, 13.5 )
-type = 65
+type_number = 65
 
 [node name="Thing63" parent="." index="563" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 45.5, 0, 32.5 )
-type = 58
+type_number = 58
 
 [node name="Thing65" parent="." index="564" instance=ExtResource( 8 )]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 45.5, 0, 31.5 )
-type = 62
+type_number = 62
 
 [node name="Thing66" parent="." index="565" instance=ExtResource( 8 )]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 46.5, 0, 31.5 )
-type = 62
+type_number = 62
 
 [node name="Thing67" parent="." index="566" instance=ExtResource( 8 )]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 44.5, 0, 31.5 )
-type = 62
+type_number = 62
 
 [node name="Thing64" parent="." index="567" instance=ExtResource( 8 )]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 45.5, 0, 32.5 )
-type = 65
+type_number = 65
 
 [node name="Thing40" parent="." index="568" instance=ExtResource( 8 )]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 40.5, 0, 9.5 )
-type = 46
+type_number = 46
 
 [node name="Thing41" parent="." index="569" instance=ExtResource( 8 )]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 40.5, 0, 8.5 )
-type = 68
+type_number = 68
 
 [node name="Thing42" parent="." index="570" instance=ExtResource( 8 )]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 41, 0, 9.5 )
-type = 11
+type_number = 11
 
 [node name="Thing44" parent="." index="571" instance=ExtResource( 8 )]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 41.5, 0, 14.5 )
-type = 15
+type_number = 15
 
 [node name="Thing43" parent="." index="572" instance=ExtResource( 8 )]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 41, 0, 8.5 )
-type = 11
+type_number = 11
 
 [node name="Thing25" parent="." index="573" instance=ExtResource( 8 )]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 22.2071, 0, 9.20711 )
-type = 62
+type_number = 62
 
 [node name="Thing26" parent="." index="574" instance=ExtResource( 8 )]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 22.2071, 0, 9.20711 )
-type = 62
+type_number = 62
 
 [node name="Thing27" parent="." index="575" instance=ExtResource( 8 )]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 21.8536, 0, 9.56066 )
-type = 62
+type_number = 62
 
 [node name="Thing28" parent="." index="576" instance=ExtResource( 8 )]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 21.8536, 0, 9.56066 )
-type = 62
+type_number = 62
 
 [node name="Thing29" parent="." index="577" instance=ExtResource( 8 )]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 20.7929, 0, 9.20711 )
-type = 62
+type_number = 62
 
 [node name="Thing30" parent="." index="578" instance=ExtResource( 8 )]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 20.7929, 0, 9.20711 )
-type = 62
+type_number = 62
 
 [node name="Thing31" parent="." index="579" instance=ExtResource( 8 )]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 20.4393, 0, 8.85355 )
-type = 62
+type_number = 62
 
 [node name="Thing32" parent="." index="580" instance=ExtResource( 8 )]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 20.4393, 0, 8.85355 )
-type = 62
+type_number = 62
 
 [node name="Thing6" parent="." index="581" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0, 9.5 )
-type = 52
+type_number = 52
 
 [node name="Thing7" parent="." index="582" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0, 7.5 )
-type = 74
+type_number = 74
 
 [node name="Thing2" parent="." index="583" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 8.5 )
+type_number = 1
 
 [node name="Thing8" parent="." index="584" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 9.5 )
-type = 59
+type_number = 59
 
 [node name="Thing3" parent="." index="585" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 0, 24.5 )
-type = 11
+type_number = 11
 
 [node name="Thing4" parent="." index="586" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, 0, 24.5 )
-type = 11
+type_number = 11
 
 [node name="Thing54" parent="." index="587" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 0, 24.5 )
-type = 90
+type_number = 90
 
 [node name="Thing55" parent="." index="588" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 43.5, 0, 22.5 )
-type = 72
+type_number = 72
 
 [node name="Thing57" parent="." index="589" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 41.5, 0, 24.5 )
-type = 13
+type_number = 13
 
 [node name="Thing70" parent="." index="590" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 55.5, 0, 26.5 )
-type = 13
+type_number = 13
 
 [node name="Thing71" parent="." index="591" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 55.5, 0, 30.5 )
-type = 13
+type_number = 13
 
 [node name="Thing74" parent="." index="592" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 63.5, 0, 28.5 )
-type = 61
+type_number = 61
 
 [node name="Thing75" parent="." index="593" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 62.5, 0, 24.5 )
-type = 57
+type_number = 57
 
 [node name="Thing76" parent="." index="594" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 63.5, 0, 24.5 )
-type = 57
+type_number = 57
 
 [node name="Thing77" parent="." index="595" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 64.5, 0, 24.5 )
-type = 57
+type_number = 57
 
 [node name="Thing78" parent="." index="596" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 65.5, 0, 24.5 )
-type = 57
+type_number = 57
 
 [node name="Thing117" parent="." index="597" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 65.5, 0, 25.5 )
-type = 57
+type_number = 57
 
 [node name="Thing118" parent="." index="598" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 65.5, 0, 26.5 )
-type = 57
+type_number = 57
 
 [node name="Thing119" parent="." index="599" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 65.5, 0, 27.5 )
-type = 57
+type_number = 57
 
 [node name="Thing120" parent="." index="600" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 65.5, 0, 28.5 )
-type = 57
+type_number = 57
 
 [node name="Thing121" parent="." index="601" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 65.5, 0, 29.5 )
-type = 57
+type_number = 57
 
 [node name="Thing122" parent="." index="602" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 65.5, 0, 29.5 )
-type = 57
+type_number = 57
 
 [node name="Thing123" parent="." index="603" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 65.5, 0, 41.5 )
-type = 57
+type_number = 57
 
 [node name="Thing124" parent="." index="604" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 65.5, 0, 42.5 )
-type = 57
+type_number = 57
 
 [node name="Thing125" parent="." index="605" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 65.5, 0, 43.5 )
-type = 57
+type_number = 57
 
 [node name="Thing126" parent="." index="606" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 65.5, 0, 44.5 )
-type = 57
+type_number = 57
 
 [node name="Thing127" parent="." index="607" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 65.5, 0, 45.5 )
-type = 57
+type_number = 57
 
 [node name="Thing128" parent="." index="608" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 65.5, 0, 46.5 )
-type = 57
+type_number = 57
 
 [node name="Thing129" parent="." index="609" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 65.5, 0, 46.5 )
-type = 57
+type_number = 57
 
 [node name="Thing130" parent="." index="610" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 64.5, 0, 46.5 )
-type = 57
+type_number = 57
 
 [node name="Thing131" parent="." index="611" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 63.5, 0, 46.5 )
-type = 57
+type_number = 57
 
 [node name="Thing79" parent="." index="612" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 63.5, 0, 44.5 )
-type = 61
+type_number = 61
 
 [node name="Thing80" parent="." index="613" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 66.5, 0, 39.5 )
-type = 90
+type_number = 90
 
 [node name="Thing92" parent="." index="614" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 58, 0, 39.5 )
-type = 15
+type_number = 15
 
 [node name="Thing93" parent="." index="615" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 58, 0, 38.5 )
-type = 15
+type_number = 15
 
 [node name="Thing94" parent="." index="616" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 58, 0, 37.5 )
-type = 15
+type_number = 15
 
 [node name="Thing95" parent="." index="617" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 58, 0, 36.5 )
-type = 15
+type_number = 15
 
 [node name="Thing96" parent="." index="618" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 58, 0, 35.5 )
-type = 15
+type_number = 15
 
 [node name="Thing97" parent="." index="619" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 57, 0, 39.5 )
-type = 15
+type_number = 15
 
 [node name="Thing98" parent="." index="620" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 57, 0, 38.5 )
-type = 15
+type_number = 15
 
 [node name="Thing99" parent="." index="621" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 57, 0, 37.5 )
-type = 15
+type_number = 15
 
 [node name="Thing100" parent="." index="622" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 57, 0, 36.5 )
-type = 15
+type_number = 15
 
 [node name="Thing101" parent="." index="623" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 57, 0, 35.5 )
-type = 15
+type_number = 15
 
 [node name="Thing102" parent="." index="624" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 56, 0, 39.5 )
-type = 15
+type_number = 15
 
 [node name="Thing103" parent="." index="625" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 56, 0, 38.5 )
-type = 15
+type_number = 15
 
 [node name="Thing104" parent="." index="626" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 56, 0, 37.5 )
-type = 15
+type_number = 15
 
 [node name="Thing105" parent="." index="627" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 56, 0, 36.5 )
-type = 15
+type_number = 15
 
 [node name="Thing106" parent="." index="628" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 56, 0, 35.5 )
-type = 15
+type_number = 15
 
 [node name="Thing107" parent="." index="629" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 55, 0, 39.5 )
-type = 15
+type_number = 15
 
 [node name="Thing108" parent="." index="630" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 55, 0, 38.5 )
-type = 15
+type_number = 15
 
 [node name="Thing109" parent="." index="631" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 55, 0, 37.5 )
-type = 15
+type_number = 15
 
 [node name="Thing110" parent="." index="632" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 55, 0, 36.5 )
-type = 15
+type_number = 15
 
 [node name="Thing111" parent="." index="633" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 55, 0, 35.5 )
-type = 15
+type_number = 15
 
 [node name="Thing113" parent="." index="634" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 58, 0, 34.5 )
-type = 15
+type_number = 15
 
 [node name="Thing114" parent="." index="635" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 57, 0, 34.5 )
-type = 15
+type_number = 15
 
 [node name="Thing115" parent="." index="636" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 56, 0, 34.5 )
-type = 15
+type_number = 15
 
 [node name="Thing116" parent="." index="637" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 55, 0, 34.5 )
-type = 15
+type_number = 15
 
 [node name="Thing81" parent="." index="638" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 66.5, 0, 38.5 )
-type = 90
+type_number = 90
 
 [node name="Thing82" parent="." index="639" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 66.5, 0, 37.5 )
-type = 90
+type_number = 90
 
 [node name="Thing83" parent="." index="640" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 67.5, 0, 37.5 )
-type = 90
+type_number = 90
 
 [node name="Thing84" parent="." index="641" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 66.5, 0, 36.5 )
-type = 90
+type_number = 90
 
 [node name="Thing85" parent="." index="642" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 66.5, 0, 35.5 )
-type = 90
+type_number = 90
 
 [node name="Thing132" parent="." index="643" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 65.5, 0, 39.5 )
-type = 90
+type_number = 90
 
 [node name="Thing133" parent="." index="644" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 65.5, 0, 38.5 )
-type = 90
+type_number = 90
 
 [node name="Thing134" parent="." index="645" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 65.5, 0, 37.5 )
-type = 90
+type_number = 90
 
 [node name="Thing135" parent="." index="646" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 65.5, 0, 36.5 )
-type = 90
+type_number = 90
 
 [node name="Thing136" parent="." index="647" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 65.5, 0, 35.5 )
-type = 90
+type_number = 90
 
 [node name="Thing137" parent="." index="648" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 64.5, 0, 39.5 )
-type = 90
+type_number = 90
 
 [node name="Thing138" parent="." index="649" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 64.5, 0, 38.5 )
-type = 90
+type_number = 90
 
 [node name="Thing139" parent="." index="650" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 64.5, 0, 37.5 )
-type = 90
+type_number = 90
 
 [node name="Thing140" parent="." index="651" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 64.5, 0, 36.5 )
-type = 90
+type_number = 90
 
 [node name="Thing141" parent="." index="652" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 64.5, 0, 35.5 )
-type = 90
+type_number = 90
 
 [node name="Thing142" parent="." index="653" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 63.5, 0, 39.5 )
-type = 90
+type_number = 90
 
 [node name="Thing143" parent="." index="654" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 63.5, 0, 38.5 )
-type = 90
+type_number = 90
 
 [node name="Thing144" parent="." index="655" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 63.5, 0, 37.5 )
-type = 90
+type_number = 90
 
 [node name="Thing145" parent="." index="656" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 63.5, 0, 36.5 )
-type = 90
+type_number = 90
 
 [node name="Thing146" parent="." index="657" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 63.5, 0, 35.5 )
-type = 90
+type_number = 90
 
 [node name="Thing147" parent="." index="658" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 62.5, 0, 39.5 )
-type = 90
+type_number = 90
 
 [node name="Thing148" parent="." index="659" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 62.5, 0, 38.5 )
-type = 90
+type_number = 90
 
 [node name="Thing149" parent="." index="660" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 62.5, 0, 37.5 )
-type = 90
+type_number = 90
 
 [node name="Thing150" parent="." index="661" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 62.5, 0, 36.5 )
-type = 90
+type_number = 90
 
 [node name="Thing151" parent="." index="662" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 62.5, 0, 35.5 )
-type = 90
+type_number = 90
 
 [node name="Thing152" parent="." index="663" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 62.5, 0, 39.5 )
-type = 90
+type_number = 90
 
 [node name="Thing153" parent="." index="664" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 62.5, 0, 38.5 )
-type = 90
+type_number = 90
 
 [node name="Thing154" parent="." index="665" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 62.5, 0, 37.5 )
-type = 90
+type_number = 90
 
 [node name="Thing155" parent="." index="666" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 62.5, 0, 36.5 )
-type = 90
+type_number = 90
 
 [node name="Thing156" parent="." index="667" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 62.5, 0, 35.5 )
-type = 90
+type_number = 90
 
 [node name="Thing72" parent="." index="668" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 50.5, 0, 43.5 )
-type = 13
+type_number = 13
 
 [node name="Thing73" parent="." index="669" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 50.5, 0, 46.5 )
-type = 13
+type_number = 13
 
 [node name="Thing68" parent="." index="670" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 25.5 )
-type = 13
+type_number = 13
 
 [node name="Thing58" parent="." index="671" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 48.5, 0, 24.5 )
-type = 49
+type_number = 49
 
 [node name="Thing62" parent="." index="672" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 51.5, 0, 26.5 )
-type = 36
+type_number = 36
 
 [node name="Thing69" parent="." index="673" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 51.5, 0, 30.5 )
-type = 36
+type_number = 36
 
 [node name="Thing56" parent="." index="674" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 46.5, 0, 22.5 )
-type = 72
+type_number = 72
 
 [node name="Tile292" parent="." index="675" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0, 22 )
@@ -4553,4 +4554,4 @@ texture_west = ExtResource( 26 )
 
 [node name="Thing90" parent="." index="703" instance=ExtResource( 8 )]
 transform = Transform( -0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, 54, 0, 37 )
-type = 92
+type_number = 92

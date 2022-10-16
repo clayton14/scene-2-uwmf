@@ -97,4 +97,3 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 1.5 )
 
 [node name="Thing2" parent="." index="11" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 1.5 )
-type = -1

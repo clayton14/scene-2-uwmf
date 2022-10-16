@@ -887,6 +887,7 @@ texture_west = SubResource( 8 )
 
 [node name="Thing" parent="." index="110" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.0916, 0, 2 )
+type_number = 1
 
 [node name="Trigger" parent="." index="111" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 14 )

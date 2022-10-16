@@ -1459,48 +1459,48 @@ texture_west = ExtResource( 6 )
 
 [node name="Thing" parent="." index="201" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 10.5 )
-type = 1
+type_number = 1
 
 [node name="Thing2" parent="." index="202" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 0, 10.5 )
-type = 47
+type_number = 47
 
 [node name="Thing4" parent="." index="203" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 0, 12.5 )
-type = 47
+type_number = 47
 
 [node name="Thing5" parent="." index="204" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, 0, 13.5 )
-type = 11
+type_number = 11
 
 [node name="Thing6" parent="." index="205" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, 0, 11.5 )
-type = 11
+type_number = 11
 
 [node name="Thing7" parent="." index="206" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, 0, 9.5 )
-type = 11
+type_number = 11
 
 [node name="Thing8" parent="." index="207" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, 0, 7.5 )
-type = 11
+type_number = 11
 
 [node name="Thing12" parent="." index="208" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 0, 3.5 )
-type = 13
+type_number = 13
 
 [node name="Thing3" parent="." index="209" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 0, 8.5 )
-type = 47
+type_number = 47
 
 [node name="Thing9" parent="." index="210" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 0, 10.5 )
-type = 40
+type_number = 40
 
 [node name="Thing10" parent="." index="211" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 0, 12.5 )
-type = 40
+type_number = 40
 
 [node name="Thing11" parent="." index="212" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 0, 8.5 )
-type = 40
+type_number = 40
