@@ -44,6 +44,7 @@ script = ExtResource( 23 )
 color = Color( 0, 0.482353, 0.611765, 1 )
 
 [node name="Cognitive" instance=ExtResource( 1 )]
+api_version = 0
 
 [node name="Tile" parent="." index="0" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 6 )

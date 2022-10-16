@@ -69,6 +69,7 @@
 
 [node name="RunForYourLife" instance=ExtResource( 1 )]
 automap_name = "Run for your life!"
+api_version = 0
 
 [node name="Tile" parent="." index="0" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 6 )

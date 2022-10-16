@@ -8,7 +8,7 @@
 
 [sub_resource type="Image" id=30]
 data = {
-"data": PoolByteArray( 113, 113, 113, 255 ),
+"data": PoolByteArray( 112, 112, 112, 255 ),
 "format": "RGBA8",
 "height": 1,
 "mipmaps": false,
@@ -19,7 +19,7 @@ data = {
 image = SubResource( 30 )
 size = Vector2( 1, 1 )
 script = ExtResource( 2 )
-color = Color( 0.443137, 0.443137, 0.443137, 1 )
+color = Color( 0.439216, 0.439216, 0.439216, 1 )
 
 [sub_resource type="Image" id=31]
 data = {
@@ -113,6 +113,7 @@ color = Color( 0, 0.811765, 1, 1 )
 
 [node name="SolitaryConfinement" instance=ExtResource( 1 )]
 default_sector/texture_floor = SubResource( 29 )
+api_version = 0
 
 [node name="Tile" parent="." index="0" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0 )
