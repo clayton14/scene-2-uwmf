@@ -1,11 +1,14 @@
 tool
 extends Node
 
+signal api_version_initialized(api_version)
+
+
 const Sector = preload("res://wolf_editing_tools/scenes_and_scripts/map/sector.gd")
 const Tile := preload("res://wolf_editing_tools/scenes_and_scripts/map/tile.gd")
 const Wad := preload("res://wolf_editing_tools/scenes_and_scripts/file_formats/wad.gd")
 const BASE_MAP_SCENE_PATH := "res://wolf_editing_tools/scenes_and_scripts/map/base_map.tscn"
-const LATEST_API_VERSION := 0
+const LATEST_API_VERSION := 1
 const NAMESPACE := "Wolf3D";
 const REQUIRED_COMPONENTS := ["tile", "sector", "zone"]
 const TRIED_TO_SET_WRONG_TYPE := "Tried to set %s to something that isn’t a %s."
@@ -152,6 +155,7 @@ func _ready() -> void:
 			api_version = LATEST_API_VERSION
 		else:
 			api_version = 0
+	emit_signal("api_version_initialized", api_version)
 
 	# For the moment, I’m going to make _ready() export the map.
 	if !Engine.editor_hint:

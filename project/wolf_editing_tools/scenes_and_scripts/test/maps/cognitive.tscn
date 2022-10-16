@@ -1459,6 +1459,7 @@ texture_west = ExtResource( 6 )
 
 [node name="Thing" parent="." index="201" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 10.5 )
+type = 1
 
 [node name="Thing2" parent="." index="202" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 0, 10.5 )
