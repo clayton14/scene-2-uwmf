@@ -149,9 +149,9 @@ func _ready() -> void:
 	# consequences for incorrectly updating an empty level’s api_verison.
 	if api_version == -1:
 		if get_child_count() == 0:
-			api_version = 0
-		else:
 			api_version = LATEST_API_VERSION
+		else:
+			api_version = 0
 
 	# For the moment, I’m going to make _ready() export the map.
 	if !Engine.editor_hint:
