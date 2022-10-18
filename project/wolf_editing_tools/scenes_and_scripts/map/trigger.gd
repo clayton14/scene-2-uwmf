@@ -23,7 +23,7 @@ func to_uwmf() -> String:
 		contents["playerCross"] = true
 	return Util.named_block(
 		"trigger",
-		contents
+		[contents]
 	)
 
 func max_uwmf_x_y_z() -> Vector3:

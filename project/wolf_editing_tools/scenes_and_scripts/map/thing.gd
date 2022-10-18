@@ -87,7 +87,7 @@ func to_uwmf() -> String:
 		contents["skill3"] = true
 	if skill4:
 		contents["skill4"] = true
-	return Util.named_block("thing", contents)
+	return Util.named_block("thing", [contents])
 
 
 func _get_property_list() -> Array:

@@ -17,12 +17,22 @@ static func property_assignment_statement(property: String, value) -> String:
 	return '%s=%s;' % [property.to_upper(), var2str(value)]
 
 
-static func named_block(name : String, contents : Dictionary) -> String:
+static func named_block(name : String, content_dictionaries : Array) -> String:
 	# Take a look at the comment in property_assignment_statement() for why I’m
 	# using to_upper().
 	var return_value := name.to_upper() + "{"
-	for key in contents:
-		return_value += property_assignment_statement(key, contents[key])
+	for dictionary in content_dictionaries:
+		if dictionary is Dictionary:
+			for key in dictionary:
+				return_value += property_assignment_statement(
+					key,
+					dictionary[key]
+				)
+		else:
+			push_error(
+				"One of the content_dictionaries wasn’t actually a dictionary. "
+				+ "Skipping it…"
+			)
 	return_value += "}"
 	return return_value
 

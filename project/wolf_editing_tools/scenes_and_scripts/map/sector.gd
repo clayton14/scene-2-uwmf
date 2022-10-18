@@ -29,8 +29,8 @@ func set_texture_floor(new_texture : Texture) -> void:
 func to_uwmf() -> String:
 	return Util.named_block(
 		"sector",
-		{
+		[{
 			"textureCeiling" : Util.texture_to_uwmf(texture_ceiling),
 			"textureFloor" : Util.texture_to_uwmf(texture_floor)
-		}
+		}]
 	)

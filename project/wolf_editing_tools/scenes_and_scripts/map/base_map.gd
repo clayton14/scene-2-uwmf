@@ -65,7 +65,7 @@ func to_uwmf() -> String:
 		+ Util.property_assignment_statement("width", int(size.x))
 		+ Util.property_assignment_statement("height", int(size.y))
 		# TODO: This shouldn’t be hard codded.
-		+ Util.named_block("plane", { "depth" : 64 })
+		+ Util.named_block("plane", [{ "depth" : 64 }])
 	)
 
 	if default_sector_enabled:
