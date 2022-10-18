@@ -35,6 +35,8 @@ color = Color( 0.439216, 0.439216, 0.439216, 1 )
 
 [node name="BaseMap" type="Node"]
 script = ExtResource( 1 )
+custom_global_uwmf_properties = {
+}
 automap_name = "MAP01"
 default_sector/enabled = true
 default_sector/texture_ceiling = SubResource( 2 )

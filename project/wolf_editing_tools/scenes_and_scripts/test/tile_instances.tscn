@@ -27,7 +27,7 @@ script = ExtResource( 7 )
 
 [sub_resource type="Image" id=6]
 data = {
-"data": PoolByteArray( 182, 100, 243, 255 ),
+"data": PoolByteArray( 182, 100, 242, 255 ),
 "format": "RGBA8",
 "height": 1,
 "mipmaps": false,
@@ -38,11 +38,13 @@ data = {
 image = SubResource( 6 )
 size = Vector2( 1, 1 )
 script = ExtResource( 3 )
-color = Color( 0.713726, 0.392157, 0.952941, 1 )
+color = Color( 0.713726, 0.392157, 0.94902, 1 )
 
 [node name="TileInstances" type="Node"]
 
 [node name="Tile" parent="." instance=ExtResource( 1 )]
+custom_uwmf_properties = {
+}
 texture_north = ExtResource( 2 )
 texture_south = ExtResource( 6 )
 texture_west = ExtResource( 8 )
@@ -50,6 +52,8 @@ texture_overhead = ExtResource( 5 )
 
 [node name="Tile2" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2 )
+custom_uwmf_properties = {
+}
 texture_east = ExtResource( 10 )
 texture_north = ExtResource( 4 )
 texture_south = SubResource( 4 )
