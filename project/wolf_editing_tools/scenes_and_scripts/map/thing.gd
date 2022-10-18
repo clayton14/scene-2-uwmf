@@ -36,9 +36,9 @@ func _enter_tree() -> void:
 		)
 		if error_code != OK:
 			push_error(
-				"Failed to connect BaseMap.api_version_initialized to "
+				("Failed to connect BaseMap.api_version_initialized to "
 				+ "Thing._initialize_defaults with error code %s. Using "
-				+ "defaults for latest api_version…"
+				+ "defaults for latest api_version…")
 				% [error_code]
 			)
 			_initialize_defaults(BaseMap.LATEST_API_VERSION)
