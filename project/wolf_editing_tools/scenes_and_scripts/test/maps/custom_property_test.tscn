@@ -1,0 +1,113 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://wolf_editing_tools/scenes_and_scripts/map/base_map.tscn" type="PackedScene" id=1]
+[ext_resource path="res://wolf_editing_tools/scenes_and_scripts/map/tile.tscn" type="PackedScene" id=2]
+[ext_resource path="res://wolf_editing_tools/scenes_and_scripts/resource_types/single_color_texture.gd" type="Script" id=3]
+[ext_resource path="res://wolf_editing_tools/scenes_and_scripts/map/thing.tscn" type="PackedScene" id=4]
+
+[sub_resource type="Image" id=3]
+data = {
+"data": PoolByteArray( 255, 255, 255, 255 ),
+"format": "RGBA8",
+"height": 1,
+"mipmaps": false,
+"width": 1
+}
+
+[sub_resource type="ImageTexture" id=2]
+image = SubResource( 3 )
+size = Vector2( 1, 1 )
+script = ExtResource( 3 )
+color = Color( 1, 1, 1, 1 )
+
+[node name="CustomPropertyTest" instance=ExtResource( 1 )]
+custom_global_uwmf_properties = {
+"comment": "Custom Global Uwmf Property test"
+}
+api_version = 0
+
+[node name="Tile" parent="." index="0" instance=ExtResource( 2 )]
+custom_uwmf_properties = {
+"comment": "Custom Property Test"
+}
+texture_east = SubResource( 2 )
+texture_north = SubResource( 2 )
+texture_south = SubResource( 2 )
+texture_west = SubResource( 2 )
+
+[node name="Tile2" parent="." index="1" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1 )
+custom_uwmf_properties = {
+"comment": "Custom Property Test"
+}
+texture_east = SubResource( 2 )
+texture_north = SubResource( 2 )
+texture_south = SubResource( 2 )
+texture_west = SubResource( 2 )
+
+[node name="Tile3" parent="." index="2" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0 )
+custom_uwmf_properties = {
+"comment": "Custom Property Test"
+}
+texture_east = SubResource( 2 )
+texture_north = SubResource( 2 )
+texture_south = SubResource( 2 )
+texture_west = SubResource( 2 )
+
+[node name="Tile4" parent="." index="3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0 )
+custom_uwmf_properties = {
+"comment": "Custom Property Test"
+}
+texture_east = SubResource( 2 )
+texture_north = SubResource( 2 )
+texture_south = SubResource( 2 )
+texture_west = SubResource( 2 )
+
+[node name="Tile5" parent="." index="4" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1 )
+custom_uwmf_properties = {
+"comment": "Custom Property Test"
+}
+texture_east = SubResource( 2 )
+texture_north = SubResource( 2 )
+texture_south = SubResource( 2 )
+texture_west = SubResource( 2 )
+
+[node name="Tile6" parent="." index="5" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2 )
+custom_uwmf_properties = {
+"comment": "Custom Property Test"
+}
+texture_east = SubResource( 2 )
+texture_north = SubResource( 2 )
+texture_south = SubResource( 2 )
+texture_west = SubResource( 2 )
+
+[node name="Tile7" parent="." index="6" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2 )
+custom_uwmf_properties = {
+"comment": "Custom Property Test"
+}
+texture_east = SubResource( 2 )
+texture_north = SubResource( 2 )
+texture_south = SubResource( 2 )
+texture_west = SubResource( 2 )
+
+[node name="Tile8" parent="." index="7" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2 )
+custom_uwmf_properties = {
+"comment": "Custom Property Test"
+}
+texture_east = SubResource( 2 )
+texture_north = SubResource( 2 )
+texture_south = SubResource( 2 )
+texture_west = SubResource( 2 )
+
+[node name="Thing" parent="." index="8" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 1.5 )
+custom_uwmf_properties = {
+"comment": "Custom Property Test on a thing"
+}
+type_number = 1
