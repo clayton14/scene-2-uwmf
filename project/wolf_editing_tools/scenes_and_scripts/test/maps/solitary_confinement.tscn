@@ -891,10 +891,10 @@ type_number = 1
 
 [node name="Trigger" parent="." index="111" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 14 )
-action = 6
+action_number = 6
 player_cross = true
 
 [node name="Trigger2" parent="." index="112" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 14 )
-action = 6
+action_number = 6
 player_cross = true
