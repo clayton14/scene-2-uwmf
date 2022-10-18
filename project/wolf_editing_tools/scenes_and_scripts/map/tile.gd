@@ -84,7 +84,7 @@ func to_uwmf() -> String:
 	}
 	if texture_overhead != null:
 		contents["textureOverhead"] = Util.texture_to_uwmf(texture_overhead)
-	return Util.named_block("tile", [contents])
+	return _named_block_with_custom_properties("tile", contents)
 
 
 func uwmf_position() -> Vector3:

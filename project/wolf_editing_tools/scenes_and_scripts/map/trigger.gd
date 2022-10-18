@@ -21,10 +21,7 @@ func to_uwmf() -> String:
 	# it when it’s false.
 	if player_cross:
 		contents["playerCross"] = true
-	return Util.named_block(
-		"trigger",
-		[contents]
-	)
+	return _named_block_with_custom_properties("trigger", contents)
 
 func max_uwmf_x_y_z() -> Vector3:
 	# TODO: Make Tile’s version of this function also use Vector3.ONE.

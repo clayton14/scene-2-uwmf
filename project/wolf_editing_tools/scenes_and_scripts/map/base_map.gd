@@ -14,6 +14,7 @@ const REQUIRED_COMPONENTS := ["tile", "sector", "zone"]
 const TRIED_TO_SET_WRONG_TYPE := "Tried to set %s to something that isn’t a %s."
 
 
+export var custom_global_uwmf_properties := {}
 # This will be the name of the header lump [1] when the map is exported. It also gets used as the
 # basename of the WAD file.
 #
@@ -22,6 +23,7 @@ export var internal_name := "MAP01"
 export var automap_name : String = internal_name
 # Are there any ports that even support a different value?
 export var tile_size := 64
+
 # -1 isn’t a real api_version. -1 means “api_verison hasn’t been initialized
 # yet.”
 var api_version := -1
@@ -64,9 +66,14 @@ func to_uwmf() -> String:
 		+ Util.property_assignment_statement("tileSize", tile_size)
 		+ Util.property_assignment_statement("width", int(size.x))
 		+ Util.property_assignment_statement("height", int(size.y))
-		# TODO: This shouldn’t be hard codded.
-		+ Util.named_block("plane", [{ "depth" : 64 }])
 	)
+	for property_name in custom_global_uwmf_properties:
+		return_value += Util.property_assignment_statement(
+			property_name,
+			custom_global_uwmf_properties[property_name]
+		)
+	# TODO: This shouldn’t be hard codded.
+	return_value += Util.named_block("plane", [{ "depth" : 64 }])
 
 	if default_sector_enabled:
 		return_value += default_sector.to_uwmf()

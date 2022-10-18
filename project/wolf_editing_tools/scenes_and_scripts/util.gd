@@ -24,6 +24,9 @@ static func named_block(name : String, content_dictionaries : Array) -> String:
 	for dictionary in content_dictionaries:
 		if dictionary is Dictionary:
 			for key in dictionary:
+				if not key is String:
+					push_warning("Property name wasn’t a String.")
+					key = var2str(key)
 				return_value += property_assignment_statement(
 					key,
 					dictionary[key]

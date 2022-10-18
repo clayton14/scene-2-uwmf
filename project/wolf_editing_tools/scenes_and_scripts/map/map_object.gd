@@ -2,6 +2,9 @@ class_name MapObject
 extends Spatial
 
 
+export var custom_uwmf_properties := {}
+
+
 func to_uwmf() -> String:
 	push_error("A child class should have overridden this method (to_uwmf()).")
 	return ""
@@ -34,3 +37,10 @@ func uwmf_position() -> Vector3:
 # coordinate of any point inside this MapObject.
 func max_uwmf_x_y_z() -> Vector3:
 	return uwmf_position()
+
+
+func _named_block_with_custom_properties(
+	name : String,
+	contents : Dictionary
+) -> String:
+	return Util.named_block(name, [contents, custom_uwmf_properties])
