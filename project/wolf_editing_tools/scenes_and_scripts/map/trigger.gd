@@ -5,7 +5,7 @@ extends MapSpotLockedObject
 const DEFAULT_ACTIVE_COLOR := Color.green
 
 
-export var action := -1
+export var action_number := -1
 export var player_cross := false
 
 
@@ -15,7 +15,7 @@ func to_uwmf() -> String:
 		"x" : int(position.x),
 		"y" : int(position.y),
 		"z" : int(position.z),
-		"action" : action
+		"action" : action_number
 	}
 	# In UWMF, playerCross defaults to false. We can save space by not including
 	# it when it’s false.
@@ -51,6 +51,11 @@ func east_face_material() -> SpatialMaterial:
 func _get_property_list() -> Array:
 	return [
 		{
+			"name" : "action",  # action is a deprecated alias for action_number
+			"type" : typeof(action_number),
+			"usage" : PROPERTY_USAGE_NOEDITOR & ~PROPERTY_USAGE_STORAGE
+		},
+		{
 			"name" : "active_color",
 			"type" : typeof(Color.green),
 			"usage" : PROPERTY_USAGE_DEFAULT & ~PROPERTY_USAGE_STORAGE
@@ -59,23 +64,36 @@ func _get_property_list() -> Array:
 
 
 func _get(property):
-	if property == "active_color":
-		var material := east_face_material()
-		if material != null:
-			return material.albedo_color
+	match property:
+		"action":
+			return action_number
+		"active_color":
+			var material := east_face_material()
+			if material != null:
+				return material.albedo_color
 
 	return null
 
 
 func _set(property, value) -> bool:
-	if property == "active_color":
-		if value is Color:
-			var material := east_face_material()
-			if material != null:
-				material.albedo_color = value
-				return true
-		else:
-			push_error("Tried to set active_color to a %s instead of a Color." % [value])
+	match property:
+		"action":
+			if value is int:
+				action_number = value
+			else:
+				push_error(
+					("Tried to set action (deprecated) to %s which is not an "
+					+ "int. Ignoring…")
+					% [value]
+				)
+		"active_color":
+			if value is Color:
+				var material := east_face_material()
+				if material != null:
+					material.albedo_color = value
+					return true
+			else:
+				push_error("Tried to set active_color to a %s instead of a Color." % [value])
 	return false
 
 
