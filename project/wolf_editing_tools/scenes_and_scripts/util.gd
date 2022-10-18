@@ -18,11 +18,11 @@ static func property_assignment_statement(property: String, value) -> String:
 
 
 static func named_block(name : String, contents : Dictionary) -> String:
+	# Take a look at the comment in property_assignment_statement() for why I’m
+	# using to_upper().
 	var return_value := name.to_upper() + "{"
 	for key in contents:
-		# Take a look at the comment in property_assignment_statement() for why
-		# I’m doing it like this.
-		return_value += property_assignment_statement(key.to_upper(), contents[key])
+		return_value += property_assignment_statement(key, contents[key])
 	return_value += "}"
 	return return_value
 
