@@ -144,7 +144,7 @@ a part of. This section contains the following properties:
 
 	- To create a player 1 start, set this to 1.
 	- To create an [`Actor`], set this to the `Actor`’s
-	[`ednum`](https://maniacsvault.net/ecwolf/wiki/DECORATE#Syntax).
+	[editor number (`ednum`)](https://maniacsvault.net/ecwolf/wiki/DECORATE#Syntax).
 	You can find a complete list of `Actor`s that are built into ECWolf
 	[here](https://maniacsvault.net/ecwolf/wiki/Classes). Click on the
 	`Actor` that you want and look for the box that says “DoomEd Number”.

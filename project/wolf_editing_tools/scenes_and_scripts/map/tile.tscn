@@ -22,6 +22,9 @@ albedo_texture = ExtResource( 5 )
 
 [node name="Tile" type="Spatial"]
 script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
 custom_uwmf_properties = {
 }
 
